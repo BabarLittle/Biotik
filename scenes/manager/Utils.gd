@@ -19,3 +19,6 @@ func get_scene_manager():
 
 func get_dialoguepopup():
 	return get_node("../SceneManager/Interface/PopupDialog")
+
+func get_menu():
+	return get_node('../SceneManager/Menu')

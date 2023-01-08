@@ -7,18 +7,22 @@ var current_dialogue_id = 0
 
 var d_active = false
 
+
 var player
+var menu
 
 
 func _ready():
 	$NinePatchRect.visible = false
 	player = Utils.get_player()
+	menu = Utils.get_menu()
 	
 	
 func start():
-	if d_active:
+	if d_active or !menu.screen_loaded == menu.ScreenLoaded.NOTHING:
 		return
 	player.set_physics_process(false)
+	menu.screen_loaded = menu.ScreenLoaded.DIALOGUE
 	d_active = true
 	$NinePatchRect.visible = true
 	dialogue = load_dialogue()
@@ -45,6 +49,7 @@ func next_script():
 		$Timer.start()
 		$NinePatchRect.visible = false
 		player.set_physics_process(true)
+		menu.screen_loaded = menu.ScreenLoaded.NOTHING
 		return
 	
 	$NinePatchRect/Name.text = dialogue[current_dialogue_id]["name"]
