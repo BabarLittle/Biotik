@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/UI/pkmnfl.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scenes/UI/Menus/Biomon_Menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/UI/ui_arrow_left_right.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+font_data = ExtResource( 1 )
+
+[node name="Button_Menu" type="TextureButton"]
+margin_right = 50.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+script = ExtResource( 2 )
+text = "Biomon"
+
+[node name="menu_arrow" type="Sprite" parent="."]
+position = Vector2( 5.5, 5.125 )
+scale = Vector2( 1.5, 0.975 )
+texture = ExtResource( 3 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
+self_modulate = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+margin_left = 14.0
+margin_right = 54.0
+margin_bottom = 14.0
+rect_min_size = Vector2( 0, 12 )
+mouse_filter = 2
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+text = "Biomon"
+__meta__ = {
+"_editor_description_": "Biomon"
+}
+
+[connection signal="focus_entered" from="." to="." method="_on_Button_Menu_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Button_Menu_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_Button_Menu_mouse_entered"]
