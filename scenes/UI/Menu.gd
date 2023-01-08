@@ -5,7 +5,7 @@ onready var menu =$NinePatchRect
 
 const BiomonPartyScreen = preload("res://scenes/UI/Screen/PartyScreen.tscn")
 
-enum ScreenLoaded { NOTHING, JUST_MENU, MENU_SREENS }
+enum ScreenLoaded { NOTHING, JUST_MENU, MENU_SREENS, DIALOGUE }
 var screen_loaded = ScreenLoaded.NOTHING
 
 
@@ -40,9 +40,11 @@ func _unhandled_input(event):
 				player.set_physics_process(true)
 				menu.visible = false
 				screen_loaded = ScreenLoaded.NOTHING
+		ScreenLoaded.DIALOGUE:
+			menu.visible = false
 				
 func _on_Biomon_pressed():
-	Utils.get_scene_manager().transition_to_party_screen()
+	print('Biomon pressed')
 	
 	
 	
