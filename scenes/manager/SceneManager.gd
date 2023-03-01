@@ -8,7 +8,7 @@ var next_scene = null
 var player_location = Vector2(0,0)
 var player_direction = Vector2(0,0)
 
-enum TransitionType {NEW_SCENE, PARTY_SCENE, MENU_ONLY, BATTLE}
+enum TransitionType {NEW_SCENE, PARTY_SCENE, MENU_ONLY, BATTLE, MENU_SCENE}
 var transition_type = TransitionType.NEW_SCENE
 
 # Called when the node enters the scene tree for the first time.
@@ -18,8 +18,17 @@ func _ready():
 func transition_to_party_screen():
 	transition_type = TransitionType.PARTY_SCENE
 	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
-	
-	
+
+""" Tests """
+func transition_to_menu_screen():
+	transition_type = TransitionType.MENU_SCENE
+	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
+
+func transition_from_menu_screen():
+	transition_type = TransitionType.MENU_SCENE
+	$ScreenTransition/AnimationPlayer.play("FadeToBlack")
+""" ==== """
+
 func transition_to_scene(new_scene : String, spawn_location, spawn_direction):
 	next_scene = new_scene
 	print(next_scene)
@@ -45,9 +54,15 @@ func finished_fading():
 		TransitionType.PARTY_SCENE:
 			$Menu.load_party_screen()
 		TransitionType.MENU_ONLY:
-			print("Success")
+			$Menu.load_screen()
 		TransitionType.BATTLE:
 			$CurrentScene.get_child(0).queue_free()
 			$CurrentScene.add_child(load(next_scene).instance())
+		#TransitionType.MENU_SCENE:
+		#	$CurrentScene.add_child(load(next_scene).instance())
+		#	print(next_scene)
+		TransitionType.MENU_SCENE:
+			$Menu.load_screen()
+	
 	$ScreenTransition/AnimationPlayer.play("FadeToNormal")
 

@@ -1,12 +1,15 @@
 extends CanvasLayer
 
 var current_id = 1
+var new_id = 1
+var transition_id = 1
 
-func _ready():
-	load_biomon()
+enum SelectedBt {LOCA, CRI, STATS, RETOUR}
+var selected_bt = SelectedBt.LOCA
 
 """ User input """
 func _unhandled_input(event):
+	""" Switch butons """
 	if event.is_action_pressed("ui_right"):
 		if $ButonSelect.frame < $ButonSelect.hframes-1:
 			$ButonSelect.frame += 1
@@ -17,28 +20,43 @@ func _unhandled_input(event):
 			$ButonSelect.frame -= 1
 		else:
 			$ButonSelect.frame = $ButonSelect.hframes-1
-			
+	
+	""" Switch selected buton """
+	if $ButonSelect.frame == 0:
+		selected_bt = SelectedBt.LOCA
+	elif $ButonSelect.frame == 1:
+		selected_bt = SelectedBt.CRI
+	elif $ButonSelect.frame == 2:
+		selected_bt = SelectedBt.STATS
+	elif $ButonSelect.frame == 3:
+		selected_bt = SelectedBt.RETOUR
+	
+	""" Accept pressed """
+	if event.is_action_pressed("ui_accept"):
+		match selected_bt:
+			SelectedBt.RETOUR:
+				get_parent().unload_screen()
+	
+	""" Biomon id changer """		
 	if event.is_action_pressed("ui_up"):
-		if current_id > 1:
-			load_biomon(str(current_id-1))
-		else:
-			load_biomon(str(DataRead.biodex.size()))
+		new_id = DataRead.next_id(current_id, -1, "biodex")
+		load_biomon(new_id)
 	elif event.is_action_pressed("ui_down"):
-		if current_id < DataRead.biodex.size():
-			load_biomon(str(current_id+1))
-		else:
-			load_biomon("1")
+		new_id = DataRead.next_id(current_id, 1, "biodex")
+		load_biomon(new_id)
+		
+	
 
 """ Load biomon data into the scene """
-func load_biomon(id=str(current_id)):
-	current_id = int(id)
-	$BiomonSprite.texture = load("res://Assets/Biomons/" + DataRead.biodex[id].name + ".png")
-	$Id.text = id
-	$Name.text = DataRead.biodex[id].name
-	$Height.text = str(DataRead.biodex[id].h / 100)
-	$Weight.text = str(DataRead.biodex[id].w)
-	$Species.text = DataRead.biodex[id].species
-	$Desc.text = DataRead.biodex[id].desc
-	$TypeSprite.load_type(DataRead.biodex[id].type1)
-	$TypeSprite2.load_type(DataRead.biodex[id].type2)
+func load_biomon(id=1):
+	current_id = id
+	$BiomonSprite.select_sprite(id)
+	$Id.text = str(id)
+	$Name.text = DataRead.biodex[str(id)].name
+	$Height.text = str(int(DataRead.biodex[str(id)].h) / 100)
+	$Weight.text = str(DataRead.biodex[str(id)].w)
+	$Species.text = DataRead.biodex[str(id)].species
+	$Desc.text = DataRead.biodex[str(id)].desc
+	$TypeSprite.load_type(DataRead.biodex[str(id)].type1)
+	$TypeSprite2.load_type(DataRead.biodex[str(id)].type2)
 	

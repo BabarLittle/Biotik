@@ -8,7 +8,7 @@ var type_frame = {
 	"BUG": 4,
 	"ROCK": 5,
 	"WATER": 6,
-	"FIGHT": 7,
+	"FIGHTING": 7,
 	"GROUND": 8,
 	"FIRE": 9,
 	"STEEL": 10,
