@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/UI/biodex/pokedex_list.png" type="Texture" id=1]
 [ext_resource path="res://Assets/UI/biodex/pokedex_buton.png" type="Texture" id=2]
+[ext_resource path="res://scenes/UI/Screen/biodex_infos.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/Screen/biodex.gd" type="Script" id=5]
 
 [node name="biodex" type="CanvasLayer"]
 script = ExtResource( 5 )
+
+[node name="biodex_infos" parent="." instance=ExtResource( 3 )]
+visible = false
 
 [node name="Interface" type="Sprite" parent="."]
 position = Vector2( 120, 80 )

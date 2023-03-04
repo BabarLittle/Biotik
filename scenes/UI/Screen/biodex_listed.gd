@@ -24,7 +24,7 @@ func load_id(id=1, list_position=0, nb=11):
 	id_to_load = DataRead.next_id(id, list_offset, "biodex")
 
 	$state.frame = RandomNumberGenerator.new().randi_range(0,3)
-	$text.text = str(id_to_load) + " " + DataRead.biodex[str(id_to_load)].name
+	$text.text = str(id_to_load) + " " + DataRead.database.biodex[str(id_to_load)].name
 	biomon_id = id_to_load
 
 func move_name(scroll_direction=0, LIST_X_POS=10, LIST_Y_START=-10, LIST_Y_INTERVAL=15, LIST_SCROLL_SPEED=3, SCALE_DIFF=0.1, LIST_NB=11):
@@ -94,5 +94,5 @@ func check_position():
 		
 	# changing the label accordingly
 	$state.frame = RandomNumberGenerator.new().randi_range(0,3)
-	$text.text = str(biomon_id) + " " + DataRead.biodex[str(biomon_id)].name
+	$text.text = str(biomon_id) + " " + DataRead.database.biodex[str(biomon_id)].name
 	

@@ -21,7 +21,7 @@ var type_frame = {
 	"POISON": 17,
 	"WORK": 17,
 	"ALCOHOL": 19,
-	"": 20
+	"NULL": 20
 	}
 
 func _ready():

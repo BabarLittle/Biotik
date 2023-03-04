@@ -23,6 +23,7 @@ var dict_direction = {
 var dex_direction = "null"
 var count_stop = 0
 
+var scene_parameters = {}
 
 """ Note : les différentes variables sont pas très dynamiques mais c'est + pour le nombre de biomons affichés..
 le reste est facile à modifier """
@@ -51,16 +52,26 @@ var LIST_X_POS_FOCUS = 0
 var LIST_NB = 11 # nb of name at the same time in the list
 const scene_infos = preload("res://scenes/UI/Screen/biodex_infos.tscn")
 
+"""=====
+Function _ready()
+Author: Ska
+	Function ready used to connect first signal and initialise some minor v
+
+====="""
 func _ready():
-	""" Check number of biomon in the dex """
-	for key in DataRead.biodex.keys():
-		if not "." in key: # skip if "." ("." in a key = form of another key)
-			dex_size += 1
+	# Check number of biomon in the dex
+	dex_size = DataRead.get_biomon_numbers()
+	
 	# Connect to timeout of child_node TimerScroll to be able to move the sprites
 	$TimerScroll.connect("timeout", self, "move_sprites")
-	load_lists(dex_current)
+	#load_lists(dex_current)
 
-""" Fake Input handler """
+"""=====
+Function _process()
+Author: Ska
+	Function process used as a fake input_handler to navigate through the biodex
+
+====="""
 func _process(_delta):
 	# Regular scrolling
 	if dex_move_finished:
@@ -84,7 +95,52 @@ func _process(_delta):
 		# Select
 		if Input.is_action_just_pressed("ui_accept"):
 			dex_move_finished = false
-			get_parent().load_screen(scene_infos, "load_biomon", dex_current)
+			$biodex_infos.visible = true
+
+"""=====
+Function load_scene
+Author: Ska
+	Function called when the scene manager is ready to make the scene appears. Loads all relevant 
+	Data for the scene.
+
+Arguments
+	- inherited_parameters: dictionnary of parameters given by the last scene
+====="""
+func load_scene(inherited_parameters: Dictionary):
+	""" set the dictionnary sent by the next scene """
+	scene_parameters = inherited_parameters
+	
+	""" Check if last_biomon key exists and use it """
+	if "last_biomon" in scene_parameters.keys():
+		dex_current = scene_parameters.last_biomon
+	
+	# Check number of biomon in the dex
+	dex_size = DataRead.get_biomon_numbers()
+	
+	# Connect to timeout of child_node TimerScroll to be able to move the sprites
+	$TimerScroll.connect("timeout", self, "move_sprites")
+	
+	""" load the lists of the biodex """
+	load_lists(dex_current)
+
+"""=====
+Function exit_scene
+Author: Ska
+	Function called when the player exit the scene or exit one of the UI menu screens. 
+	It save the variables needed for the next scene and then proceeds to signal the scene manager 
+	it needs to switch scene.
+
+Arguments
+	- next_scene_path: mandatory path of the next scene
+	- the others arguments are up to the needs of the scene
+====="""
+func exit_scene(next_scene_path: String, spawn_location, spawn_direction):
+	""" set the dictionnary to be sent to the next scene """
+	scene_parameters.spawn_location = spawn_location
+	scene_parameters.spawn_direction = spawn_direction
+	
+	""" once everything is done emit signal """
+	emit_signal("Signal_SceneChanging", next_scene_path)
 
 func load_lists(id_current = 1):
 	""" Load the list of names """

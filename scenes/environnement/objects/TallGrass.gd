@@ -37,6 +37,6 @@ func player_in_grass():
 		print("Grass overlay  position: ",grass_overlay.rect_position)
 	
 
-func _on_Area2D_body_entered(body):
+func _on_Area2D_body_entered(_body):
 	player_inside = true
 	anim_player.play("Stepped")
