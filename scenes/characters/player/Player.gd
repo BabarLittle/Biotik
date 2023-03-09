@@ -121,7 +121,7 @@ func move(delta):
 	door_ray.force_raycast_update()
 	
 	if door_ray.is_colliding():
-		var object = door_ray.get_collider()
+		var _object = door_ray.get_collider()
 		if percent_moved_to_next_tile == 0.0:
 			emit_signal("player_entering_door_signal")
 		percent_moved_to_next_tile += walk_speed * delta
