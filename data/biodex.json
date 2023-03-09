@@ -47,8 +47,8 @@
   },
   "3": {
     "name": "Thaliatos",
-    "type1": "FLYING",
-    "type2": "NORMAL",
+    "type1": "GRASS",
+    "type2": "GHOST",
     "evo_req": "",
     "evo_to": "",
     "ability1": "",

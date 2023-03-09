@@ -1,2 +1,0 @@
-# Biotik
-Biotik Game
