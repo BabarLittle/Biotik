@@ -13,7 +13,6 @@ margin_right = 50.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 0, 12 )
 script = ExtResource( 2 )
-text = "Biomon"
 
 [node name="menu_arrow" type="Sprite" parent="."]
 position = Vector2( 5.5, 5.125 )
@@ -24,6 +23,7 @@ texture = ExtResource( 3 )
 modulate = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
 self_modulate = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
 margin_left = 14.0
+margin_top = 1.0
 margin_right = 54.0
 margin_bottom = 14.0
 rect_min_size = Vector2( 0, 12 )
@@ -31,6 +31,7 @@ mouse_filter = 2
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "Biomon"
+scroll_active = false
 __meta__ = {
 "_editor_description_": "Biomon"
 }
@@ -38,3 +39,4 @@ __meta__ = {
 [connection signal="focus_entered" from="." to="." method="_on_Button_Menu_focus_entered"]
 [connection signal="focus_exited" from="." to="." method="_on_Button_Menu_focus_exited"]
 [connection signal="mouse_entered" from="." to="." method="_on_Button_Menu_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_Button_Menu_pressed"]

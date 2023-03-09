@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/Buildings/pallet town/player_home_floor_1.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Buildings/pallet town/mat.png" type="Texture" id=2]
 [ext_resource path="res://scenes/environnement/objects/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/characters/player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scenes/characters/NPC/Static_NPC/Maman/Maman.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/environnement/act_one_map/PlayerHomeFloor1.gd" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
@@ -26,6 +27,7 @@ extents = Vector2( 20, 6.5 )
 
 [node name="PlayerHomeFloor1" type="Node2D"]
 position = Vector2( -166, -145 )
+script = ExtResource( 6 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 48.0
@@ -87,7 +89,7 @@ scale = Vector2( 0.4, 0.4 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 315, 140 )
+position = Vector2( 291, 184 )
 
 [node name="Sortie" parent="." instance=ExtResource( 3 )]
 modulate = Color( 0.156863, 0.184314, 0.870588, 1 )

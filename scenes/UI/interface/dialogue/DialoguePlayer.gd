@@ -1,3 +1,13 @@
+"""=======================================
+File:
+Author:
+Version: 
+Description:
+
+Changes: (--)
+To-do: (--)
+======================================="""
+
 extends CanvasLayer
 
 export(String, FILE, "*.json") var dialog_file

@@ -17,6 +17,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Utils="*res://scenes/manager/Utils.gd"
+DataRead="*res://scenes/manager/DataRead.gd"
 
 [display]
 
@@ -29,6 +30,7 @@ window/stretch/aspect="keep"
 
 [editor]
 
+script_templates_search_path="res://.templates"
 version_control_autoload_on_startup=true
 version_control_plugin_name="GitAPI"
 
@@ -37,6 +39,7 @@ version_control_plugin_name="GitAPI"
 Layer=false
 mas=false
 collision=false
+template=false
 
 [gui]
 
