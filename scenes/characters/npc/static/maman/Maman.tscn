@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/characters/npc/NPC 93.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/interface/dialogs/DialogueBox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/manager/object/Interactable.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/ui/interface/pkmnfl.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://scripts/characters/npc/static/maman/Maman.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFontData" id=4]
+antialiased = false
+font_path = "res://assets/ui/interface/pkmnfl.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+size = 11
+font_data = SubResource( 4 )
+
+[node name="NPC" type="KinematicBody2D" groups=["NPCs"]]
+collision_layer = 2
+script = ExtResource( 5 )
+
+[node name="Interactable" parent="." instance=ExtResource( 3 )]
+position = Vector2( -1, 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2( 9, 7 )
+shape = SubResource( 2 )
+
+[node name="NPC" type="Sprite" parent="."]
+position = Vector2( -6, -13 )
+scale = Vector2( 0.45, 0.45 )
+texture = ExtResource( 1 )
+centered = false
+hframes = 4
+vframes = 4
+frame = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 8, 8 )
+shape = SubResource( 1 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Parler" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 15.0
+margin_right = 33.0
+margin_bottom = 27.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 3 )
+text = "Parler"
+
+[node name="DialogueBox" parent="." instance=ExtResource( 2 )]
+dialog_file = "res://data/dialogues/mom.json"
+
+[node name="NPC NAME" type="Label" parent="."]
+margin_left = -3.0
+margin_top = -15.0
+margin_right = 44.0
+margin_bottom = -1.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "Maman"
+align = 1
+valign = 1

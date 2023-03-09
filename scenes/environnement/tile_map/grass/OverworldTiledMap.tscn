@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Assets/Tilesets/grass1_tileset.png" type="Texture" id=1]
-[ext_resource path="res://Assets/Tilesets/grass2_tileset.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Water/water_texture.tres" type="Texture" id=3]
+[ext_resource path="res://assets/world/tilesets/grass1_tileset.png" type="Texture" id=1]
+[ext_resource path="res://assets/world/tilesets/grass2_tileset.png" type="Texture" id=2]
+[ext_resource path="res://assets/world/tilesets/WaterTexture.tres" type="Texture" id=3]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )

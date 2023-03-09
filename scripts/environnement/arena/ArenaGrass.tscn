@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Arena/d4elxyc-f6e02f47-701d-41b6-b7b6-79e4cd1799ca.png" type="Texture" id=1]
+
+[node name="ArenaGrass" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 1 )

@@ -1,0 +1,138 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/UI/interface/menu_box_1.png" type="Texture" id=1]
+[ext_resource path="res://scenes/ui/menu/BiomonMenu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/UI/menu/Menu.gd" type="Script" id=3]
+
+[node name="Menu" type="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+margin_left = 174.0
+margin_right = 240.0
+<<<<<<< Updated upstream:scenes/UI/Menu.tscn
+margin_bottom = 114.0
+texture = ExtResource( 4 )
+=======
+margin_bottom = 133.0
+texture = ExtResource( 1 )
+>>>>>>> Stashed changes:scenes/ui/menu/Menu.tscn
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
+margin_left = 7.0
+margin_top = 4.0
+margin_right = 66.0
+margin_bottom = 112.0
+
+<<<<<<< Updated upstream:scenes/UI/Menu.tscn
+[node name="Biomon" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 3 )]
+margin_right = 59.0
+focus_neighbour_top = NodePath("../Leave")
+focus_neighbour_bottom = NodePath("../Inventory")
+=======
+[node name="Biomons" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 59.0
+focus_neighbour_top = NodePath("../Leave")
+focus_neighbour_bottom = NodePath("../Inventory")
+theme = SubResource( 1 )
+button_text = "Biomons"
+button_target = "res://scenes/ui/screens/party/PartyScreen.tscn"
+>>>>>>> Stashed changes:scenes/ui/menu/Menu.tscn
+
+[node name="Inventory" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 16.0
+margin_right = 59.0
+margin_bottom = 28.0
+focus_neighbour_top = NodePath("../Biomon")
+focus_neighbour_bottom = NodePath("../Biodex")
+text = "Sac"
+
+[node name="Biodex" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 32.0
+margin_right = 59.0
+margin_bottom = 44.0
+focus_neighbour_top = NodePath("../Inventory")
+<<<<<<< Updated upstream:scenes/UI/Menu.tscn
+focus_neighbour_bottom = NodePath("../Character")
+text = "Biodex"
+=======
+focus_neighbour_bottom = NodePath("../Map")
+theme = SubResource( 1 )
+button_text = "Biodex"
+button_target = "res://scenes/ui/screens/biodex/Biodex.tscn"
+>>>>>>> Stashed changes:scenes/ui/menu/Menu.tscn
+
+[node name="Map" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 48.0
+margin_right = 59.0
+margin_bottom = 60.0
+focus_neighbour_top = NodePath("../Biodex")
+<<<<<<< Updated upstream:scenes/UI/Menu.tscn
+focus_neighbour_bottom = NodePath("../Option")
+text = "Pers."
+
+[node name="Option" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 3 )]
+margin_top = 64.0
+=======
+focus_neighbour_bottom = NodePath("../Character")
+theme = SubResource( 1 )
+button_text = "Carte"
+button_target = "res://scenes/UI/Screen/world_map.tscn"
+
+[node name="Character" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 64.0
+margin_right = 59.0
+margin_bottom = 76.0
+focus_neighbour_top = NodePath("../Map")
+focus_neighbour_bottom = NodePath("../Options")
+theme = SubResource( 1 )
+button_text = "Joueur"
+
+[node name="Options" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 80.0
+>>>>>>> Stashed changes:scenes/ui/menu/Menu.tscn
+margin_right = 59.0
+margin_bottom = 92.0
+focus_neighbour_top = NodePath("../Character")
+focus_neighbour_bottom = NodePath("../Save")
+text = "Option"
+
+[node name="Save" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 96.0
+margin_right = 59.0
+<<<<<<< Updated upstream:scenes/UI/Menu.tscn
+margin_bottom = 92.0
+focus_neighbour_top = NodePath("../Option")
+=======
+margin_bottom = 108.0
+focus_neighbour_top = NodePath("../Options")
+>>>>>>> Stashed changes:scenes/ui/menu/Menu.tscn
+focus_neighbour_bottom = NodePath("../Leave")
+text = "Sauv."
+
+[node name="Leave" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 112.0
+margin_right = 59.0
+margin_bottom = 124.0
+focus_neighbour_top = NodePath("../Save")
+<<<<<<< Updated upstream:scenes/UI/Menu.tscn
+focus_neighbour_bottom = NodePath("../Biomon")
+text = "Quitter"
+
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Biomon" to="." method="_on_Biomon_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Inventory" to="." method="_on_Inventory_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Biodex" to="." method="_on_Biodex_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Character" to="." method="_on_Character_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Option" to="." method="_on_Option_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer/Leave" to="." method="_on_Leave_pressed"]
+=======
+focus_neighbour_bottom = NodePath("../Biomons")
+theme = SubResource( 1 )
+button_text = "Quitter"
+button_target = "leave"
+>>>>>>> Stashed changes:scenes/ui/menu/Menu.tscn
