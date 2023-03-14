@@ -1,8 +1,14 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/backgrounds/arena/arena_grass.png" type="Texture" id=1]
+<<<<<<< Updated upstream
+=======
+[ext_resource path="res://scenes/environnement/arena/EncounterBattle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scripts/environnement/arena/ArenaGrass.gd" type="Script" id=3]
+>>>>>>> Stashed changes
 
 [node name="ArenaGrass" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
@@ -13,3 +19,8 @@ margin_bottom = 160.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
+<<<<<<< Updated upstream
+=======
+
+[node name="EncounterBattle" parent="CanvasLayer" instance=ExtResource( 2 )]
+>>>>>>> Stashed changes

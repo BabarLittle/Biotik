@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=8 format=2]
+=======
+[gd_scene load_steps=9 format=2]
+>>>>>>> Stashed changes
 
 [ext_resource path="res://Assets/UI/interface/pkmnfl.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/UI/screens/biodex/pokedex_infos.png" type="Texture" id=2]
@@ -6,6 +10,10 @@
 [ext_resource path="res://scenes/UI/interface/TypeSprite.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/UI/screens/biodex/BiodexInfos.gd" type="Script" id=5]
 [ext_resource path="res://scenes/UI/interface/dialogs/UiScreenButtons.tscn" type="PackedScene" id=6]
+<<<<<<< Updated upstream
+=======
+[ext_resource path="res://scenes/ui/interface/BiomonStatsViewer.tscn" type="PackedScene" id=7]
+>>>>>>> Stashed changes
 
 [sub_resource type="DynamicFont" id=1]
 size = 12
@@ -203,3 +211,13 @@ focus_neighbour_right = NodePath("../BtZone")
 id_button = "exit"
 text_button = "RETOUR"
 exit_button = true
+<<<<<<< Updated upstream
+=======
+
+[node name="Stats" parent="." instance=ExtResource( 7 )]
+visible = false
+position = Vector2( 159, 89 )
+scale = Vector2( 0.45, 0.45 )
+color_line = Color( 0.160784, 0.219608, 0.258824, 1 )
+color_font = Color( 0, 0, 0, 1 )
+>>>>>>> Stashed changes

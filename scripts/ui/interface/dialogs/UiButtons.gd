@@ -37,7 +37,10 @@ func _ready():
 	var temp_parent = Utils.get_current_scene()
 	if "Debug" in get_parent().name:
 		temp_parent = get_parent()
+<<<<<<< Updated upstream
 	print(temp_parent)
+=======
+>>>>>>> Stashed changes
 	assert(connect("SignalButtonPressed", temp_parent, "button_pressed") == 0, "ERR:biodex_infos/_ready> Signal 'SignalButtonPressed' couild not connect to '%s%%'" % get_parent().name)
 
 """=====

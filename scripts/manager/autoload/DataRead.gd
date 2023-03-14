@@ -263,3 +263,45 @@ func load_encounter_dictionnary(encounter_file: String):
 	temp_file.close()
 	
 	return temp_json.result
+<<<<<<< Updated upstream
+=======
+
+"""=====
+Function get_base_stats_dictionnary()
+	- Returns a dictionnary with the base_stats of the specified biomon.
+Arguments
+	-id: json file holding the encounter for the calling ClassEncounter node
+Returns
+	-A dictionnary base stats
+"""
+func get_base_stats_dictionnary(id):
+	var base_stats_dictionnary = {
+	"hp": 0,
+	"att": 0,
+	"def": 0,
+	"vit": 0,
+	"spd": 0,
+	"spa": 0
+	}
+	
+	""" check variables """
+	if typeof(id) != TYPE_STRING:
+		id = str(id)
+	
+	""" Check if id exists """
+	if !database.biodex.has(id):
+		print("ERR:DataRead.get_base_stats_dictionnary> Key '" + id + "' does not exist in the biodex dictionnary !")
+		return base_stats_dictionnary
+	
+	print(database.biodex[id])
+	""" main body """
+	for key in base_stats_dictionnary.keys():
+		if typeof(database.biodex[id][key]) == 3:
+			base_stats_dictionnary[key] = int(database.biodex[id][key])
+	
+	print("Base stats for id '" + id + "' : " + str(base_stats_dictionnary))
+	return base_stats_dictionnary
+
+func is_biomon_known(_id):
+	return true
+>>>>>>> Stashed changes

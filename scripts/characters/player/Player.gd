@@ -53,7 +53,7 @@ func set_spawn(location: Vector2, direction: Vector2):
 func _physics_process(delta):
 	if player_state == PlayerState.TURNING or stop_input:
 		return
-	if is_moving == false:
+	if is_moving == false or Utils.get_scene_manager().screen_loaded != Utils.get_scene_manager().ScreenLoaded.SCENE:
 		process_player_movement_input()
 	elif input_direction != Vector2.ZERO:
 		anim_state.travel("Walk")
@@ -120,15 +120,21 @@ func move(delta):
 	door_ray.force_raycast_update()
 	
 	if door_ray.is_colliding():
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:scenes/characters/player/Player.gd
 		var object = door_ray.get_collider()
 		if percent_moved_to_next_tile == 0.0:
 =======
+=======
+>>>>>>> Stashed changes
 		print(percent_moved_to_next_tile)
 		if abs(percent_moved_to_next_tile / (walk_speed * delta)) == 2:
 			door_ray.get_collider().target_door = true
 			print("Player door_ray is colliding with something, emiting signal")
+<<<<<<< Updated upstream
 >>>>>>> Stashed changes:scripts/characters/player/Player.gd
+=======
+>>>>>>> Stashed changes
 			emit_signal("player_entering_door_signal")
 		percent_moved_to_next_tile += walk_speed * delta
 		if percent_moved_to_next_tile >= 1.0:

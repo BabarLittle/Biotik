@@ -1,0 +1,370 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://scenes/ui/interface/dialogs/UiNinePatchRect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/ui/interface/pkmnfl.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://scripts/ui/interface/BiomonStatsViewer.gd" type="Script" id=3]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.236364 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -8.39216, 10.7175, 0, 0, 0, 0, -107, -59.7115 )
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 11
+font_data = ExtResource( 2 )
+
+[sub_resource type="Curve2D" id=4]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -8, 4, 0, 0, 0, 0, -104, 53 )
+}
+
+[sub_resource type="Curve2D" id=5]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8, -4, 0, 0, 0, 0, 102, -50 )
+}
+
+[sub_resource type="Curve2D" id=6]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 8, 4, 0, 0, 0, 0, 102, 52 )
+}
+
+[sub_resource type="Curve2D" id=7]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, -9, 0, 0, 0, 0, 0, -113 )
+}
+
+[sub_resource type="Curve2D" id=8]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 9, 0, 0, 0, 0, 0, 112 )
+}
+
+[node name="BiomonStatsViewer" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="NinePatchRect" parent="." instance=ExtResource( 1 )]
+margin_left = -146.0
+margin_top = -146.0
+margin_right = 145.0
+margin_bottom = 145.0
+
+[node name="StatsBox" type="Node2D" parent="."]
+
+[node name="OutLine" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -110 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="OutBg" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -109 )
+scale = Vector2( 0.99, 0.99 )
+color = Color( 0.847059, 0.815686, 0.847059, 1 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="MidLine" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -78.1 )
+scale = Vector2( 0.71, 0.71 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="MidBg" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -77 )
+scale = Vector2( 0.7, 0.7 )
+color = Color( 0.847059, 0.815686, 0.847059, 1 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="InLine" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -45.1 )
+scale = Vector2( 0.41, 0.41 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="InBg" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -44 )
+scale = Vector2( 0.4, 0.4 )
+color = Color( 0.847059, 0.815686, 0.847059, 1 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="CenterLine" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -12 )
+scale = Vector2( 0.11, 0.11 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="CenterBg" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, -11 )
+scale = Vector2( 0.1, 0.1 )
+color = Color( 0.847059, 0.815686, 0.847059, 1 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, -100, 61, -100, 161, 0, 221, 100, 161, 100, 61 )
+
+[node name="AttLine" type="Line2D" parent="StatsBox"]
+points = PoolVector2Array( -106, -52, 0, 0 )
+width = 2.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 6.0
+round_precision = 12
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="StatsBox/AttLine"]
+position = Vector2( 0, -11 )
+scale = Vector2( 0.953271, 0.65314 )
+curve = SubResource( 2 )
+
+[node name="AttPath" type="PathFollow2D" parent="StatsBox/AttLine/Path2D"]
+position = Vector2( -8.39216, 10.7175 )
+rotation = -1.5708
+rotate = false
+loop = false
+
+[node name="AttLb" type="Label" parent="StatsBox/AttLine"]
+margin_left = -130.0
+margin_top = -66.0
+margin_right = -110.0
+margin_bottom = -52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Att."
+align = 1
+
+[node name="AttNb" type="Label" parent="StatsBox/AttLine"]
+margin_left = -130.0
+margin_top = -54.0
+margin_right = -110.0
+margin_bottom = -40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "100"
+align = 1
+
+[node name="DefLine" type="Line2D" parent="StatsBox"]
+points = PoolVector2Array( -106, 54, 0, 0 )
+width = 2.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 6.0
+round_precision = 12
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="StatsBox/DefLine"]
+curve = SubResource( 4 )
+
+[node name="DefPath" type="PathFollow2D" parent="StatsBox/DefLine/Path2D"]
+position = Vector2( -8, 4 )
+rotation = -1.5708
+rotate = false
+loop = false
+
+[node name="DefLb" type="Label" parent="StatsBox/DefLine"]
+margin_left = -130.0
+margin_top = 46.0
+margin_right = -110.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Def."
+align = 1
+
+[node name="DefNb" type="Label" parent="StatsBox/DefLine"]
+margin_left = -130.0
+margin_top = 58.0
+margin_right = -110.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "67"
+align = 1
+
+[node name="SpaLine" type="Line2D" parent="StatsBox"]
+points = PoolVector2Array( 106, -52, 0, 0 )
+width = 2.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 6.0
+round_precision = 12
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="StatsBox/SpaLine"]
+curve = SubResource( 5 )
+
+[node name="SpaPath" type="PathFollow2D" parent="StatsBox/SpaLine/Path2D"]
+position = Vector2( 8, -4 )
+rotation = -1.5708
+rotate = false
+loop = false
+
+[node name="SpaLb" type="Label" parent="StatsBox/SpaLine"]
+margin_left = 109.0
+margin_top = -66.0
+margin_right = 130.0
+margin_bottom = -52.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SpA."
+align = 1
+
+[node name="SpaNb" type="Label" parent="StatsBox/SpaLine"]
+margin_left = 109.0
+margin_top = -54.0
+margin_right = 129.0
+margin_bottom = -40.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "20	"
+align = 1
+
+[node name="SpdLine" type="Line2D" parent="StatsBox"]
+points = PoolVector2Array( 106, 54, 0, 0 )
+width = 2.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 6.0
+round_precision = 12
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="StatsBox/SpdLine"]
+curve = SubResource( 6 )
+
+[node name="SpdPath" type="PathFollow2D" parent="StatsBox/SpdLine/Path2D"]
+position = Vector2( 8, 4 )
+rotation = -1.5708
+rotate = false
+cubic_interp = false
+loop = false
+
+[node name="SpdLb" type="Label" parent="StatsBox/SpdLine"]
+margin_left = 109.0
+margin_top = 46.0
+margin_right = 129.0
+margin_bottom = 60.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "SpD."
+align = 1
+
+[node name="SpdNb" type="Label" parent="StatsBox/SpdLine"]
+margin_left = 109.0
+margin_top = 58.0
+margin_right = 129.0
+margin_bottom = 72.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "82"
+align = 1
+
+[node name="HpLine" type="Line2D" parent="StatsBox"]
+points = PoolVector2Array( 0, -115, 0, 0 )
+width = 2.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 6.0
+round_precision = 12
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="StatsBox/HpLine"]
+curve = SubResource( 7 )
+
+[node name="HpPath" type="PathFollow2D" parent="StatsBox/HpLine/Path2D"]
+position = Vector2( 0, -9 )
+rotation = -1.5708
+rotate = false
+loop = false
+
+[node name="HpLb" type="Label" parent="StatsBox/HpLine"]
+margin_left = -10.0
+margin_top = -139.0
+margin_right = 10.0
+margin_bottom = -125.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "PV"
+align = 1
+
+[node name="HpNb" type="Label" parent="StatsBox/HpLine"]
+margin_left = -10.0
+margin_top = -127.0
+margin_right = 10.0
+margin_bottom = -113.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "10"
+align = 1
+
+[node name="SpeLine" type="Line2D" parent="StatsBox"]
+points = PoolVector2Array( 0, 115, 0, 0 )
+width = 2.0
+width_curve = SubResource( 1 )
+default_color = Color( 1, 1, 1, 1 )
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+sharp_limit = 6.0
+round_precision = 12
+antialiased = true
+
+[node name="Path2D" type="Path2D" parent="StatsBox/SpeLine"]
+curve = SubResource( 8 )
+
+[node name="SpePath" type="PathFollow2D" parent="StatsBox/SpeLine/Path2D"]
+position = Vector2( 0, 9 )
+rotation = -1.5708
+rotate = false
+loop = false
+
+[node name="SpeLb" type="Label" parent="StatsBox/SpeLine"]
+margin_left = -10.0
+margin_top = 117.0
+margin_right = 10.0
+margin_bottom = 131.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Vit."
+align = 1
+
+[node name="SpeNb" type="Label" parent="StatsBox/SpeLine"]
+margin_left = -10.0
+margin_top = 129.0
+margin_right = 10.0
+margin_bottom = 143.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "124"
+align = 1
+
+[node name="StatsPolygon" type="Polygon2D" parent="StatsBox"]
+position = Vector2( 0, 1 )
+color = Color( 0.654902, 0.317647, 0.701961, 0.756863 )
+antialiased = true
+invert_border = 1.0
+polygon = PoolVector2Array( 0, 0, 0, -111, -100, -51, -100, 51, 0, 111, 100, 51, 100, -51, 0, -111 )
+
+[node name="Tween" type="Tween" parent="."]

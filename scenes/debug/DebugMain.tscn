@@ -39,9 +39,19 @@ text = "random biomon"
 align = 2
 
 [node name="BiomonSprite" parent="." instance=ExtResource( 4 )]
+<<<<<<< Updated upstream
 position = Vector2( 212, 137 )
 scale = Vector2( 0.3, 0.3 )
 
+=======
+position = Vector2( 222, 142 )
+scale = Vector2( 0.3, 0.3 )
+
+[node name="BiomonSprite2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 225, 123 )
+scale = Vector2( 0.1, 0.1 )
+
+>>>>>>> Stashed changes
 [node name="Control" type="Control" parent="."]
 margin_left = 38.0
 margin_top = 49.0

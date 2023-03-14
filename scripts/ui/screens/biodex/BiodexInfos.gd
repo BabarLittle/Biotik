@@ -61,6 +61,13 @@ func load_biomon(id=1):
 	$TypeSprite.load_type(DataRead.database.biodex[str(id)].type1)
 	$TypeSprite2.load_type(DataRead.database.biodex[str(id)].type2)
 	
+<<<<<<< Updated upstream
+=======
+	# Create stat dictionnary
+	var stats_dictionnary = DataRead.get_base_stats_dictionnary(id)
+	$Stats.load_biomon_stats(stats_dictionnary, true)
+	
+>>>>>>> Stashed changes
 """=====
 Function button_pressed():
 Author: Ska
@@ -75,3 +82,13 @@ func button_pressed(id_button):
 			exit_scene(map_scene)
 		"exit":
 			exit_scene(biodex_scene)
+<<<<<<< Updated upstream
+=======
+		"stats":
+			if $Stats.visible:
+				$Stats.visible = false
+			else:
+				$Stats.visible = true
+		"cri":
+			print("cri")
+>>>>>>> Stashed changes

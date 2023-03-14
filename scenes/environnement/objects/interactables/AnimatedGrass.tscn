@@ -3,7 +3,10 @@
 [ext_resource path="res://scripts/environnement/objects/AnimatedGrass.gd" type="Script" id=1]
 [ext_resource path="res://assets/world/grass/grass_step_animation.png" type="Texture" id=2]
 
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 [sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 2 )
 region = Rect2( 0, 0, 16, 16 )

@@ -9,6 +9,14 @@
 config_version=4
 
 _global_script_classes=[ {
+<<<<<<< Updated upstream
+=======
+"base": "Node2D",
+"class": "ClassBattle",
+"language": "GDScript",
+"path": "res://scripts/manager/class/class_battle.gd"
+}, {
+>>>>>>> Stashed changes
 "base": "Reference",
 "class": "ClassBiomon",
 "language": "GDScript",
@@ -30,6 +38,10 @@ _global_script_classes=[ {
 "path": "res://scripts/manager/class/class_screen.gd"
 } ]
 _global_script_class_icons={
+<<<<<<< Updated upstream
+=======
+"ClassBattle": "",
+>>>>>>> Stashed changes
 "ClassBiomon": "",
 "ClassEncounter": "",
 "ClassMap": "",
@@ -45,7 +57,12 @@ config/icon="res://icon.png"
 [autoload]
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 Utils="*res://scenes/manager/Utils.gd"
+=======
+Utils="*res://scripts/manager/autoload/Utils.gd"
+DataRead="*res://scripts/manager/autoload/DataRead.gd"
+>>>>>>> Stashed changes
 =======
 Utils="*res://scripts/manager/autoload/Utils.gd"
 DataRead="*res://scripts/manager/autoload/DataRead.gd"

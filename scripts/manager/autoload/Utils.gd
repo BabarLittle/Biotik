@@ -1,5 +1,6 @@
 extends Node
 
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream:scenes/manager/Utils.gd
 
 # Declare member variables here. Examples:
@@ -14,6 +15,8 @@ func _ready():
 
 =======
 >>>>>>> Stashed changes:scripts/manager/autoload/Utils.gd
+=======
+>>>>>>> Stashed changes
 func get_player():
 	return get_node("../SceneManager/CurrentScene").get_children().back().find_node("Player")
 

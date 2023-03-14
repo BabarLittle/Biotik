@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/ui/interface/dialogs/UiNinePatchRect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/ui/screens/battle/StatusBar.tscn" type="PackedScene" id=2]
+
+[node name="BattleInterface" type="CanvasLayer"]
+follow_viewport_enable = true
+
+[node name="Dialogs" type="Node2D" parent="."]
+
+[node name="NinePatchRect" parent="Dialogs" instance=ExtResource( 1 )]
+margin_top = 120.0
+margin_right = 240.0
+margin_bottom = 160.0
+
+[node name="StatusBar" parent="." instance=ExtResource( 2 )]

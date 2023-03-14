@@ -1,7 +1,11 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/ui/interface/dialogs/DialoguePlayer.gd" type="Script" id=1]
+<<<<<<< Updated upstream
 [ext_resource path="res://assets/ui/interface/menu_box_1.png" type="Texture" id=2]
+=======
+[ext_resource path="res://scenes/ui/interface/dialogs/UiNinePatchRect.tscn" type="PackedScene" id=2]
+>>>>>>> Stashed changes
 
 [sub_resource type="DynamicFontData" id=3]
 font_path = "res://assets/ui/interface/pkmnfl.ttf"
@@ -21,6 +25,7 @@ font_data = SubResource( 4 )
 [node name="DialogueBox" type="CanvasLayer"]
 script = ExtResource( 1 )
 
+<<<<<<< Updated upstream
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 visible = false
 margin_top = 102.0
@@ -31,21 +36,27 @@ patch_margin_left = 6
 patch_margin_top = 6
 patch_margin_right = 6
 patch_margin_bottom = 6
+=======
+[node name="NinePatchRect" parent="." instance=ExtResource( 2 )]
+margin_top = 102.0
+margin_right = 240.0
+margin_bottom = 160.0
+>>>>>>> Stashed changes
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 5.0
-margin_top = 4.0
+margin_top = 5.0
 margin_right = 56.0
-margin_bottom = 19.0
+margin_bottom = 20.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 text = "Name:"
 
 [node name="Text" type="RichTextLabel" parent="NinePatchRect"]
 margin_left = 6.0
-margin_top = 15.0
+margin_top = 16.0
 margin_right = 236.0
-margin_bottom = 52.0
+margin_bottom = 53.0
 rect_clip_content = false
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 2 )

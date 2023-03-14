@@ -138,10 +138,27 @@ func handle_scene_changing(next_scene_name: String, transition_name:String="Fade
 	""" Main body of the function """
 	next_scene = load(next_scene_name).instance()
 	next_scene.visible = false
+<<<<<<< Updated upstream
 	print(next_scene_name + " loaded")
 	$ScreenTransition/AnimationPlayer.play(transition_name)
 	
 	""" Determines what the next scene is """
+=======
+	print(next_scene.name + " loaded")
+	$ScreenTransition/AnimationPlayer.play(transition_name)
+	
+	""" Determines what the next scene is """
+	
+		
+	if "main" in next_scene_name:
+		screen_loaded = ScreenLoaded.TITLE_SCREEN
+	elif "screens" in next_scene_name:
+		screen_loaded = ScreenLoaded.MENU_SCREEN
+	elif "arena" in next_scene_name:
+		screen_loaded = ScreenLoaded.BATTLE_SCREEN
+	elif "maps" in next_scene_name:
+		screen_loaded = ScreenLoaded.SCENE
+>>>>>>> Stashed changes
 	
 
 """=====
@@ -168,6 +185,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		ScreenLoaded.TITLE_SCREEN:
 			next_animation_name = "FadeToNormal"
 	
+<<<<<<< Updated upstream
 	""" To rewrite... a simpler way exists """
 	match anim_name:
 		"FadeToBlack":
@@ -202,3 +220,20 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	
 	
 >>>>>>> Stashed changes:scripts/manager/SceneManager.gd
+=======
+	if not "Normal" in anim_name :
+		$CurrentScene.add_child(next_scene)
+		assert(next_scene.connect("SignalSceneChanging", self, "handle_scene_changing")==0, "ERR:SceneManager/animation_finished> Scene manager failed to connect to 'SignalSceneChanging' from '%s%%'" % next_scene.filename)
+		print('loading')
+		next_scene.load_scene(current_scene.scene_parameters)  
+		next_scene.visible = true
+		current_scene.queue_free()
+		current_scene = next_scene
+		if screen_loaded == ScreenLoaded.JUST_MENU:
+			$menu.visible = true
+			var player = Utils.get_player()
+			player.set_physics_process(false)
+			$Menu/NinePatchRect/VBoxContainer/Biomons.grab_focus()
+		next_scene = null
+		$ScreenTransition/AnimationPlayer.play(next_animation_name)	
+>>>>>>> Stashed changes

@@ -56,7 +56,11 @@ Author: Ska
 Arguments
 	- next_scene_path: mandatory path of the next scene
 ====="""
+<<<<<<< Updated upstream
 func exit_scene(next_scene_path: String, spawn_location, spawn_direction):
+=======
+func exit_scene(next_scene_path: String, spawn_location, spawn_direction, transition_name="FadeToBlack"):
+>>>>>>> Stashed changes
 	print("Signal receive by '" + self.name + "' with '" + next_scene_path + "'")
 	""" set the dictionnary to be sent to the next scene """
 	scene_parameters.spawn_location = spawn_location
@@ -65,7 +69,11 @@ func exit_scene(next_scene_path: String, spawn_location, spawn_direction):
 	_pack_scene()
 	
 	""" once everything is done emit signal """
+<<<<<<< Updated upstream
 	emit_signal("SignalSceneChanging", next_scene_path)
+=======
+	emit_signal("SignalSceneChanging", next_scene_path, transition_name)
+>>>>>>> Stashed changes
 
 func _pack_scene():
 	pass
@@ -80,4 +88,8 @@ func signal_connect(door):
 
 """ Function that generate an encounter """
 func generate_encounter(encounter_dict):
+<<<<<<< Updated upstream
+=======
+	exit_scene("res://scenes/environnement/arena/ArenaGrass.tscn", scene_parameters.spawn_location, scene_parameters.spawn_direction, "BattleFlash")
+>>>>>>> Stashed changes
 	print("Encountered '" + encounter_dict.id + "' at level " + str(encounter_dict.level) + " !")

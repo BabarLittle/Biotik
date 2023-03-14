@@ -39,7 +39,11 @@ func button_pressed(next_scene, location_scene, direction_scene):
 		var new_biomon = ClassBiomon.new(DataRead.database.biodex.keys(), [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
 		$LbBiomon.text = new_biomon.name + " lv:" + str(new_biomon.level)
 		$BiomonSprite.select_sprite(new_biomon.id, true)
+<<<<<<< Updated upstream
 	
+=======
+
+>>>>>>> Stashed changes
 	# Load the scene if specified
 	elif !next_scene == "":
 		location = location_scene
