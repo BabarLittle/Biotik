@@ -1,0 +1,5 @@
+[
+	{"type": "text"},
+	{"title": "Sauvegarde", "type": "text", "text": "Sauvegarder la partie..."},
+	{"type": "choice", "text": "Voulez-vous supprimer l'ancienne sauvegarde ?", "target":"saveChoice"},
+]

@@ -61,4 +61,4 @@ func exit_scene(next_scene_path: String, spawn_location, spawn_direction):
 	scene_parameters.spawn_direction = spawn_direction
 	
 	""" once everything is done emit signal """
-	emit_signal("Signal_SceneChanging", next_scene_path)
+	emit_signal("SignalSceneChanging", next_scene_path)

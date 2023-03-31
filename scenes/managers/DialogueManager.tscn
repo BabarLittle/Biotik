@@ -1,0 +1,155 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scripts/managers/dialogue/DialogueManager.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/interface/menu_box_1.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/interface/pkmnfl.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scripts/managers/dialogue/DialogueTextBox.gd" type="Script" id=5]
+[ext_resource path="res://scripts/managers/dialogue/DialogueChoiceBox.gd" type="Script" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 12
+outline_color = Color( 0.156863, 0.188235, 0.188235, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+extra_spacing_top = 2
+extra_spacing_char = 2
+extra_spacing_space = -1
+font_data = ExtResource( 3 )
+
+[node name="DialogueManager" type="CanvasLayer"]
+follow_viewport_enable = true
+script = ExtResource( 1 )
+
+[node name="TextBox" type="CanvasLayer" parent="."]
+script = ExtResource( 5 )
+
+[node name="Prompter" type="Timer" parent="TextBox"]
+wait_time = 0.2
+one_shot = true
+
+[node name="MarginContainer" type="MarginContainer" parent="TextBox"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = -54.0
+margin_right = -6.0
+margin_bottom = -2.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="TextBox/MarginContainer"]
+margin_right = 228.0
+margin_bottom = 52.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 22, 22 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Title" type="NinePatchRect" parent="TextBox/MarginContainer/NinePatchRect"]
+margin_left = -4.0
+margin_top = -11.0
+margin_right = 87.0
+margin_bottom = 12.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 22, 22 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="TextTitle" type="Label" parent="TextBox/MarginContainer/NinePatchRect/Title"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 230.0
+margin_bottom = 12.0
+custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Un nom trop long"
+
+[node name="Shadow" type="NinePatchRect" parent="TextBox/MarginContainer/NinePatchRect/Title"]
+modulate = Color( 0.278431, 0.278431, 0.278431, 0.698039 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 22, 22 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="MainText" type="VBoxContainer" parent="TextBox/MarginContainer/NinePatchRect"]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 7.0
+margin_top = -13.0
+margin_right = -6.0
+margin_bottom = 23.0
+
+[node name="Text" type="Label" parent="TextBox/MarginContainer/NinePatchRect/MainText"]
+margin_right = 215.0
+margin_bottom = 27.0
+custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "Impossible ! Hahaha... Tu peux pas me battre comme ça ! J'ai écris trois lignes ! "
+autowrap = true
+
+[node name="ChoiceBox" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="MarginContainer" type="MarginContainer" parent="ChoiceBox"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -15.0
+margin_top = 23.0
+margin_right = -2.0
+margin_bottom = 36.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="ChoiceBox/MarginContainer"]
+margin_right = 13.0
+margin_bottom = 13.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 22, 22 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="Shadow" type="NinePatchRect" parent="ChoiceBox/MarginContainer/NinePatchRect"]
+modulate = Color( 0.278431, 0.278431, 0.278431, 0.698039 )
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.0
+margin_top = 1.0
+margin_right = 1.0
+margin_bottom = 1.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 22, 22 )
+patch_margin_left = 6
+patch_margin_top = 6
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ChoiceContainer" type="VBoxContainer" parent="ChoiceBox/MarginContainer/NinePatchRect"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 6.0
+margin_right = -6.0
+margin_bottom = -6.0
+
+[connection signal="timeout" from="TextBox/Prompter" to="TextBox" method="dialogue_prompter"]
