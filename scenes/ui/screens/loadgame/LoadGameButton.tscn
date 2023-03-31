@@ -1,0 +1,242 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/ui/screens/loadgame/select_game_buton1.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/screens/loadgame/select_game_buton2.png" type="Texture" id=2]
+[ext_resource path="res://scripts/ui/screens/loadgame/SelectLoadButton.gd" type="Script" id=3]
+[ext_resource path="res://assets/ui/interface/pkmnfl.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/characters/npc/trchar166_1.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/interface/badges/badge02.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/interface/badges/badge01.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/interface/badges/badge05.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/interface/badges/badge03.png" type="Texture" id=9]
+[ext_resource path="res://assets/ui/screens/loadgame/empty_slot.png" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 22
+extra_spacing_char = -1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 11
+extra_spacing_char = 1
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 11
+font_data = ExtResource( 4 )
+
+[sub_resource type="OpenSimplexNoise" id=7]
+resource_local_to_scene = true
+period = 77.1
+
+[sub_resource type="NoiseTexture" id=6]
+seamless = true
+as_normalmap = true
+bump_strength = 5.6
+noise = SubResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 22
+extra_spacing_char = -1
+extra_spacing_space = -2
+font_data = ExtResource( 4 )
+
+[node name="TextureButton" type="TextureButton"]
+margin_left = -60.0
+margin_top = -86.0
+margin_right = 60.0
+margin_bottom = 86.0
+rect_pivot_offset = Vector2( 60, 86 )
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
+expand = true
+stretch_mode = 3
+script = ExtResource( 3 )
+
+[node name="lbName" type="Label" parent="."]
+margin_left = 17.0
+margin_top = 25.0
+margin_right = 82.0
+margin_bottom = 35.0
+rect_scale = Vector2( 0.5, 0.6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Helder"
+valign = 1
+
+[node name="lbTitle" type="Label" parent="."]
+margin_left = 17.0
+margin_top = 47.0
+margin_right = 82.0
+margin_bottom = 57.0
+rect_scale = Vector2( 0.5, 0.6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Grand maître"
+valign = 1
+
+[node name="lbLocation" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 69.0
+margin_right = 107.0
+margin_bottom = 79.0
+rect_scale = Vector2( 0.5, 0.6 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Route 404"
+
+[node name="lbTime" type="Label" parent="."]
+margin_left = 72.0
+margin_top = 70.0
+margin_right = 112.0
+margin_bottom = 77.0
+rect_scale = Vector2( 0.9, 0.9 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "02h34"
+align = 1
+valign = 1
+
+[node name="lbVus" type="Label" parent="."]
+margin_left = 91.0
+margin_top = 122.0
+margin_right = 107.0
+margin_bottom = 136.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "151"
+align = 1
+valign = 1
+
+[node name="lbPris" type="Label" parent="."]
+margin_left = 73.0
+margin_top = 143.0
+margin_right = 89.0
+margin_bottom = 157.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "21	"
+align = 1
+valign = 1
+
+[node name="lbVusText" type="Label" parent="."]
+margin_left = 54.0
+margin_top = 127.0
+margin_right = 119.0
+margin_bottom = 134.0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_colors/font_color = Color( 0.388235, 0.380392, 0.45098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Bio. VUs : "
+valign = 1
+
+[node name="lbPrisText" type="Label" parent="."]
+margin_left = 36.0
+margin_top = 148.0
+margin_right = 101.0
+margin_bottom = 155.0
+rect_scale = Vector2( 0.75, 0.75 )
+custom_colors/font_color = Color( 0.388235, 0.380392, 0.45098, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Bio.Pris :"
+valign = 1
+
+[node name="Picture" type="Sprite" parent="."]
+position = Vector2( 90, 44 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 5 )
+hframes = 4
+vframes = 4
+
+[node name="Badges" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Badge01" type="Sprite" parent="Badges"]
+position = Vector2( 19.6, 87.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 7 )
+hframes = 2
+frame = 1
+
+[node name="Badge02" type="Sprite" parent="Badges"]
+position = Vector2( 29.6, 99.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="Badge03" type="Sprite" parent="Badges"]
+position = Vector2( 39.6, 87.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 9 )
+hframes = 2
+frame = 1
+
+[node name="Badge04" type="Sprite" parent="Badges"]
+position = Vector2( 49.6, 99.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 8 )
+hframes = 2
+frame = 1
+
+[node name="Badge05" type="Sprite" parent="Badges"]
+position = Vector2( 59.6, 87.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="Badge06" type="Sprite" parent="Badges"]
+position = Vector2( 69.6, 99.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="Badge07" type="Sprite" parent="Badges"]
+position = Vector2( 79.6, 87.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="Badge08" type="Sprite" parent="Badges"]
+position = Vector2( 89.6, 99.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="Badge09" type="Sprite" parent="Badges"]
+position = Vector2( 99.6, 87.6 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 6 )
+hframes = 2
+frame = 1
+
+[node name="EmptySlot" type="Sprite" parent="."]
+position = Vector2( 60, 59 )
+texture = ExtResource( 10 )
+normal_map = SubResource( 6 )
+hframes = 2
+
+[node name="Label" type="Label" parent="EmptySlot"]
+margin_left = -47.0
+margin_top = -20.0
+margin_right = 49.5
+margin_bottom = -5.99999
+custom_fonts/font = SubResource( 4 )
+text = "EMPTY SLOT"
+align = 1
+valign = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="focus_entered" from="." to="." method="_on_TextureButton_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_TextureButton_focus_exited"]
+[connection signal="pressed" from="." to="." method="_on_TextureButton_pressed"]

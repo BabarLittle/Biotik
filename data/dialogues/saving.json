@@ -1,0 +1,7 @@
+[
+	{"type": "text"},
+	{"title": "Sauvegarde", "type": "text", "text": "Sauvegarde en cours...                ...                  ..."},
+	{"title": "Sauvegarde", "type": "text", "text": "...                ...                  ..."},
+	{"title": "Sauvegarde", "type": "text", "text": "Partie sauvegardée !"},
+	{"type": "end"},
+]

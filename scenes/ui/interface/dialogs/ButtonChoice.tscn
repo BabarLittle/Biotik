@@ -1,0 +1,44 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scripts/ui/interface/dialogs/ButtonChoice.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/interface/pkmnfl.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://assets/ui/interface/ui_arrow_left_right.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/interface/ui_arrow_left_right_normal.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/interface/ui_arrow_left_right_pressed.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 11
+font_data = ExtResource( 2 )
+
+[node name="ButtonChoice" type="TextureButton"]
+margin_right = 50.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 0, 12 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_focused = ExtResource( 3 )
+script = ExtResource( 1 )
+
+[node name="ChoiceText" type="Label" parent="."]
+modulate = Color( 0.0784314, 0.0745098, 0.0745098, 1 )
+self_modulate = Color( 0.0823529, 0.0823529, 0.0823529, 1 )
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 8.0
+margin_top = -5.0
+margin_bottom = 2.5
+rect_min_size = Vector2( 0, 12 )
+custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Oui"
+__meta__ = {
+"_editor_description_": "Biomon"
+}
+
+[node name="btSound" type="AudioStreamPlayer" parent="."]
+
+[connection signal="focus_entered" from="." to="." method="_on_Button_Menu_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_Button_Menu_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_Button_Menu_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_Button_Menu_pressed"]

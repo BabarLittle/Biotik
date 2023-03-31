@@ -1,0 +1,22 @@
+{
+  "1": {
+    "rate": 1,
+    "lvl_min": 0,
+    "lvl_max": 9,
+  },
+  "2": {
+    "rate": 2,
+    "lvl_min": 0,
+    "lvl_max": 9,
+  },
+  "3": {
+    "rate": 3,
+    "lvl_min": 0,
+    "lvl_max": 9,
+  },
+  "4": {
+    "rate": 4,
+    "lvl_min": 0,
+    "lvl_max": 9,
+  }
+}

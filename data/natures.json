@@ -1,0 +1,149 @@
+{
+  "Bourré": {
+    "att": 1.1,
+    "def": 0.9,
+    "spa": 1,
+    "spd": 1,
+    "vit": 1
+  },
+  "Rigide": {
+    "att": 1.1,
+    "def": 1,
+    "spa": 0.9,
+    "spd": 1,
+    "vit": 1
+  },
+  "Fêtard": {
+    "att": 1.1,
+    "def": 1,
+    "spa": 1,
+    "spd": 0.9,
+    "vit": 1
+  },
+  "Brave": {
+    "att": 1.1,
+    "def": 1,
+    "spa": 1,
+    "spd": 1,
+    "vit": 0.9
+  },
+  "Assuré": {
+    "att": 0.9,
+    "def": 1.1,
+    "spa": 1,
+    "spd": 1,
+    "vit": 1
+  },
+  "Malin": {
+    "att": 1,
+    "def": 1.1,
+    "spa": 0.9,
+    "spd": 1,
+    "vit": 1
+  },
+  "Blasé": {
+    "att": 1,
+    "def": 1.1,
+    "spa": 1,
+    "spd": 0.9,
+    "vit": 1
+  },
+  "Relax": {
+    "att": 1,
+    "def": 1.1,
+    "spa": 1,
+    "spd": 1,
+    "vit": 0.9
+  },
+  "Modeste": {
+    "att": 0.9,
+    "def": 1,
+    "spa": 1.1,
+    "spd": 1,
+    "vit": 1
+  },
+  "Studieux": {
+    "att": 1,
+    "def": 0.9,
+    "spa": 1.1,
+    "spd": 1,
+    "vit": 1
+  },
+  "Foufou": {
+    "att": 1,
+    "def": 1,
+    "spa": 1.1,
+    "spd": 0.9,
+    "vit": 1
+  },
+  "Discret": {
+    "att": 1,
+    "def": 1,
+    "spa": 1.1,
+    "spd": 1,
+    "vit": 0.9
+  },
+  "Calme": {
+    "att": 0.9,
+    "def": 1,
+    "spa": 1,
+    "spd": 1.1,
+    "vit": 1
+  },
+  "Gentil": {
+    "att": 1,
+    "def": 0.9,
+    "spa": 1,
+    "spd": 1.1,
+    "vit": 1
+  },
+  "Prudent": {
+    "att": 1,
+    "def": 1,
+    "spa": 0.9,
+    "spd": 1.1,
+    "vit": 1
+  },
+  "Blagueur": {
+    "att": 1,
+    "def": 1,
+    "spa": 1,
+    "spd": 1.1,
+    "vit": 0.9
+  },
+  "Timide": {
+    "att": 0.9,
+    "def": 1,
+    "spa": 1,
+    "spd": 1,
+    "vit": 1.1
+  },
+  "Pressé": {
+    "att": 1,
+    "def": 0.9,
+    "spa": 1,
+    "spd": 1,
+    "vit": 1.1
+  },
+  "Jovial": {
+    "att": 1,
+    "def": 1,
+    "spa": 0.9,
+    "spd": 1,
+    "vit": 1.1
+  },
+  "Naïf": {
+    "att": 1,
+    "def": 1,
+    "spa": 1,
+    "spd": 0.9,
+    "vit": 1.1
+  },
+  "Solitaire": {
+    "att": 1,
+    "def": 1,
+    "spa": 1,
+    "spd": 1,
+    "vit": 1
+  }
+}
