@@ -21,12 +21,10 @@ func _ready():
 
 
 func enter_door():
-	if target_door:
 		animation.play("OpenDoor")
-		print(name + " is target")
+		
 
 func close_door():
-	if target_door:
 		animation.play("CloseDoor")
 
 func door_closed():
@@ -37,12 +35,11 @@ func door_closed():
 
 
 func _on_Door_body_entered(body):	
-	print("Door_body_entered")
 	if body.name == "Player":
-		print("Player entered the door '" + self.name + "'")
+		enter_door()
+		close_door()
+
 		
-		"""var player = Utils.get_player()
-		assert(player.connect("player_entering_door_signal", self, "enter_door") == 0, "ERR:biodex_infos/_ready> Signal 'player_entering_door_signal' could not connect to '%s%%'" % name)
-		assert(player.connect("player_entered_door_signal", self, "close_door") == 0, "ERR:biodex_infos/_ready> Signal 'player_entered_door_signal' could not connect to '%s%%'" % name)"""
+
 
 

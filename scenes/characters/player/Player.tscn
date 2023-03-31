@@ -5,8 +5,9 @@
 [ext_resource path="res://assets/characters/player/player_shadow.png" type="Texture" id=3]
 [ext_resource path="res://assets/characters/player/Male_Player_spritesheet_B.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+[sub_resource type="CapsuleShape2D" id=41]
+radius = 3.0
+height = 4.0
 
 [sub_resource type="Animation" id=39]
 resource_name = "Disapear"
@@ -317,26 +318,26 @@ blend_point_3/node = SubResource( 15 )
 blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeAnimation" id=30]
-animation = "TurnLeft"
+[sub_resource type="AnimationNodeAnimation" id=42]
+animation = "IdleLeft"
 
-[sub_resource type="AnimationNodeAnimation" id=31]
-animation = "TurnRight"
-
-[sub_resource type="AnimationNodeAnimation" id=32]
-animation = "TurnDown"
-
-[sub_resource type="AnimationNodeAnimation" id=33]
+[sub_resource type="AnimationNodeAnimation" id=43]
 animation = "TurnUp"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=34]
-blend_point_0/node = SubResource( 30 )
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "TurnRight"
+
+[sub_resource type="AnimationNodeAnimation" id=45]
+animation = "TurnDown"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=46]
+blend_point_0/node = SubResource( 42 )
 blend_point_0/pos = Vector2( -1, 0 )
-blend_point_1/node = SubResource( 31 )
-blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 32 )
-blend_point_2/pos = Vector2( 0, 1 )
-blend_point_3/node = SubResource( 33 )
+blend_point_1/node = SubResource( 43 )
+blend_point_1/pos = Vector2( 0, 1 )
+blend_point_2/node = SubResource( 44 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 45 )
 blend_point_3/pos = Vector2( 0, -1 )
 blend_mode = 1
 
@@ -358,31 +359,33 @@ blend_point_0/pos = Vector2( -1, 0 )
 blend_point_1/node = SubResource( 18 )
 blend_point_1/pos = Vector2( 1, 0 )
 blend_point_2/node = SubResource( 19 )
-blend_point_2/pos = Vector2( 0, 1 )
+blend_point_2/pos = Vector2( 0, 1.1 )
 blend_point_3/node = SubResource( 20 )
-blend_point_3/pos = Vector2( 0, -1 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+[sub_resource type="AnimationNodeStateMachineTransition" id=47]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+[sub_resource type="AnimationNodeStateMachineTransition" id=48]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=37]
+[sub_resource type="AnimationNodeStateMachineTransition" id=49]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
 
 [sub_resource type="AnimationNodeStateMachine" id=24]
 states/Idle/node = SubResource( 16 )
-states/Idle/position = Vector2( 314, 67 )
-states/Turn/node = SubResource( 34 )
-states/Turn/position = Vector2( 385, 142 )
+states/Idle/position = Vector2( 315, 67 )
+states/Turn/node = SubResource( 46 )
+states/Turn/position = Vector2( 394, 157 )
 states/Walk/node = SubResource( 21 )
 states/Walk/position = Vector2( 472, 67 )
-transitions = [ "Idle", "Walk", SubResource( 22 ), "Walk", "Idle", SubResource( 23 ), "Turn", "Idle", SubResource( 35 ), "Idle", "Turn", SubResource( 36 ), "Walk", "Turn", SubResource( 37 ), "Turn", "Walk", SubResource( 38 ) ]
+transitions = [ "Idle", "Walk", SubResource( 22 ), "Walk", "Idle", SubResource( 23 ), "Idle", "Turn", SubResource( 47 ), "Turn", "Walk", SubResource( 48 ), "Walk", "Turn", SubResource( 49 ), "Turn", "Idle", SubResource( 50 ) ]
 start_node = "Idle"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=25]
@@ -407,7 +410,7 @@ texture = ExtResource( 4 )
 centered = false
 hframes = 3
 vframes = 4
-frame = 4
+frame = 1
 
 [node name="MaleSpritesheet" type="Sprite" parent="Sprite"]
 position = Vector2( 8, 20 )
@@ -418,8 +421,9 @@ vframes = 3
 frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 8 )
-shape = SubResource( 1 )
+position = Vector2( 8, 12 )
+rotation = 1.5708
+shape = SubResource( 41 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Disapear = SubResource( 39 )
@@ -441,9 +445,9 @@ tree_root = SubResource( 24 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 25 )
-parameters/Idle/blend_position = Vector2( -0.594595, 0.340206 )
-parameters/Turn/blend_position = Vector2( 0, 0 )
-parameters/Walk/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( -0.00105155, 0.448276 )
+parameters/Turn/blend_position = Vector2( 0.156677, -0.166234 )
+parameters/Walk/blend_position = Vector2( 0, -1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -469,4 +473,5 @@ collide_with_bodies = false
 position = Vector2( 8, 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2( 1, -2 )
 shape = SubResource( 40 )

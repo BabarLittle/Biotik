@@ -84,6 +84,10 @@ shape = SubResource( 5 )
 position = Vector2( 354, 130.5 )
 shape = SubResource( 6 )
 
+[node name="behind_door" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 269, 272 )
+shape = SubResource( 6 )
+
 [node name="Mom" parent="StaticBody2D" instance=ExtResource( 5 )]
 position = Vector2( 176, 144 )
 
