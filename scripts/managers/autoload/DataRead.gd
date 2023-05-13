@@ -353,3 +353,50 @@ func get_random_nature():
 	
 	return nature
 	
+func load_learnset(species):
+	var learnset_code = DataRead.database.biodex["learn-set"]
+	var bin_move = 10
+	var bin_nb = 7
+	var value = 0
+	var value2 = 0
+	var temp = ''
+	
+	assert(len(learnset_code) != 0, "No learnset found  for " + species + " !")
+	
+	for i in len(learnset_code):
+		if learnset_code[i] == '/':
+			# Unpatch move binary id into a temp string
+			temp = ''
+			
+			for j in range(bin_move):
+				temp = temp + learnset_code[i+j+1];
+		
+			# update iterator i so we don't have to do unecessary loops
+			i = i + bin_move
+
+			# convert binary text to decimal integer
+			value = bin2dec(temp);
+
+
+		# Unpatch learning method
+		# CT, Egg, Tutor
+		elif learnset_code[i] in ['c', 'e', 't']:
+			database.biodex.learnset.learnset_code[i].append(value)
+		elif learnset_code[i] == 'l':
+			# reset temp
+			temp = ''
+			for j in range(bin_nb):
+				temp = temp + learnset_code[i+j+1]
+			# update iterator
+				i = i + bin_nb;
+			# convert binary text to decimal integer
+			value2 = bin2dec(temp);
+			
+			database.biodex.learnset.learnset_code[i].value2 = value
+
+func bin2dec(value):
+	var dec = 0;
+	for i in range(len(value)):
+		if value[i] == '1':
+			dec = dec + pow(2, len(value)-(i+1))
+  return dec

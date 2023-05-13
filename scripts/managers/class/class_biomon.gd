@@ -1,5 +1,3 @@
-# meta-name: Annoted menu screen
-# meta-description: Base template with complete annoted code for screen generation in Biotik
 """=============================================
 File: class_biomon.gd
 """
@@ -18,11 +16,11 @@ const GENE_QUOTA_MAX = 1500
 var species_key:String = "1" # wich form
 var species:String = "" #
 var gender:String = ""
-var datamon: Dictionary = {}
+var datamon:Dictionary = {}
 var name:String = ""
 var shiny:bool = false # shiny or not
 
-var affection = 0
+var affection:int = 0
 var level:int = 1
 var xp:int = 0
 
@@ -37,6 +35,7 @@ var stats:Dictionary = {
 var genes:Dictionary = stats
 var current_genes_total:int = 0
 var nature:String = "Solitaire"
+var learnset:Dictionary = {}
 
 func _init(new_biomon_dict):
 	assert("species_key" in new_biomon_dict.keys() == true, "No species provided !")
@@ -67,6 +66,11 @@ func _init(new_biomon_dict):
 	if !"gender" in datamon.keys():
 		set_gender()
 	
+	datamon.learnset = DataRead.database.biodex.learnset
+	
+	if !"moves_keys" in datamon.keys():
+		generate_moveset()
+	
 	print("\n =====")
 	print("Biomon '" + name + "' (" + species + ") created !")
 	print("Level : " + str(level))
@@ -79,7 +83,7 @@ func _init(new_biomon_dict):
 func change_name(new_name):
 	name = new_name
 
-func xp_gain():
+func xp_gain(value):
 	pass
 
 func on_level_up():
@@ -121,3 +125,12 @@ func set_gender():
 		gender = "Male"
 	else:
 		gender = "Female"
+
+func generate_moveset():
+	var temp = level
+	datamon.moves_keys = []
+	
+	while (datamon.moves_keys.size() < 4) and (temp > 0):
+		if temp in learnset.l.keys():
+			datamon.moves_keys.append(learnset.l.temp)
+		temp = temp - 1
