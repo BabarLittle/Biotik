@@ -1,3 +1,4 @@
+tool
 # meta-name: Annoted biotik
 # meta-description: Base template with complete annoted code for scene generation in Biotik
 """=============================================
@@ -18,7 +19,7 @@ signal SignalButtonPressed
 
 # Set up variables
 export(String, FILE) var id_button # Signal wich button is being pressed
-export(String) var text_button = "empty" # Text of the button
+export(String) var text_button = "empty" setget set_text # Text of the button
 export(Vector2) var PlayerPosition
 export(Vector2) var PlayerDirection
 export var exit_button: bool = false # change the color of the button
@@ -31,12 +32,12 @@ Author: Ska
 ====="""
 func _ready():
 	text = text_button
-	$AudioStreamPlayer.volume_db = -1000
+	$AudioStreamPlayer.volume_db = -80
 	if first_button:
 		grab_focus()
 	var temp_parent = get_parent().get_parent().get_parent().get_parent()
 	assert(connect("SignalButtonPressed", temp_parent, "button_pressed") == 0, "ERR:biodex_infos/_ready> Signal 'SignalButtonPressed' couild not connect to '%s%%'" % get_parent().name)
-	$AudioStreamPlayer.volume_db = 0
+	$AudioStreamPlayer.volume_db = -20
 	
 """=====
 Function _on_ButtonUI_pressed():
@@ -54,3 +55,7 @@ func _on_ButtonUI_focus_entered():
 		$AudioStreamPlayer.play()
 	else:
 		first_button = false
+
+func set_text(value):
+	text = value
+	text_button = value

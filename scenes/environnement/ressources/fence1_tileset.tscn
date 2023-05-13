@@ -1,0 +1,123 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/audio/environnement/sfx/bush_sound.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/maps/outside_deco/fence1_tileset.png" type="Texture" id=2]
+[ext_resource path="res://scripts/environnement/ressources/fence1_tileset.gd" type="Script" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 0.999994, 0.750007 )
+
+[node name="Fence1" type="StaticBody2D"]
+light_mask = 3
+collision_layer = 2
+collision_mask = 17
+physics_material_override = SubResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -2 )
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -8, -9 )
+hframes = 3
+vframes = 4
+frame = 11
+
+[node name="frame00" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -0.62502, -5, -0.624999, 0.999996, 2.375, 0.999985, 2.37502, 4.99999, -3.62498, 5.00001, -3.62502, -4.99999 )
+disabled = true
+
+[node name="frame01" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -0.624963, 11, -0.624999, 0.999996, -3.625, 1.00001, -3.62496, 11 )
+disabled = true
+
+[node name="frame02" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( 2.375, 0.999985, 2.37502, 4.99999, -0.624984, 5, -0.624984, 5, -0.624963, 11, -3.62496, 11, -3.625, 1.00001 )
+disabled = true
+
+[node name="frame03" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( 2.375, 0.999985, 2.37502, 4.99999, -0.624984, 5, -0.624984, 5, -13.625, 5.00004, -13.625, 1.00004, -3.625, 1.00001 )
+disabled = true
+
+[node name="frame04" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -1.625, 1, 2.375, 0.999985, 2.37502, 4.99999, -1.62498, 5, -1.62498, 6, -4.62498, 6.00001, -4.625, 1.07288e-05, -1.625, 0 )
+disabled = true
+
+[node name="frame05" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -4.625, 1.07288e-05, -1.625, 0, -1.62498, 6, -4.62498, 6.00001, -4.62498, 5.00001, -13.625, 5.00004, -13.625, 1.00004, -4.625, 1.00001 )
+disabled = true
+
+[node name="frame06" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -3.62502, -4.99999, -0.62502, -5, -0.624999, 0.999996, -0.624984, 5, -3.62498, 5.00001, -13.625, 5.00004, -13.625, 1.00004, -3.625, 1.00001 )
+disabled = true
+
+[node name="frame07" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -3.62496, 11, -0.624963, 11, -0.62502, -5, -3.62502, -4.99999 )
+disabled = true
+
+[node name="frame08" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -13.625, 1.00004, -13.625, 5.00004, -3.62498, 5.00001, -3.62496, 11, -0.624963, 11, -0.624999, 0.999996 )
+disabled = true
+
+[node name="frame09" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -3.62496, 11, -3.62498, 5.00001, -13.625, 5.00004, -13.625, 1.00004, -3.625, 1.00001, -3.62502, -4.99999, -0.62502, -5, -0.624999, 0.999996, 2.375, 0.999985, 2.37502, 4.99999, -0.624984, 5, -0.624963, 11 )
+disabled = true
+
+[node name="frame010" type="CollisionPolygon2D" parent="."]
+position = Vector2( 2.99999, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -0.62502, -5, -3.62502, -4.99999, -3.62499, 4.00001, -0.624988, 4 )
+disabled = true
+
+[node name="frame011" type="CollisionPolygon2D" parent="."]
+position = Vector2( -4.00001, 2.625 )
+rotation = 1.5708
+polygon = PoolVector2Array( -0.62502, -5, -3.62502, -4.99999, -3.62499, 4.00001, -0.624988, 4 )
+disabled = true
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -30.529
+attenuation = 0.554785
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2( 0, -8 )
+collision_layer = 2
+collision_mask = 17
+monitoring = false
+monitorable = false
+
+[node name="Polygon2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 4, 3 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]

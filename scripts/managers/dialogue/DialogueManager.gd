@@ -6,15 +6,22 @@ const DIALOG_DATA_PATH = "res://data/dialogues/"
 
 var player = null
 var dialogue_sponsor
+var dialogue_active = false
 
 func _ready():
 	set_visible(false)
+	dialogue_active = false
 
 func submit_dialogue(sponsor, dialogue_key):
+	if dialogue_active:
+		return
+	
+	dialogue_active = true
+	
 	dialogue_sponsor = sponsor
 	assert(connect("SignalDialogueFeedback", dialogue_sponsor, "dialogue_feedback") == 0, "Error, couldnt connect to target '" + dialogue_sponsor.filename + '"')
 	player = Utils.get_player()
-	player.set_physics_process(false)
+	player.set_control(false)
 	load_dialogue(dialogue_key)
 	
 func dialogue_feedback(feedback="end"):
@@ -56,8 +63,9 @@ func load_dialogue(json_file):
 			$ChoiceBox.start_choice(dialogue_array)
 
 func close_dialogue():
-	disconnect("SignalDialogueEnded", dialogue_sponsor, "dialogue_feedback")
-	player.set_physics_process(true)
+	disconnect("SignalDialogueFeedback", dialogue_sponsor, "dialogue_feedback")
+	dialogue_active = false
+	player.set_control(true)
 	set_visible(false)
 
 func set_visible(value=false, what="self_text_choice"):

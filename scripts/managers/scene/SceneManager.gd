@@ -5,7 +5,7 @@ enum ScreenLoaded {SCENE, MENU_SCREEN, BATTLE_SCREEN, TITLE_SCREEN, JUST_MENU, D
 
 # Setting variables
 var scene_parameters = {} # mandatory dictionnary to pass parameters between scenes
-var next_scene = null # Next scene of type String
+var next_scene = null
 var screen_loaded = ScreenLoaded.TITLE_SCREEN
 var minutes_passed = 0
 
@@ -26,7 +26,7 @@ func handle_scene_changing(next_scene_name: String, transition_name:String="Fade
 	print("handle_scene_changing('" + next_scene_name + "')")
 	""" Check if the scene exists """
 	var check_scene_name = File.new()
-	assert(check_scene_name.file_exists(next_scene_name), "The specified scene '%s%%' does not exist!" % next_scene_name)
+	assert(check_scene_name.file_exists(next_scene_name), "The specified scene " + next_scene_name + " does not exist!")
 	
 	""" Check if the animation exists """
 	assert($ScreenTransition/AnimationPlayer.has_animation(transition_name), "The specified animation '%s%%' does not exist in the AnimationPlayer!" % transition_name)
@@ -75,7 +75,7 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		if screen_loaded == ScreenLoaded.JUST_MENU:
 			$menu.visible = true
 			var player = Utils.get_player()
-			player.set_physics_process(false)
+			player.set_control(false)
 			$Menu/NinePatchRect/VBoxContainer/Biomons.grab_focus()
 		next_scene = null
 		$ScreenTransition/AnimationPlayer.play(next_animation_name)
@@ -84,31 +84,14 @@ func saving_game_data():
 	var saved_dictionary = {
 		"current_scene": current_scene.filename,
 		"scene_parameters": current_scene.get_scene_parameters(),
-		"minutes_passed": minutes_passed
+		"minutes_played": $GameTimer.get_minutes_played()
 	}
 	return saved_dictionary
 
 func loading_game_data(game_dictionnary):
 	next_scene = game_dictionnary.current_scene
 	current_scene.scene_parameters = game_dictionnary.scene_parameters
-	minutes_passed = game_dictionnary.minutes_passed
-
-func _on_GameTimer_timeout():
-	minutes_passed += 1
-	
-func get_time_played():
-	if minutes_passed == 0:
-		return "0 min !"
-	elif minutes_passed < 5:
-		return "Not enough"
-	elif minutes_passed > 600:
-		return "Way too much"
-		
-	var minutes = minutes_passed%60
-	var hours = (minutes_passed/60)/60
-
-	#returns a string with the format "HH:MM:SS"
-	return "%02d:%02d" % [hours, minutes]
+	$GameTimer.set_minutes_played(game_dictionnary.minutes_played)
 
 func get_current_scene_name():
 	return current_scene.location

@@ -1,0 +1,155 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://assets/audio/environnement/sfx/bush_sound.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scripts/environnement/ressources/bridge_wood_3x2.gd" type="Script" id=2]
+[ext_resource path="res://assets/maps/bridges/bridge_wood_3x2.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id=15]
+extents = Vector2( 15.5, 0.500001 )
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 15.5, 0.500005 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 0.499998, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 0.500002, 15.5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 0.999998 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 1.00001 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 0.999999, 8 )
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 1, 8 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 10.25, 18.5 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 10.25, 9 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 17.25, 12.5 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 11.5, 12.5 )
+
+[node name="BridgeWood3x2" type="StaticBody2D"]
+light_mask = 3
+collision_layer = 64
+collision_mask = 65
+physics_material_override = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 28 )
+z_as_relative = false
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( 0, -26 )
+hframes = 3
+region_enabled = true
+region_rect = Rect2( 16, 0, 32, 32 )
+
+[node name="LeftCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 0.499999, 17.5 )
+rotation = 1.5708
+shape = SubResource( 15 )
+
+[node name="RightCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 32.5, 17.5 )
+rotation = 1.5708
+shape = SubResource( 16 )
+
+[node name="TopCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 16.5, 1.5 )
+rotation = 1.5708
+shape = SubResource( 17 )
+
+[node name="BotCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 16.5, 33.5 )
+rotation = 1.5708
+shape = SubResource( 18 )
+
+[node name="SmallLeftCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 1.81e-05, 10 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="SmallRightCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 33, 10 )
+rotation = 1.5708
+shape = SubResource( 8 )
+
+[node name="SmallTopCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 8, 1 )
+rotation = 1.5708
+shape = SubResource( 9 )
+
+[node name="SmallBotCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 8, 34 )
+rotation = 1.5708
+shape = SubResource( 10 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1.00002, 28 )
+stream = ExtResource( 1 )
+volume_db = -30.529
+attenuation = 0.554785
+
+[node name="Area2D" type="Area2D" parent="."]
+visible = false
+position = Vector2( 16, 28 )
+collision_layer = 64
+collision_mask = 65
+
+[node name="AreaH" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 0.5, -10.75 )
+rotation = 1.5708
+shape = SubResource( 11 )
+
+[node name="SmallAreaH" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( -8, -10.75 )
+rotation = 1.5708
+shape = SubResource( 12 )
+
+[node name="AreaV" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( 0.5, -10.75 )
+rotation = 1.5708
+shape = SubResource( 13 )
+
+[node name="SmallAreaV" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2( -0.499973, -18.5 )
+rotation = 1.5708
+shape = SubResource( 14 )

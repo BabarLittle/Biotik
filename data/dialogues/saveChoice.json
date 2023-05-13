@@ -1,5 +1,0 @@
-[
-	{"type": "choice"},
-	{"text": "Oui", "return":"true"},
-	{"text": "Non", "return":"false"},
-]

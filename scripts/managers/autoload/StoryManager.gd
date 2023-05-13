@@ -27,10 +27,13 @@ func saving_game_data():
 
 func loading_game_data(game_dictionnary):
 	player_name = game_dictionnary.player_name
-	player_title_list
+	player_title_list = game_dictionnary.player_title_list
 	player_current_title = game_dictionnary.player_current_title
 	story_dictionary = game_dictionnary.story_dictionary
 	other_dialogues_dictionary = game_dictionnary.other_dialogues_dictionary
 
-func new_game(game_id):
+func new_game(_game_id):
 	pass
+
+func get_player_tools(_which = null):
+	return true

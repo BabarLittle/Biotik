@@ -25,9 +25,15 @@ func _on_Button_Menu_pressed():
 	play_sfx(pressed_sound)
 	emit_signal("SignalChoiceButtonPressed", button_key)
 
+func _on_Button_Menu_focus_exited():
+	pass
+
 func _on_Button_Menu_focus_entered():
 	play_sfx(focus_sound)
 	
 func play_sfx(sfx_path):
 	$btSound.stream = load(sfx_path)
 	$btSound.play()
+
+func get_size():
+	return 10 + $ChoiceText.text.length() * 4

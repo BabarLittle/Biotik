@@ -94,7 +94,7 @@ func _unhandled_input(event):
 				print(current_scene_path)
 				var player = Utils.get_player()
 				if !player.is_moving:
-					player.set_physics_process(false)
+					player.set_control(false)
 					menu.visible = true
 					$NinePatchRect/VBoxContainer/Biomons.grab_focus()
 				Utils.get_scene_manager().screen_loaded = ScreenLoaded.JUST_MENU
@@ -119,6 +119,6 @@ func dialogue_feedback(feedback=""):
 
 func close_menu():
 	var player = Utils.get_player()
-	player.set_physics_process(true)
+	player.set_control(true)
 	menu.visible = false
 	Utils.get_scene_manager().screen_loaded = ScreenLoaded.SCENE

@@ -1,0 +1,150 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scripts/environnement/ressources/house_7x6.gd" type="Script" id=1]
+[ext_resource path="res://assets/maps/buildings/house_7x6.png" type="Texture" id=2]
+[ext_resource path="res://scenes/environnement/effects/WindowLight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audio/environnement/sfx/door.mp3" type="AudioStream" id=4]
+[ext_resource path="res://scenes/environnement/effects/DoorLight.tscn" type="PackedScene" id=5]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="OccluderPolygon2D" id=20]
+closed = false
+polygon = PoolVector2Array( 84, 53, 84, 7 )
+
+[sub_resource type="OccluderPolygon2D" id=21]
+closed = false
+polygon = PoolVector2Array( 87, -33, 87, 8, 73, 1, -9, 1, -23, 8, -23, -33 )
+
+[sub_resource type="OccluderPolygon2D" id=22]
+closed = false
+polygon = PoolVector2Array( -20, 54, -20, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=23]
+closed = false
+polygon = PoolVector2Array( 87, -33, 74, -40, -10, -40, -23, -33 )
+
+[sub_resource type="GradientTexture2D" id=11]
+width = 32
+height = 30
+
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 25.5, 13 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 25.5, 28.9999 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 4.99995, 53 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 7.00001, 6.99999 )
+
+[node name="House7x6" type="StaticBody2D"]
+light_mask = 3
+position = Vector2( 0, -1 )
+collision_layer = 2
+collision_mask = 17
+physics_material_override = SubResource( 2 )
+script = ExtResource( 1 )
+sound_file = "res://assets/audio/environnement/sfx/door.mp3"
+night_time_light = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -40 )
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -24, -51 )
+hframes = 4
+
+[node name="LightsOccluders" type="Node2D" parent="Sprite"]
+
+[node name="RightOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -11 )
+z_as_relative = false
+occluder = SubResource( 20 )
+
+[node name="BotOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -11 )
+z_as_relative = false
+occluder = SubResource( 21 )
+
+[node name="LeftOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -12 )
+z_as_relative = false
+occluder = SubResource( 22 )
+
+[node name="TopOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -11 )
+z_as_relative = false
+occluder = SubResource( 23 )
+
+[node name="BehindDoor" type="Sprite" parent="Sprite"]
+position = Vector2( 16, 26 )
+z_index = -1
+texture = SubResource( 11 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( -8, -23.5 )
+rotation = 1.5708
+shape = SubResource( 16 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( 56.0001, -23.5 )
+rotation = 1.5708
+shape = SubResource( 17 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( 32, -54.0001 )
+rotation = 1.5708
+shape = SubResource( 18 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+attenuation = 0.554785
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1, -16 )
+collision_layer = 2
+collision_mask = 17
+monitorable = false
+
+[node name="Polygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 15, 3 )
+rotation = 1.5708
+shape = SubResource( 19 )
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="WindowLight" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 0, -43 )
+
+[node name="WindowLight2" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 16, -43 )
+
+[node name="WindowLight3" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 47, -43 )
+
+[node name="WindowLight4" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 63, -43 )
+
+[node name="WindowLight5" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 48, -19 )
+
+[node name="WindowLight6" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 64, -19 )
+
+[node name="DoorLight" parent="Lights" instance=ExtResource( 5 )]
+position = Vector2( 16, -18 )
+rotation = 0.0

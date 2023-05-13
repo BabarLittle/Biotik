@@ -1,0 +1,143 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://scripts/environnement/ressources/center_6x6.gd" type="Script" id=1]
+[ext_resource path="res://scenes/environnement/effects/DoorLight.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/environnement/effects/WindowLight.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/maps/buildings/center_6x6.png" type="Texture" id=4]
+[ext_resource path="res://assets/audio/environnement/sfx/door.mp3" type="AudioStream" id=5]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="OccluderPolygon2D" id=20]
+closed = false
+polygon = PoolVector2Array( 84, 41, 84, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=21]
+closed = false
+polygon = PoolVector2Array( 85, -20, 85, 5, 78, 13, -11, 13, -19, 5, -19, -20 )
+
+[sub_resource type="OccluderPolygon2D" id=22]
+closed = false
+polygon = PoolVector2Array( -19, 42, -19, 8 )
+
+[sub_resource type="OccluderPolygon2D" id=23]
+closed = false
+polygon = PoolVector2Array( 85, -20, 78, -27, -12, -27, -19, -20 )
+
+[sub_resource type="GradientTexture2D" id=27]
+width = 32
+height = 30
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 22, 10.5 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 22, 29.5 )
+
+[sub_resource type="RectangleShape2D" id=26]
+extents = Vector2( 6.5, 51.5 )
+
+[sub_resource type="RectangleShape2D" id=19]
+extents = Vector2( 7.00001, 6.99999 )
+
+[node name="Center_6x6" type="StaticBody2D"]
+light_mask = 3
+collision_layer = 2
+physics_material_override = SubResource( 2 )
+script = ExtResource( 1 )
+night_time_light = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -30 )
+texture = ExtResource( 4 )
+centered = false
+offset = Vector2( -56, -51 )
+hframes = 4
+
+[node name="LightsOccluders" type="Node2D" parent="Sprite"]
+position = Vector2( -32, 0 )
+
+[node name="RightOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -11 )
+z_as_relative = false
+occluder = SubResource( 20 )
+
+[node name="BotOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -11 )
+z_as_relative = false
+occluder = SubResource( 21 )
+
+[node name="LeftOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -12 )
+z_as_relative = false
+occluder = SubResource( 22 )
+
+[node name="TopOccluder" type="LightOccluder2D" parent="Sprite/LightsOccluders"]
+show_behind_parent = true
+position = Vector2( 0, -11 )
+z_as_relative = false
+occluder = SubResource( 23 )
+
+[node name="BehindDoor" type="Sprite" parent="Sprite"]
+position = Vector2( -19, 21 )
+z_index = -2
+texture = SubResource( 27 )
+
+[node name="LeftShape" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( -41.5, -22 )
+rotation = 1.5708
+shape = SubResource( 24 )
+
+[node name="RightShape" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( 21.5, -22.0001 )
+rotation = 1.5708
+shape = SubResource( 25 )
+
+[node name="TopShape" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( -0.5, -50.5 )
+rotation = 1.5708
+shape = SubResource( 26 )
+
+[node name="LeftEdgeShape" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, -6 )
+polygon = PoolVector2Array( -51, 6, -44, 13, -31, 13, -31, 6 )
+
+[node name="RightEdgeShape" type="CollisionPolygon2D" parent="."]
+position = Vector2( 62, -6 )
+scale = Vector2( 1.35227, 1 )
+polygon = PoolVector2Array( -52, 6, -52, 13, -14, 13, -8, 6, -14, 6 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -6 )
+stream = ExtResource( 5 )
+attenuation = 0.554785
+
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2( -32, 10 )
+
+[node name="WindowLight" parent="Lights" instance=ExtResource( 3 )]
+position = Vector2( 42, -19 )
+energy = 1.0
+
+[node name="DoorLight" parent="Lights" instance=ExtResource( 2 )]
+position = Vector2( 10, -16 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, -6 )
+collision_layer = 2
+collision_mask = 17
+monitorable = false
+
+[node name="Polygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -20, -2 )
+rotation = 1.5708
+shape = SubResource( 19 )

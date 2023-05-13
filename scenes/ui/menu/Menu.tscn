@@ -77,6 +77,7 @@ focus_neighbour_top = NodePath("../Character")
 focus_neighbour_bottom = NodePath("../Save")
 theme = SubResource( 1 )
 button_text = "Options"
+button_target = "settings"
 
 [node name="Save" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 96.0

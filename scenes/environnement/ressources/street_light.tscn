@@ -1,0 +1,78 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://assets/audio/environnement/sfx/bush_sound.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/maps/outside_deco/street_light.png" type="Texture" id=2]
+[ext_resource path="res://assets/effects/light_mask.png" type="Texture" id=3]
+[ext_resource path="res://scripts/environnement/ressources/street_light.gd" type="Script" id=5]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 3.0
+height = 0.5
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 7.0
+height = 14.0
+
+[node name="StreetLight" type="StaticBody2D"]
+light_mask = 3
+collision_layer = 2
+collision_mask = 17
+physics_material_override = SubResource( 2 )
+script = ExtResource( 5 )
+night_time_light = true
+lights_flicker = true
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -4, 7 )
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -12, -45 )
+hframes = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( -10, -2 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -30.529
+attenuation = 0.554785
+
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="LightSource" type="Light2D" parent="Lights"]
+position = Vector2( -1, -26 )
+scale = Vector2( 0.2, 0.14 )
+texture = ExtResource( 3 )
+texture_scale = 0.1
+color = Color( 1, 0.94902, 0.4, 1 )
+energy = 0.5
+shadow_enabled = true
+shadow_color = Color( 1, 1, 1, 0 )
+
+[node name="LightBot" type="Light2D" parent="Lights"]
+position = Vector2( 0, 2 )
+scale = Vector2( 1, 0.7 )
+texture = ExtResource( 3 )
+texture_scale = 0.5
+color = Color( 1, 0.94902, 0.4, 1 )
+energy = 0.4
+shadow_enabled = true
+shadow_color = Color( 1, 1, 1, 0 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 17
+monitorable = false
+
+[node name="Polygon2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource( 4 )

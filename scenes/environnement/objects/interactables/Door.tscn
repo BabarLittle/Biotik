@@ -74,7 +74,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 8, 8 )
+extents = Vector2( 5, 5 )
 
 [node name="Door" type="Area2D"]
 collision_layer = 8

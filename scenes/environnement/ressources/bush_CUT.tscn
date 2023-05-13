@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://assets/audio/environnement/sfx/bush_sound.mp3" type="AudioStream" id=1]
+[ext_resource path="res://assets/maps/trees/bush_CUT.png" type="Texture" id=2]
+[ext_resource path="res://scripts/environnement/ressources/bush_CUT.gd" type="Script" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 8.0
+height = 4.0
+
+[sub_resource type="CapsuleShape2D" id=4]
+radius = 9.0
+height = 4.0
+
+[node name="BushCUT" type="StaticBody2D"]
+light_mask = 3
+collision_layer = 2
+physics_material_override = SubResource( 2 )
+script = ExtResource( 3 )
+sound_file = "res://assets/audio/environnement/sfx/bush_sound.mp3"
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -0.4, -6.2 )
+scale = Vector2( 1.2, 1.2 )
+z_as_relative = false
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( -8, -9 )
+hframes = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( -0.4, -4.2 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = -30.529
+attenuation = 0.554785
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( -0.4, -12.2 )
+collision_mask = 17
+monitorable = false
+
+[node name="Polygon2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( 0, 8 )
+rotation = 1.5708
+shape = SubResource( 4 )

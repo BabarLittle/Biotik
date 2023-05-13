@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "CanvasModulate",
+"class": "ClassAmbientLight",
+"language": "GDScript",
+"path": "res://scripts/managers/class/class_ambient_light.gd"
+}, {
 "base": "Node2D",
 "class": "ClassBattle",
 "language": "GDScript",
@@ -24,7 +29,12 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/managers/class/class_biomon.gd"
 }, {
-"base": "Node2D",
+"base": "StaticBody2D",
+"class": "ClassDoor",
+"language": "GDScript",
+"path": "res://scripts/managers/class/class_door.gd"
+}, {
+"base": "StaticBody2D",
 "class": "ClassEncounter",
 "language": "GDScript",
 "path": "res://scripts/managers/class/class_encounter.gd"
@@ -34,17 +44,31 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/managers/class/class_map.gd"
 }, {
+"base": "StaticBody2D",
+"class": "ClassMapObject",
+"language": "GDScript",
+"path": "res://scripts/managers/class/class_map_object.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "ClassNpc",
+"language": "GDScript",
+"path": "res://scripts/managers/class/class_npc.gd"
+}, {
 "base": "CanvasLayer",
 "class": "ClassScreen",
 "language": "GDScript",
 "path": "res://scripts/managers/class/class_screen.gd"
 } ]
 _global_script_class_icons={
+"ClassAmbientLight": "",
 "ClassBattle": "",
 "ClassBattleEvent": "",
 "ClassBiomon": "",
+"ClassDoor": "",
 "ClassEncounter": "",
 "ClassMap": "",
+"ClassMapObject": "",
+"ClassNpc": "",
 "ClassScreen": ""
 }
 
@@ -62,11 +86,12 @@ PartyManager="*res://scripts/managers/autoload/PartyManager.gd"
 SaveManager="*res://scripts/managers/autoload/SaveManager.gd"
 StoryManager="*res://scripts/managers/autoload/StoryManager.gd"
 SettingsManager="*res://scripts/managers/autoload/SettingsManager.gd"
+EncounterManager="*res://scripts/managers/autoload/EncounterManager.gd"
 
 [display]
 
 window/size/width=240
-window/size/height=160
+window/size/height=174
 window/size/test_width=1280
 window/size/test_height=960
 window/stretch/mode="2d"
@@ -93,6 +118,10 @@ common/drop_mouse_on_gui_input_disabled=true
 
 texture={
 "flags/filter": false
+}
+mp3={
+"loop": false,
+"loop_offset": 0
 }
 
 [input]
@@ -149,15 +178,29 @@ cancel={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+use_item={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777238,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+toggle_dev={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777241,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":4,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":16777218,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="World"
 2d_physics/layer_3="Ledge"
-2d_physics/layer_4="Door"
-2d_physics/layer_5="NPCS"
-2d_physics/layer_6="Area"
+2d_physics/layer_4="Doors"
+2d_physics/layer_5="NPCs"
+2d_physics/layer_6="Water"
+2d_physics/layer_7="Bridges"
 2d_physics/layer_32="Interactable"
 
 [logging]
@@ -172,4 +215,5 @@ common/enable_pause_aware_picking=true
 
 2d/snapping/use_gpu_pixel_snap=true
 quality/voxel_cone_tracing/high_quality=true
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

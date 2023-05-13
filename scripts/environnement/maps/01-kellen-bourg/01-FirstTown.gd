@@ -11,8 +11,9 @@ func _init():
 
 """ Called when the scene manager load the scene """
 func _load_map():
+	pass
 	# Connect doors signals here
-	signal_connect($YSort/House/Door)
+	#signal_connect($YSort/House/Door)
 
 """ Called when the scene manager exit the scene """
 func _pack_scene():

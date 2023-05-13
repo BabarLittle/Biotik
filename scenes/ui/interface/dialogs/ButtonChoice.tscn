@@ -11,7 +11,7 @@ size = 11
 font_data = ExtResource( 2 )
 
 [node name="ButtonChoice" type="TextureButton"]
-margin_right = 50.0
+margin_right = 6.0
 margin_bottom = 12.0
 rect_min_size = Vector2( 0, 12 )
 texture_normal = ExtResource( 4 )
@@ -27,11 +27,12 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 margin_left = 8.0
 margin_top = -5.0
-margin_bottom = 2.5
+margin_right = -36.0
+margin_bottom = 7.0
 rect_min_size = Vector2( 0, 12 )
 custom_colors/font_color = Color( 0.12549, 0.12549, 0.12549, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "Oui"
+text = "Peut-être bien que oui fdp"
 __meta__ = {
 "_editor_description_": "Biomon"
 }

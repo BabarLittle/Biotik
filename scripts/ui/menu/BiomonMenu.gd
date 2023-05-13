@@ -1,15 +1,17 @@
+tool
 extends TextureButton
 
 signal SignalMenuButtonPressed
 
-export(String) var button_text = "Text button"
+export(String) var button_text = "Text button" setget set_button_text
 export(String, FILE) var button_target = ""
 
 func _ready():
-	setup_text()
+	set_button_text(button_text)
 	hide_arrow()
 
-func setup_text(text_to_add = button_text):
+func set_button_text(text_to_add):
+	button_text = text_to_add
 	$RichTextLabel.bbcode_text ="%s"%[text_to_add]
 
 func show_arrows():

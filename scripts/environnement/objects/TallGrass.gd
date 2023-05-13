@@ -12,14 +12,13 @@ var grass_overlay : TextureRect = null
 var player_inside : bool = false
 
 func _ready():
-	var player = Utils.get_player()
-	player.connect("player_moving_signal", self, "player_exiting_grass")
-	player.connect("player_stopped_signal", self, "player_in_grass")
+	pass
 
 func player_exiting_grass():
 	player_inside = false
 	if is_instance_valid(grass_overlay):
 		grass_overlay.queue_free()
+	$Sprite2.z_index = 0
 
 func player_in_grass():
 	if player_inside == true:
@@ -28,6 +27,7 @@ func player_in_grass():
 		grass_step_effect.position = position
 		print("grass stepped on position: ",grass_step_effect.position)
 		get_tree().current_scene.add_child(grass_step_effect)
+		$Sprite2.z_index = 2
 		
 		grass_overlay = TextureRect.new()
 		grass_overlay.texture = grass_overlay_texture

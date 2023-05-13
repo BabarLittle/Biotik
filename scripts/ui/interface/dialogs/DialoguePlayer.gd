@@ -38,7 +38,7 @@ func _ready():
 func start():
 	if d_active or !scene_manager.screen_loaded == scene_manager.ScreenLoaded.SCENE:
 		return
-	player.set_physics_process(false)
+	player.set_control(false)
 	scene_manager.screen_loaded = scene_manager.ScreenLoaded.DIALOGUE
 	d_active = true
 	$NinePatchRect.visible = true
@@ -55,8 +55,6 @@ func load_dialogue():
 func _input(event):
 	if not d_active:
 		return
-	if pop_up_active:
-		return
 	elif event.is_action_pressed('ui_accept'):
 		next_script()
 		
@@ -67,12 +65,8 @@ func next_script():
 		$Timer.start()
 		$NinePatchRect.visible = false
 		Utils.get_menu().visible = false
-		player.set_physics_process(true)
+		player.set_control(true)
 		scene_manager.screen_loaded = scene_manager.ScreenLoaded.SCENE
-		return
-		
-	if dialogue[current_dialogue_id]["name"] == "ChoiceBox":
-		pop_up_active = true
 		return
 	
 	$NinePatchRect/Name.text = dialogue[current_dialogue_id]["name"]

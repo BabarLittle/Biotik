@@ -1,12 +1,5 @@
 extends KinematicBody2D
 
-signal player_moving_signal
-signal player_stopped_signal
-signal player_entering_door_signal
-signal player_entered_door_signal
-
-
-
 export var walk_speed = 4.0
 export var jump_speed = 4.0
 
@@ -25,6 +18,8 @@ onready var anim_state = anim_tree.get("parameters/playback")
 
 
 onready var shadow = $Shadow
+onready var torch = $TorchLight
+onready var ray_cast = $InteractRayCast2D
 
 
 enum PlayerState { 
@@ -35,6 +30,7 @@ enum PlayerState {
 
 var intitial_position = Vector2(0,0)
 var velocity = Vector2.ZERO
+var last_known_direction = Vector2.DOWN
 
 var is_moving = false
 var stop_input : bool = false
@@ -48,6 +44,7 @@ func _ready():
 	anim_tree.active = true
 	intitial_position = position
 	shadow.visible = false
+	toggle_torchlight(false)
 
 
 func set_spawn(location: Vector2, direction: Vector2):
@@ -67,6 +64,10 @@ func _physics_process(delta):
 	
 	if input_vector != Vector2.ZERO:
 		is_moving = true
+		last_known_direction = input_vector
+		turn_objects(input_vector)
+		
+		#torch.rotation_degrees = rad2deg(input_vector.angle())
 		anim_tree.set("parameters/Idle/blend_position", input_vector)
 		anim_tree.set("parameters/Walk/blend_position", input_vector)
 		anim_state.travel("Walk")
@@ -79,7 +80,49 @@ func _physics_process(delta):
 
 	velocity = move_and_slide(velocity)
 	
-	
-	
+func get_player_direction():
+	return last_known_direction
 
+func turn_objects(new_angle):
+	# Torch
+	var old_rotation = torch.rotation_degrees
+	var new_rotation = rad2deg(new_angle.angle())
+	var rotating_value = fix_torch_rotation(new_rotation - old_rotation)
+	
+	$Tween.interpolate_property(torch, "rotation_degrees",
+		old_rotation, old_rotation+rotating_value, 0.2,
+		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+	$Tween.start()
+	
+	ray_cast.rotation_degrees = new_rotation
 
+func fix_torch_rotation(angle):
+	if abs(angle) > 180:
+		angle = wrapi(angle -360,-180,180)
+	return angle
+
+func toggle_torchlight(state=null):
+	if !state == null:
+		torch.enabled = state
+	elif torch.enabled:
+		torch.enabled = false
+	else:
+		torch.enabled = true
+
+func _unhandled_input(event):
+	if event.is_action_pressed("use_item"):
+		toggle_torchlight()
+		
+	if event.is_action_pressed("interact"):
+		scan_interact_target()
+
+func set_control(mode):
+	set_physics_process(mode)
+	if !mode:
+		anim_state.travel("Idle")
+
+func scan_interact_target():
+	var target = ray_cast.get_collider()
+	print("Trying to interact with : " + str(target))
+	if target != null:
+		target._interact_action()

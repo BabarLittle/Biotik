@@ -42,7 +42,7 @@ extra_spacing_space = -2
 font_data = ExtResource( 4 )
 
 [node name="TextureButton" type="TextureButton"]
-margin_left = -60.0
+margin_left = -59.0
 margin_top = -86.0
 margin_right = 60.0
 margin_bottom = 86.0

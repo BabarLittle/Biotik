@@ -32,7 +32,7 @@ func switch_biomons():
 func release_biomon():
 	pass
 
-func get_biomon_from_party(slot:int = 1):
+func get_biomon_from_party(_slot:int = 1):
 	pass
 	
 func get_nb_biomons_seen():

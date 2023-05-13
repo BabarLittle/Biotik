@@ -1,46 +1,7 @@
-# meta-name: Annoted biotik
-# meta-description: Base template with complete annoted code for scene generation in Biotik
-"""=============================================
-File: class_encounter.gd
-Author: Ska
-Version: 0.1
-Description:
-	Manages all random biomon encounter
-
-Changes: 
-	0.1
-		- file creation
-
-To-do: 
-	-(...)
-============================================="""
-
-extends Node2D
+extends StaticBody2D
 
 class_name ClassEncounter
 
-# Set up signals
-signal SignalEncounter
-
-# Set up constants
-
-# Set up variables
-export(String, FILE, "*.json") var encounter_file
-export(String, FILE) var background_image
-var encounter_rate = 10 # En %
-var encounter_dictionnary
-
-
-
-"""=====
-Function load_scene
-Author: Ska
-	Function called when the scene manager is ready make the scene appears. Loads all relevant Data
-	for the scene.
-
-Arguments
-	- inherited_parameters: dictionnary of parameters given by the last scene
-====="""
 func _ready():
 	""" connect to signals from children """
 	for _i in self.get_children():
@@ -50,8 +11,8 @@ func _ready():
 	assert(connect("SignalEncounter", get_parent(), "generate_encounter")==0, "Encounter '" + self.name + " failed to connect to parent scene '" + get_parent().name + "'")
 	
 	""" open the encounter file """
-	encounter_dictionnary = DataRead.load_encounter_dictionnary(encounter_file)
-	print(encounter_dictionnary)
+	#encounter_dictionnary = DataRead.load_encounter_dictionnary(encounter_file)
+	#print(encounter_dictionnary)
 	
 	
 
@@ -69,7 +30,7 @@ func roll_encounter(debug=false):
 	print("Check if encounter happens...")
 	var temp = roll.randi_range(0, 100)
 	print("Rolled '" + str(temp) + "'")
-	if temp < encounter_rate:
+	"""if temp < encounter_rate:
 		var temp_dict = calculate_encounter()
 		if debug:
 			return temp_dict
@@ -77,7 +38,7 @@ func roll_encounter(debug=false):
 			emit_signal("SignalEncounter", temp_dict)
 	else:
 		print("...No encounter happened !")
-
+"""
 """=====
 Function roll_encounter
 Author: Ska
@@ -85,12 +46,12 @@ Author: Ska
 
 ====="""
 func calculate_encounter():
-	# Prepare variables
+	""""# Prepare variables
 	var rate_total = 0
 	var count = 0
 	var rate_rng = RandomNumberGenerator.new()
 	rate_rng.randomize()
-	for key in encounter_dictionnary.keys():
+	for key in encounter_dictionary.keys():
 		rate_total += encounter_dictionnary[key]["rate"]
 	var rate_result = rate_rng.randi_range(1, rate_total)
 	print("Rate result : " + str(rate_result))
@@ -103,5 +64,5 @@ func calculate_encounter():
 			return {"biomon_key": key, "level": calc_lvl}
 		else:
 			count += encounter_dictionnary[key]["rate"]
-	print("Failed to find an encounter; rates failed")
+	print("Failed to find an encounter; rates failed")"""
 	return null

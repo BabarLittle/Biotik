@@ -1,0 +1,50 @@
+{
+	"1":{
+		"name": "GROUND",
+		"global_rate": 20,
+		"biomons":{
+			"1": {
+				"day_rate": 1,
+				"night_rate": 1,
+				"lvl_min": 7,
+				"lvl_max": 10,
+			}
+		}
+	},
+	"2":{
+		"name": "TREE",
+		"global_rate": 5,
+		"biomons":{
+			"1": {
+				"day_rate": 1,
+				"night_rate": 1,
+				"lvl_min": 7,
+				"lvl_max": 10,
+			}
+		}
+	},
+	"3":{
+		"name": "WATER",
+		"global_rate": 5,
+		"biomons":{
+			"1": {
+				"day_rate": 1,
+				"night_rate": 1,
+				"lvl_min": 7,
+				"lvl_max": 10,
+			}
+		}
+	},
+	"4":{
+		"name": "FISHING",
+		"global_rate": 5,
+		"biomons":{
+			"1": {
+				"day_rate": 1,
+				"night_rate": 1,
+				"lvl_min": 7,
+				"lvl_max": 10,
+			}
+		}
+	}
+}

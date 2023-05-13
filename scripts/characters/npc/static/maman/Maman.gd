@@ -1,13 +1,10 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+onready var name_text = get_node("LbName")
+onready var action_text = get_node("LbAction")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_node("NPC NAME").visible = false
-	get_node("Parler").visible = false
+	name_text.visible = false
+	action_text.visible = false
 

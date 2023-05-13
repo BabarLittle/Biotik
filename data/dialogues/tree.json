@@ -1,0 +1,4 @@
+[
+	{"type": "text"},
+	{"title": "Action", "type": "choice", "text": "Voulez-vous secouer l'arbre ?", "target":"YesNoChoice"},
+]

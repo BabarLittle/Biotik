@@ -1,12 +1,16 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=45 format=2]
 
 [ext_resource path="res://scenes/managers/object/Interactable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/characters/player/Player.gd" type="Script" id=2]
-[ext_resource path="res://assets/characters/player/player_shadow.png" type="Texture" id=3]
-[ext_resource path="res://assets/characters/player/Male_Player_spritesheet_B.png" type="Texture" id=4]
+[ext_resource path="res://assets/characters/player/effects/player_shadow.png" type="Texture" id=3]
+[ext_resource path="res://assets/characters/player/MC_01.png" type="Texture" id=4]
+[ext_resource path="res://scenes/ui/interface/dialogs/TriggeredDialogue.tscn" type="PackedScene" id=6]
 
-[sub_resource type="CapsuleShape2D" id=41]
-radius = 3.0
+[sub_resource type="StreamTexture" id=52]
+load_path = "res://.import/torch_light2.png-5001954531ceda870059c3f742390d4f.stex"
+
+[sub_resource type="CapsuleShape2D" id=51]
+radius = 4.0
 height = 4.0
 
 [sub_resource type="Animation" id=39]
@@ -19,11 +23,11 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
+"times": PoolRealArray( 0.4 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [  ],
-"method": "entered_door"
+"args": [ false ],
+"method": "set_control"
 } ]
 }
 tracks/1/type = "value"
@@ -52,7 +56,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 1 ]
+"values": [ 0 ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -84,7 +88,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 7 ]
+"values": [ 8 ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -100,131 +104,75 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 1,
-"values": [ 10 ]
+"values": [ 12 ]
 }
 
 [sub_resource type="Animation" id=26]
 resource_name = "TurnDown"
 length = 0.1
 step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "finished_turning"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ 0, 1 ]
+"values": [ 1, 0 ]
 }
 
 [sub_resource type="Animation" id=27]
 resource_name = "TurnLeft"
 length = 0.1
 step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "finished_turning"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ 3, 4 ]
+"values": [ 5, 4 ]
 }
 
 [sub_resource type="Animation" id=28]
 resource_name = "TurnRight"
 length = 0.1
 step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "finished_turning"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ 6, 7 ]
+"values": [ 9, 10 ]
 }
 
 [sub_resource type="Animation" id=29]
 resource_name = "TurnUp"
 length = 0.1
 step = 0.05
-tracks/0/type = "method"
-tracks/0/path = NodePath(".")
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.1 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "finished_turning"
-} ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
 "times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
+"transitions": PoolRealArray( 0, 0 ),
 "update": 1,
-"values": [ 9, 10 ]
+"values": [ 13, 12 ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -239,9 +187,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
 "update": 1,
-"values": [ 0, 1, 2, 1 ]
+"values": [ 1, 2, 3, 0 ]
 }
 
 [sub_resource type="Animation" id=9]
@@ -256,9 +204,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
 "update": 1,
-"values": [ 3, 4, 5, 4 ]
+"values": [ 5, 6, 7, 4 ]
 }
 
 [sub_resource type="Animation" id=10]
@@ -273,9 +221,9 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
 "update": 1,
-"values": [ 6, 7, 8, 7 ]
+"values": [ 9, 10, 11, 8 ]
 }
 
 [sub_resource type="Animation" id=11]
@@ -290,9 +238,26 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"transitions": PoolRealArray( 0, 0, 0, 0 ),
 "update": 1,
-"values": [ 9, 10, 11, 10 ]
+"values": [ 13, 14, 15, 12 ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "step_process"
+}, {
+"args": [  ],
+"method": "step_process"
+} ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=12]
@@ -380,7 +345,7 @@ blend_mode = 1
 
 [sub_resource type="AnimationNodeStateMachine" id=24]
 states/Idle/node = SubResource( 16 )
-states/Idle/position = Vector2( 315, 67 )
+states/Idle/position = Vector2( 243, 60 )
 states/Turn/node = SubResource( 46 )
 states/Turn/position = Vector2( 394, 157 )
 states/Walk/node = SubResource( 21 )
@@ -391,39 +356,44 @@ start_node = "Idle"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=25]
 
 [sub_resource type="CircleShape2D" id=40]
-radius = 16.0
+radius = 16.4924
 
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 30
+collision_mask = 126
 script = ExtResource( 2 )
 
 [node name="Shadow" type="Sprite" parent="."]
+visible = false
 scale = Vector2( 0.6875, 1 )
 texture = ExtResource( 3 )
 centered = false
 offset = Vector2( 4, 2 )
 
+[node name="TorchLight" type="Light2D" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( -0.158375, -8.18686 )
+rotation = 1.5708
+scale = Vector2( 0.8, 0.4 )
+enabled = false
+texture = SubResource( 52 )
+offset = Vector2( 121.274, -0.395966 )
+color = Color( 0.694118, 0.631373, 0.345098, 1 )
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 5
+shadow_filter_smooth = 13.9
+
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -6, -13 )
-scale = Vector2( 0.45, 0.45 )
+position = Vector2( -16, -29 )
 texture = ExtResource( 4 )
 centered = false
-hframes = 3
+hframes = 4
 vframes = 4
-frame = 1
-
-[node name="MaleSpritesheet" type="Sprite" parent="Sprite"]
-position = Vector2( 8, 20 )
-centered = false
-offset = Vector2( 0, -4 )
-hframes = 3
-vframes = 3
-frame = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 8, 12 )
+position = Vector2( -0.241283, -1 )
 rotation = 1.5708
-shape = SubResource( 41 )
+shape = SubResource( 51 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Disapear = SubResource( 39 )
@@ -452,26 +422,27 @@ parameters/Walk/blend_position = Vector2( 0, -1 )
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 
-[node name="BlockingRayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 8.33333, 8.33333 )
-cast_to = Vector2( 0, 6 )
-collision_mask = 6
-
-[node name="LedgeRayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 8.33333, 8.33333 )
-cast_to = Vector2( 0, 6 )
-collision_mask = 4
-
-[node name="DoorRayCast2D" type="RayCast2D" parent="."]
-position = Vector2( 8.33333, 8.33333 )
-cast_to = Vector2( 0, 6 )
-collision_mask = 8
-collide_with_areas = true
-collide_with_bodies = false
+[node name="InteractRayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0, -2 )
+rotation = 0.0013409
+enabled = true
+cast_to = Vector2( 18, 0 )
+collision_mask = 18
 
 [node name="Interactable" parent="." instance=ExtResource( 1 )]
-position = Vector2( 8, 8 )
+visible = false
+position = Vector2( -0.241283, -5.8 )
+collision_mask = 2147483775
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
-position = Vector2( 1, -2 )
+position = Vector2( 0, -2 )
 shape = SubResource( 40 )
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="TriggeredDialogue" parent="." instance=ExtResource( 6 )]
+visible = false
+margin_left = -32.2413
+margin_top = -47.0
+margin_right = 31.7587
+margin_bottom = -15.0

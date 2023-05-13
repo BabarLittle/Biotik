@@ -20,7 +20,7 @@ signal SignalSceneChanging # mandatory for the scene manager to work properly
 
 # Set up variables
 var scene_parameters = {} # mandatory dictionnary to pass parameters between scenes
-var next_scene = null # Next scene of type String
+#var next_scene = null # Next scene of type String
 
 """=====
 Function load_scene
@@ -65,8 +65,3 @@ func exit_scene(next_scene_path: String):
 
 func _pack_scene():
 	pass
-"""
-func _unhandled_input(event):
-	if event.is_action_pressed("menu"):
-		emit_signal("SignalSceneChanging", "menu")
-"""

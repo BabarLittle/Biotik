@@ -76,7 +76,7 @@ func gather_current_game_data():
 			"save_key": current_game_save_key,
 			"player_name": StoryManager.get_player_name(),
 			"player_title": StoryManager.get_player_title(),
-			"time_played": Utils.get_scene_manager().get_time_played(),
+			"time_played": Utils.get_game_timer().get_time_played(),
 			"current_scene_name": Utils.get_scene_manager().get_current_scene_name(),
 			"biomons_seen": PartyManager.get_nb_biomons_seen(),
 			"biomons_captured": PartyManager.get_nb_biomons_captured(),

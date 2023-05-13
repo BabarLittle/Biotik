@@ -12,10 +12,12 @@ var base_scale
 # Set up variables
 export var game_id: int = 0
 export(bool) var first_button = false
+var just_pressed = false
 
 func _ready():
-	connect("SignalButtonGamePressed", get_parent().get_parent(), "load_selected_game")
+	assert(connect("SignalButtonGamePressed", get_parent().get_parent(), "load_selected_game") == 0, self.name + " failed to connect to '" + get_parent().get_parent().name)
 	base_scale = rect_scale
+	just_pressed = false
 	if first_button:
 		grab_focus()
 	
@@ -38,6 +40,7 @@ func set_button_informations(game_informations):
 		$EmptySlot.visible = true
 
 func _on_TextureButton_pressed():
+	just_pressed = true
 	emit_signal("SignalButtonGamePressed", game_id)
 	$AudioStreamPlayer.stream = load("res://assets/audio/sfx/013_Confirm_03.wav")
 	$AudioStreamPlayer.play()
@@ -56,7 +59,8 @@ func _on_TextureButton_focus_entered():
 
 
 func _on_TextureButton_focus_exited():
-	$Tween.interpolate_property(self, "rect_scale",
-		self.rect_scale, base_scale, SCALING_TIME,
-		Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
-	$Tween.start()
+	if !just_pressed:
+		$Tween.interpolate_property(self, "rect_scale",
+			self.rect_scale, base_scale, SCALING_TIME,
+			Tween.TRANS_QUINT, Tween.EASE_IN_OUT)
+		$Tween.start()

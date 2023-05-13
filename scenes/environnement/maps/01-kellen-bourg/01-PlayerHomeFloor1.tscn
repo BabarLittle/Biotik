@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/world/buildings/pallet town/player_home_floor_1.png" type="Texture" id=1]
 [ext_resource path="res://assets/world/buildings/pallet town/mat.png" type="Texture" id=2]
@@ -22,8 +22,17 @@ extents = Vector2( 88, 8 )
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 14 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 31.5, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 7.5, 12 )
+
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 20, 6.5 )
+extents = Vector2( 17, 6.5 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 20, 3.25 )
 
 [node name="PlayerHomeFloor1" type="Node2D"]
 position = Vector2( -166, -145 )
@@ -80,21 +89,33 @@ shape = SubResource( 4 )
 position = Vector2( 272, 192 )
 shape = SubResource( 5 )
 
+[node name="stuff" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 207.5, 142 )
+shape = SubResource( 7 )
+
+[node name="stuff2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 265, 139 )
+shape = SubResource( 8 )
+
 [node name="stairs" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 354, 130.5 )
+position = Vector2( 351, 130.5 )
 shape = SubResource( 6 )
+
+[node name="stairs2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 356, 164.25 )
+shape = SubResource( 9 )
 
 [node name="behind_door" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2( 269, 272 )
 shape = SubResource( 6 )
 
 [node name="Mom" parent="StaticBody2D" instance=ExtResource( 5 )]
-position = Vector2( 176, 144 )
+position = Vector2( 249, 125 )
 
 [node name="YSort" type="YSort" parent="."]
 
 [node name="Player" parent="YSort" instance=ExtResource( 4 )]
-position = Vector2( 300, 190 )
+position = Vector2( 244, 191 )
 
 [node name="Sortie" parent="." instance=ExtResource( 3 )]
 modulate = Color( 0.156863, 0.184314, 0.870588, 1 )

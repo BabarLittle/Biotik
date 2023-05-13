@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/audio/environnement/sfx/bush_sound.mp3" type="AudioStream" id=1]
+[ext_resource path="res://scripts/environnement/ressources/bridge_wood_2x2.gd" type="Script" id=2]
+[ext_resource path="res://assets/maps/bridges/bridge_wood_2x2.png" type="Texture" id=3]
+
+[sub_resource type="PhysicsMaterial" id=2]
+friction = 1.5
+rough = true
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 14.5, 0.999998 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15, 1.00001 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 0.999999, 16.5 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 1, 15 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10.25, 18 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 17.5, 12.5 )
+
+[node name="BridgeWood2x2" type="StaticBody2D"]
+light_mask = 3
+collision_layer = 64
+collision_mask = 65
+physics_material_override = SubResource( 2 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 1.00002, 28 )
+z_as_relative = false
+texture = ExtResource( 3 )
+centered = false
+offset = Vector2( -16, -26 )
+hframes = 2
+
+[node name="LeftCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( -15, 17.5 )
+rotation = 1.5708
+shape = SubResource( 3 )
+
+[node name="RightCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 17, 18 )
+rotation = 1.5708
+shape = SubResource( 4 )
+
+[node name="TopCollider" type="CollisionShape2D" parent="."]
+visible = false
+light_mask = 3
+position = Vector2( 0.500019, 2 )
+rotation = 1.5708
+shape = SubResource( 5 )
+
+[node name="BotCollider" type="CollisionShape2D" parent="."]
+light_mask = 3
+position = Vector2( 1.00001, 34 )
+rotation = 1.5708
+shape = SubResource( 6 )
+
+[node name="SfxPlayer" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 1.00002, 28 )
+stream = ExtResource( 1 )
+volume_db = -30.529
+attenuation = 0.554785
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 1.00002, 28 )
+collision_layer = 64
+collision_mask = 65
+
+[node name="AreaH" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -8.14498e-06, -10.75 )
+rotation = 1.5708
+shape = SubResource( 7 )
+
+[node name="AreaV" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -0.500002, -10.5 )
+rotation = 1.5708
+shape = SubResource( 8 )
