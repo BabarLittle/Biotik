@@ -7,6 +7,9 @@ var biomons_dictionary:Dictionary = {}
 var container_dictionary:Dictionary = {}
 var biomons_collection_status:Dictionary = {}
 
+var temp_biomon_key = ''
+var temp_container_key = ''
+
 func load_party_manager():
 	load_biomons_dictionary()
 	load_container_dictionary()
@@ -29,8 +32,9 @@ func add_biomon_to_location():
 func switch_biomons():
 	pass
 
-func release_biomon():
-	pass
+func release_biomon(unique_key):
+	Utils.get_dialogue_manager().submit_dialogue(self, 'biomon_release')
+	temp_biomon_key = unique_key
 
 func get_biomon_from_party(_slot:int = 1):
 	pass
@@ -63,7 +67,14 @@ func saving_game_data():
 	}
 	return saved_dictionary
 	
-func loading_game_data(game_dictionnary):
-	biomons_collection_status = game_dictionnary.biomons_collection_status
-	biomons_dictionary = game_dictionnary.biomons_dictionary
-	container_dictionary = game_dictionnary.container_dictionary
+func loading_game_data(game_dictionary):
+	biomons_collection_status = game_dictionary.biomons_collection_status
+	biomons_dictionary = game_dictionary.biomons_dictionary
+	container_dictionary = game_dictionary.container_dictionary
+
+func dialogue_feedback(feedback):
+	if feedback == "true":
+		Utils.get_dialogue_manager().submit_dialogue(self, 'biomon_releasing')
+		container_dictionary.temp_container_key.clear(temp_biomon_key)
+	elif feedback == "false":
+		Utils.get_dialogue_manager().close_dialogue()
