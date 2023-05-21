@@ -15,6 +15,7 @@ func _pack_scene():
 	scene_parameters.spawn_location = location
 	scene_parameters.spawn_direction = direction
 	scene_parameters.door_id = null
+	print(scene_parameters)
 
 
 """ CALLS FROM BUTTONS HERE """

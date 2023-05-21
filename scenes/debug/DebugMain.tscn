@@ -64,6 +64,8 @@ focus_neighbour_bottom = NodePath("../02 - Tissiere")
 text = "TEST MAP !"
 id_button = "res://scenes/environnement/maps/BaseMap.tscn"
 text_button = "TEST MAP !"
+PlayerPosition = Vector2( 700, 275 )
+exiting_direction = 2
 first_button = true
 
 [node name="02 - Tissiere" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
@@ -75,7 +77,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer3/BASE MAP")
 focus_neighbour_top = NodePath("../01-KellenB")
 focus_neighbour_right = NodePath("../../VBoxContainer2/ButtonUI2")
 focus_neighbour_bottom = NodePath("../ButtonUI3")
-text = "empty"
 
 [node name="ButtonUI3" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 34.0
@@ -86,7 +87,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer3/Load")
 focus_neighbour_top = NodePath("../02 - Tissiere")
 focus_neighbour_right = NodePath("../../VBoxContainer2/ButtonUI3")
 focus_neighbour_bottom = NodePath("../ButtonUI4")
-text = "empty"
 
 [node name="ButtonUI4" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 51.0
@@ -97,7 +97,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer3/Show result")
 focus_neighbour_top = NodePath("../ButtonUI3")
 focus_neighbour_right = NodePath("../../VBoxContainer2/ButtonUI3")
 focus_neighbour_bottom = NodePath("../ButtonUI5")
-text = "empty"
 
 [node name="ButtonUI5" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 68.0
@@ -108,7 +107,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer3/EncounterGen")
 focus_neighbour_top = NodePath("../ButtonUI4")
 focus_neighbour_right = NodePath("../../VBoxContainer2/ButtonUI5")
 focus_neighbour_bottom = NodePath("../ButtonUI6")
-text = "empty"
 
 [node name="ButtonUI6" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 85.0
@@ -119,7 +117,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer3/BioRand")
 focus_neighbour_top = NodePath("../ButtonUI5")
 focus_neighbour_right = NodePath("../../VBoxContainer2/ButtonUI6")
 focus_neighbour_bottom = NodePath("../01-KellenB")
-text = "empty"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 57.0
@@ -135,7 +132,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer/01-KellenB")
 focus_neighbour_top = NodePath("../ButtonUI6")
 focus_neighbour_right = NodePath("../../VBoxContainer3/ButtonUI")
 focus_neighbour_bottom = NodePath("../ButtonUI2")
-text = "empty"
 
 [node name="ButtonUI2" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
 margin_top = 17.0
@@ -146,7 +142,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer/02 - Tissiere")
 focus_neighbour_top = NodePath("../ButtonUI")
 focus_neighbour_right = NodePath("../../VBoxContainer3/BASE MAP")
 focus_neighbour_bottom = NodePath("../ButtonUI3")
-text = "empty"
 
 [node name="ButtonUI3" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
 margin_top = 34.0
@@ -157,7 +152,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer/ButtonUI3")
 focus_neighbour_top = NodePath("../ButtonUI2")
 focus_neighbour_right = NodePath("../../VBoxContainer3/Load")
 focus_neighbour_bottom = NodePath("../ButtonUI4")
-text = "empty"
 
 [node name="ButtonUI4" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
 margin_top = 51.0
@@ -168,7 +162,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer/ButtonUI4")
 focus_neighbour_top = NodePath("../ButtonUI3")
 focus_neighbour_right = NodePath("../../VBoxContainer3/Show result")
 focus_neighbour_bottom = NodePath("../ButtonUI5")
-text = "empty"
 
 [node name="ButtonUI5" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
 margin_top = 68.0
@@ -179,7 +172,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer/ButtonUI5")
 focus_neighbour_top = NodePath("../ButtonUI4")
 focus_neighbour_right = NodePath("../../VBoxContainer3/EncounterGen")
 focus_neighbour_bottom = NodePath("../ButtonUI6")
-text = "empty"
 
 [node name="ButtonUI6" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
 margin_top = 85.0
@@ -190,7 +182,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer/ButtonUI6")
 focus_neighbour_top = NodePath("../ButtonUI5")
 focus_neighbour_right = NodePath("../../VBoxContainer3/BioRand")
 focus_neighbour_bottom = NodePath("../ButtonUI")
-text = "empty"
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 92.0
@@ -206,7 +197,6 @@ focus_neighbour_left = NodePath("../../VBoxContainer2/ButtonUI")
 focus_neighbour_top = NodePath("../BioRand")
 focus_neighbour_right = NodePath("../../VBoxContainer/01-KellenB")
 focus_neighbour_bottom = NodePath("../BASE MAP")
-text = "empty"
 
 [node name="BASE MAP" parent="Control/HBoxContainer/VBoxContainer3" instance=ExtResource( 5 )]
 margin_top = 17.0
@@ -221,7 +211,6 @@ text = "MAP TEST"
 id_button = "res://scenes/environnement/maps/BaseMap.tscn"
 text_button = "MAP TEST"
 PlayerPosition = Vector2( 709, 275 )
-PlayerDirection = Vector2( -1, 0 )
 
 [node name="Load" parent="Control/HBoxContainer/VBoxContainer3" instance=ExtResource( 5 )]
 margin_top = 34.0

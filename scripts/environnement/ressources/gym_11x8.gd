@@ -10,10 +10,10 @@ func _body_exited_script(_body):
 	
 func _specifics_parameters():
 	if object_sprite.frame % 3 == 1:
-		print("Spawn front needed !")
 		var spawn_front = load(GYM_FRONT_PATH).instance()
 		#get_parent().call_deferred("add_child", spawn_front)
 		spawn_front.set_parameters(object_sprite.frame/3, position)
+		print("Spawn front needed for gym_11x8;" + self.name + " ! Adding the correct front...")
 
 func _interact_action():
 	pass

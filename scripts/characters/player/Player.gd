@@ -18,8 +18,9 @@ onready var anim_state = anim_tree.get("parameters/playback")
 
 
 onready var shadow = $Shadow
-onready var torch = $TorchLight
-onready var ray_cast = $InteractRayCast2D
+onready var toolbox = $Toolbox
+onready var torch = $Toolbox/TorchLight
+onready var ray_cast = $Toolbox/InteractRayCast2D
 
 
 enum PlayerState { 
@@ -51,6 +52,8 @@ func set_spawn(location: Vector2, direction: Vector2):
 	anim_tree.set("parameters/Idle/blend_position", direction)
 	anim_tree.set("parameters/Walk/blend_position", direction)
 	anim_tree.set("parameters/Turn/blend_position", direction)
+	last_known_direction = direction
+	toolbox.turn(last_known_direction)
 	position = location
 
 
@@ -65,7 +68,7 @@ func _physics_process(delta):
 	if input_vector != Vector2.ZERO:
 		is_moving = true
 		last_known_direction = input_vector
-		turn_objects(input_vector)
+		toolbox.turn(input_vector)
 		
 		#torch.rotation_degrees = rad2deg(input_vector.angle())
 		anim_tree.set("parameters/Idle/blend_position", input_vector)
@@ -82,24 +85,6 @@ func _physics_process(delta):
 	
 func get_player_direction():
 	return last_known_direction
-
-func turn_objects(new_angle):
-	# Torch
-	var old_rotation = torch.rotation_degrees
-	var new_rotation = rad2deg(new_angle.angle())
-	var rotating_value = fix_torch_rotation(new_rotation - old_rotation)
-	
-	$Tween.interpolate_property(torch, "rotation_degrees",
-		old_rotation, old_rotation+rotating_value, 0.2,
-		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
-	$Tween.start()
-	
-	ray_cast.rotation_degrees = new_rotation
-
-func fix_torch_rotation(angle):
-	if abs(angle) > 180:
-		angle = wrapi(angle -360,-180,180)
-	return angle
 
 func toggle_torchlight(state=null):
 	if !state == null:

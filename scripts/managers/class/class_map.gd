@@ -31,7 +31,10 @@ func load_scene(inherited_parameters: Dictionary):
 	var player_spawn = [Vector2.ZERO, Vector2.ZERO]
 
 	player_spawn = calculate_player_spawn()
-	player.set_spawn(player_spawn[0]+player_spawn[1]*door_vector, player_spawn[1]*door_vector)
+	if scene_parameters.door_id == null:
+		player.set_spawn(scene_parameters.spawn_location, scene_parameters.spawn_direction)
+	else:
+		player.set_spawn(player_spawn[0]+player_spawn[1]*door_vector, player_spawn[1]*door_vector)
 	
 	if encounter_file_name != "":
 		EncounterManager.load_encounter_dictionary(encounter_file_name)

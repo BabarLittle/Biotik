@@ -17,13 +17,16 @@ extends Button
 # Set up signals
 signal SignalButtonPressed
 
+enum ExitingDirection {UP, DOWN, LEFT, RIGHT}
+
 # Set up variables
 export(String, FILE) var id_button # Signal wich button is being pressed
 export(String) var text_button = "empty" setget set_text # Text of the button
 export(Vector2) var PlayerPosition
-export(Vector2) var PlayerDirection
+export(ExitingDirection) var exiting_direction = ExitingDirection.DOWN
 export var exit_button: bool = false # change the color of the button
 export var first_button: bool = false
+var PlayerDirection = Vector2.DOWN
 
 """=====
 Function _ready():
@@ -38,6 +41,16 @@ func _ready():
 	var temp_parent = get_parent().get_parent().get_parent().get_parent()
 	assert(connect("SignalButtonPressed", temp_parent, "button_pressed") == 0, "ERR:biodex_infos/_ready> Signal 'SignalButtonPressed' couild not connect to '%s%%'" % get_parent().name)
 	$AudioStreamPlayer.volume_db = -20
+	
+	match exiting_direction:
+		ExitingDirection.UP:
+			PlayerDirection = Vector2.UP
+		ExitingDirection.DOWN:
+			PlayerDirection = Vector2.DOWN
+		ExitingDirection.LEFT:
+			PlayerDirection = Vector2.LEFT
+		ExitingDirection.RIGHT:
+			PlayerDirection = Vector2.RIGHT
 	
 """=====
 Function _on_ButtonUI_pressed():
