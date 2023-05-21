@@ -7,19 +7,21 @@ const DIALOG_DATA_PATH = "res://data/dialogues/"
 var player = null
 var dialogue_sponsor
 var dialogue_active = false
+var target_func = ""
 
 func _ready():
 	set_visible(false)
 	dialogue_active = false
 
-func submit_dialogue(sponsor, dialogue_key):
+func submit_dialogue(sponsor, dialogue_key, target_feedback="dialogue_feedback"):
 	if dialogue_active:
 		return
 	
 	dialogue_active = true
 	
+	target_func = target_feedback
 	dialogue_sponsor = sponsor
-	assert(connect("SignalDialogueFeedback", dialogue_sponsor, "dialogue_feedback") == 0, "Error, couldnt connect to target '" + dialogue_sponsor.filename + '"')
+	assert(connect("SignalDialogueFeedback", dialogue_sponsor, target_func) == 0, "Error, couldnt connect to target '" + dialogue_sponsor.filename + '"')
 	player = Utils.get_player()
 	player.set_control(false)
 	load_dialogue(dialogue_key)
@@ -63,7 +65,7 @@ func load_dialogue(json_file):
 			$ChoiceBox.start_choice(dialogue_array)
 
 func close_dialogue():
-	disconnect("SignalDialogueFeedback", dialogue_sponsor, "dialogue_feedback")
+	disconnect("SignalDialogueFeedback", dialogue_sponsor, target_func)
 	dialogue_active = false
 	player.set_control(true)
 	set_visible(false)

@@ -1,0 +1,4 @@
+[
+	{"type": "text"},
+	{"title": "Relâcher", "type": "choice", "text": "Êtes-vous sûr de vouloir relâcher ce biomon ?", "target":"YesNoChoice"},
+]
