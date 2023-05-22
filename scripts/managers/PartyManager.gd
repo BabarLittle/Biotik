@@ -1,12 +1,21 @@
 extends Node2D
 
-var biodex_state = {}
 var boxes = ClassBoxes
-
 
 
 func _ready():
 	pass
+
+
+func new_biomon():
+	pass
+	
+
+func release_biomon():
+	pass
+	
+
+
 
 
 func party_array_to_node(array_party) -> void:
@@ -23,16 +32,15 @@ func party_node_to_array() -> Array:
 	return party
 
 
-func load_game(game_dictionary) -> void:
-	biodex_state = game_dictionary.biodex_state
+func loading_game_data(game_dictionary) -> void:
 	party_array_to_node(game_dictionary.load_party)
+	boxes = game_dictionary.boxes
 
 
-func save_game() -> Dictionary:
+func saving_game_data() -> Dictionary:
 	var save_dictionary = {}
 	
 	save_dictionary.party = party_node_to_array()
 	save_dictionary.boxes = boxes
-	save_dictionary.biodex_state = biodex_state
 	
 	return save_dictionary

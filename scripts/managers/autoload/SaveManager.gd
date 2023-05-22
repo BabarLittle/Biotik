@@ -78,13 +78,14 @@ func gather_current_game_data():
 			"player_title": StoryManager.get_player_title(),
 			"time_played": Utils.get_game_timer().get_time_played(),
 			"current_scene_name": Utils.get_scene_manager().get_current_scene_name(),
-			"biomons_seen": PartyManager.get_nb_biomons_seen(),
-			"biomons_captured": PartyManager.get_nb_biomons_captured(),
+			"biomons_seen": BiodexManager.get_nb_biomons_seen(),
+			"biomons_captured": BiodexManager.get_nb_biomons_captured(),
 			"picture_path": Utils.get_player().get_node("Sprite").texture.get_load_path(),
 			"badges": StoryManager.get_badges_array()
 		},
 		"SceneManager": Utils.get_scene_manager().saving_game_data(),
-		"PartyManager": PartyManager.saving_game_data(),
+		"BiodexManager": BiodexManager.saving_game_data(),
+		"PartyManager": Utils.get_party_manager().saving_game_data(),
 		"StoryManager": StoryManager.saving_game_data()
 	}
 	return current_game_dictionnary
@@ -99,6 +100,7 @@ func loading_game(game_key):
 	else:
 		Utils.get_scene_manager().loading_game_data(game_data.SceneManager)
 		StoryManager.loading_game_data(game_data.StoryManager)
-		PartyManager.loading_game_data(game_data.PartyManager)
+		BiodexManager.loading_game_data(game_data.BiodexManager)
+		Utils.get_party_manager().loading_game_data(game_data.PartyManager)
 		next_scene_path = game_data.SceneManager.current_scene
 	Utils.get_scene_manager().handle_scene_changing(next_scene_path)

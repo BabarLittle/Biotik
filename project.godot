@@ -94,7 +94,7 @@ config/icon="res://icon.png"
 
 Utils="*res://scripts/managers/autoload/Utils.gd"
 DataRead="*res://scripts/managers/autoload/DataRead.gd"
-PartyManager="*res://scripts/managers/autoload/PartyManager.gd"
+BiodexManager="*res://scripts/managers/autoload/BiodexManager.gd"
 SaveManager="*res://scripts/managers/autoload/SaveManager.gd"
 StoryManager="*res://scripts/managers/autoload/StoryManager.gd"
 SettingsManager="*res://scripts/managers/autoload/SettingsManager.gd"

@@ -13,7 +13,7 @@ const GENE_QUOTA_MAX = 1500
 
 # Set up variables
 #var unique_key:String = "" # Unique key of the biomon in the save folder
-var species_key:String = "1" # wich form
+var species_key:String = "1"
 var species:String = "" #
 var gender:String = ""
 var datamon:Dictionary = {}
@@ -92,9 +92,17 @@ func on_level_up():
 func calculate_stats():
 	for key in stats.keys():
 		if key == "hp":
-			stats[key] = floor(0.01 * (2 * DataRead.get_base_stats_dictionary(species_key)[key] + genes[key] * level)) + 10 + level
+			stats.key = (
+				floor(0.01 
+				* (2 * DataRead.get_base_stats_dictionary(species_key)[key] + genes[key] * level)) 
+				+ 10 + level
+				)
 		else:
-			stats[key] = floor(0.01 * (2 * DataRead.get_base_stats_dictionary(species_key)[key] + genes[key] * level) + 5) * DataRead.get_nature_dictionary(nature)[key]
+			stats.key = (
+				floor(0.01 
+				* (2 * DataRead.get_base_stats_dictionary(species_key)[key] 
+				+ genes[key] * level) + 5) 
+				* DataRead.get_nature_dictionary(nature)[key])
 
 func load_sprite(target_node, side, mini):
 	target_node.select_sprite(species_key, false, shiny, side, mini)
