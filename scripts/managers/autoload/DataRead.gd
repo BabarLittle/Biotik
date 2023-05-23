@@ -82,6 +82,13 @@ func _ready():
 	database[natures] = natures_dict
 
 
+func get_id_from_name(name_to_seek):
+	for key in database.biodex.keys():
+		if database.biodex.key.name == name_to_seek:
+			return key
+	
+	return null
+
 """=====
 Function next_id()
 	-Returns the next available id after "id" in the dictionnary "data" with a jump of "jump"

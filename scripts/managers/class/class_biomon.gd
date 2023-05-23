@@ -1,15 +1,25 @@
+tool
 """=============================================
 File: class_biomon.gd
 """
+extends Node
 
 class_name ClassBiomon
 
 # Set up signals
 
+enum GenesPreSets {
+	BALANCED, FAST_PHYSICAL, FAST_SPECIAL, BULK_PHYSICAL,
+	BULK_SPECIAL, DEFENSIVE_BALANCE, DEFENSIVE_PHYSICAL, 
+	DEFENSIVE_SPECIAL, SUPPORT, RANDOM 
+	}
+	
+enum GenesTypes {LOW, MID, HIGH}
+
 # Set up constants
 const GENE_SAVAGE_MAX = 30
 const GENE_MAX = 60
-const GENE_QUOTA_MAX = 1500
+const GENE_QUOTA_MAX = 270
 
 # Set up variables
 #var unique_key:String = "" # Unique key of the biomon in the save folder
@@ -17,11 +27,15 @@ var species_key:String = "1"
 var species:String = "" #
 var gender:String = ""
 var datamon:Dictionary = {}
-var name:String = ""
+var biomon_name:String = name
 var shiny:bool = false # shiny or not
 
+export (String) var biomon = ''
+export (GenesPreSets) var genes_set = GenesPreSets.RANDOM
+export (GenesTypes) var genes_type = GenesTypes.MID
+
 var affection:int = 0
-var level:int = 1
+export (int, 1, 100) var level:int = 5
 var xp:int = 0
 
 var stats:Dictionary = {
@@ -38,6 +52,9 @@ var nature:String = "Solitaire"
 var learnset:Dictionary = {}
 
 func _init(new_biomon_dict):
+	if biomon != '':
+		new_biomon_dict.species_key = DataRead.get_id_from_name(biomon)
+	
 	assert("species_key" in new_biomon_dict.keys() == true, "No species provided !")
 	
 	assert(new_biomon_dict.species_keys in DataRead.database.biodex.keys() == true,  "Inexistant species '" + new_biomon_dict.species_keys + "' !")
@@ -48,7 +65,7 @@ func _init(new_biomon_dict):
 	if "genes" in new_biomon_dict.keys():
 		genes = new_biomon_dict.genes
 	else:
-		genes = generate_genes()
+		generate_genes()
 	
 	if "nature" in new_biomon_dict.keys():
 		nature = new_biomon_dict.nature
@@ -58,10 +75,10 @@ func _init(new_biomon_dict):
 	calculate_stats()
 	
 	if !"species" in datamon.keys():
-		datamon.species = DataRead.database.biodex[datamon.species_key].name
+		datamon.species = DataRead.database.biodex[datamon.species_key].biomon_name
 		
-	if !"name" in datamon.keys():
-		name = species
+	if !"biomon_name" in datamon.keys():
+		biomon_name = species
 		
 	if !"gender" in datamon.keys():
 		set_gender()
@@ -72,7 +89,7 @@ func _init(new_biomon_dict):
 		generate_moveset()
 	
 	print("\n =====")
-	print("Biomon '" + name + "' (" + species + ") created !")
+	print("Biomon '" + biomon_name + "' (" + species + ") created !")
 	print("Level : " + str(level))
 	print("Genes : " + str(genes))
 	print("Nature : " + nature)
@@ -80,8 +97,8 @@ func _init(new_biomon_dict):
 	print("Gender : " + gender)
 
 
-func change_name(new_name):
-	name = new_name
+func change_biomon_name(new_name):
+	biomon_name = new_name
 
 func xp_gain(value):
 	pass
@@ -108,12 +125,84 @@ func load_sprite(target_node, side, mini):
 	target_node.select_sprite(species_key, false, shiny, side, mini)
 
 func generate_genes():
-	var rand_gene = RandomNumberGenerator.new()
-	rand_gene.randomize
-	current_genes_total = 0
-	for key in genes.keys():
-		genes[key] = rand_gene.randi_range(0, GENE_SAVAGE_MAX)
-		current_genes_total += genes[key]
+	var genes_base = 0
+	var genes_increment = GENE_SAVAGE_MAX % 2 
+	match genes_type:
+		GenesTypes.LOW:
+			genes_base = GENE_SAVAGE_MAX % 2
+		GenesTypes.MID:
+			genes_base = 1 * GENE_SAVAGE_MAX
+		GenesTypes.HIGH:
+			genes_base = 2 * GENE_SAVAGE_MAX
+		
+	match genes_set:
+		GenesPreSets.RANDOM:
+			var rand_gene = RandomNumberGenerator.new()
+			rand_gene.randomize
+			current_genes_total = 0
+			for key in genes.keys():
+				genes[key] = rand_gene.randi_range(0, GENE_SAVAGE_MAX)
+				current_genes_total += genes[key]
+		GenesPreSets.BALANCED:
+			for key in genes.keys():
+				genes.key = genes_base
+		GenesPreSets.BULK_PHYSICAL:
+			genes.hp = genes_base + genes_increment
+			genes.att = genes_base + genes_increment
+			genes.def = genes_base
+			genes.spa = genes_base - genes_increment
+			genes.spd = genes_base
+			genes.vit = genes_base - genes_increment
+		GenesPreSets.BULK_SPECIAL:
+			genes.hp = genes_base + genes_increment
+			genes.att = genes_base - genes_increment
+			genes.def = genes_base
+			genes.spa = genes_base + genes_increment
+			genes.spd = genes_base
+			genes.vit = genes_base - genes_increment
+		GenesPreSets.DEFENSIVE_BALANCE:
+			genes.hp = genes_base
+			genes.att = genes_base - genes_increment
+			genes.def = genes_base + genes_increment
+			genes.spa = genes_base - genes_increment
+			genes.spd = genes_base + genes_increment
+			genes.vit = genes_base
+		GenesPreSets.DEFENSIVE_PHYSICAL:
+			genes.hp = genes_base + genes_increment
+			genes.att = genes_base - genes_increment
+			genes.def = genes_base + genes_increment
+			genes.spa = genes_base - genes_increment
+			genes.spd = genes_base
+			genes.vit = genes_base
+		GenesPreSets.DEFENSIVE_SPECIAL:
+			genes.hp = genes_base + genes_increment
+			genes.att = genes_base - genes_increment
+			genes.def = genes_base
+			genes.spa = genes_base - genes_increment
+			genes.spd = genes_base + genes_increment
+			genes.vit = genes_base
+		GenesPreSets.FAST_PHYSICAL:
+			genes.hp = genes_base
+			genes.att = genes_base + genes_increment
+			genes.def = genes_base 
+			genes.spa = genes_base - genes_increment
+			genes.spd = genes_base - genes_increment
+			genes.vit = genes_base + genes_increment
+		GenesPreSets.FAST_SPECIAL:
+			genes.hp = genes_base
+			genes.att = genes_base - genes_increment
+			genes.def = genes_base - genes_increment 
+			genes.spa = genes_base + genes_increment
+			genes.spd = genes_base
+			genes.vit = genes_base + genes_increment
+		GenesPreSets.SUPPORT:
+			genes.hp = genes_base + genes_increment
+			genes.att = genes_base - genes_increment
+			genes.def = genes_base
+			genes.spa = genes_base - genes_increment
+			genes.spd = genes_base
+			genes.vit = genes_base + genes_increment
+			
 	
 func update_gene(stat, value):
 	if current_genes_total + value >= GENE_QUOTA_MAX:

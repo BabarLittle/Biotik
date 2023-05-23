@@ -16,8 +16,6 @@ func release_biomon():
 	
 
 
-
-
 func party_array_to_node(array_party) -> void:
 	for i in range(array_party.size()):
 		array_party[i].instance()
