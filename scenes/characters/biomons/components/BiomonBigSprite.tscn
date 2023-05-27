@@ -2383,12 +2383,14 @@ graph_offset = Vector2( -138.642, 143.166 )
 [sub_resource type="AnimationNodeStateMachinePlayback" id=206]
 
 [node name="Sprite" type="Sprite"]
-position = Vector2( 0.546045, 0 )
 texture = ExtResource( 1 )
 hframes = 4
 vframes = 3
+frame = 10
 region_rect = Rect2( 0, 0, 348, 288 )
 script = ExtResource( 2 )
+shiny = true
+sprite_state = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 reset_on_save = false
@@ -2430,6 +2432,5 @@ anims/mini = SubResource( 1 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
 root_motion_track = NodePath(".:offset")
 parameters/playback = SubResource( 206 )

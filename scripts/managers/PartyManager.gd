@@ -1,11 +1,10 @@
 extends Node2D
 
-var boxes = ClassBoxes
+var boxes = ClassBoxes.new()
 
 
 func _ready():
 	pass
-
 
 func new_biomon():
 	pass
@@ -15,6 +14,11 @@ func release_biomon():
 	pass
 	
 
+func get_box(id = null):
+	if id == null:
+		return boxes.boxes
+	else:
+		return boxes.boxes[id]
 
 func party_array_to_node(array_party) -> void:
 	for i in range(array_party.size()):

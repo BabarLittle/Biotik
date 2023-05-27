@@ -10,7 +10,7 @@ var current setget set_current, get_current
 
 func _init():
 	for i in range(MIN):
-		boxes.append(ClassBox.new())
+		boxes.append(ClassBox.new(i+1))
 	current = 0
 
 func get_box(id: int = 0):
@@ -20,7 +20,7 @@ func get_box(id: int = 0):
 		return null
 
 func new_box(first = null):
-	boxes.append(ClassBox.new())
+	boxes.append(ClassBox.new(boxes.size()))
 	boxes[-1].add_biomon(first)
 	return boxes.size()-1
 

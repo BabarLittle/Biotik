@@ -7,7 +7,8 @@ const BIOMONS_MAX = 20
 var name: String = ''
 var slots: Array = []
 
-func _init() -> void:
+func _init(id) -> void:
+	name = "New box " + str(id)
 	for i in range(BIOMONS_MAX):
 		slots.append(null)
 	

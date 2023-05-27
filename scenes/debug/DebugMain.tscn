@@ -71,6 +71,7 @@ id_button = "res://scenes/environnement/maps/BaseMap.tscn"
 text_button = "TEST MAP !"
 PlayerPosition = Vector2( 700, 275 )
 exiting_direction = 2
+first_button = true
 
 [node name="02 - Tissiere" parent="Control/HBoxContainer/VBoxContainer" instance=ExtResource( 5 )]
 margin_top = 18.0
@@ -119,7 +120,7 @@ margin_bottom = 99.0
 rect_scale = Vector2( 1, 1 )
 focus_neighbour_left = NodePath("../../VBoxContainer3/BioRand")
 focus_neighbour_top = NodePath("../ButtonUI5")
-focus_neighbour_right = NodePath("../../VBoxContainer2/ButtonUI6")
+focus_neighbour_right = NodePath("../../VBoxContainer2/TestParty")
 focus_neighbour_bottom = NodePath("../01-KellenB")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/HBoxContainer"]
@@ -135,7 +136,7 @@ margin_right = 55.0
 margin_bottom = 14.0
 rect_scale = Vector2( 1, 1 )
 focus_neighbour_left = NodePath("../../VBoxContainer/01-KellenB")
-focus_neighbour_top = NodePath("../ButtonUI6")
+focus_neighbour_top = NodePath("../TestParty")
 focus_neighbour_right = NodePath("../../VBoxContainer3/ButtonUI")
 focus_neighbour_bottom = NodePath("../ButtonUI2")
 
@@ -177,9 +178,9 @@ rect_scale = Vector2( 1, 1 )
 focus_neighbour_left = NodePath("../../VBoxContainer/ButtonUI5")
 focus_neighbour_top = NodePath("../ButtonUI4")
 focus_neighbour_right = NodePath("../../VBoxContainer3/EncounterGen")
-focus_neighbour_bottom = NodePath("../ButtonUI6")
+focus_neighbour_bottom = NodePath("../TestParty")
 
-[node name="ButtonUI6" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
+[node name="TestParty" parent="Control/HBoxContainer/VBoxContainer2" instance=ExtResource( 5 )]
 margin_top = 86.0
 margin_right = 55.0
 margin_bottom = 99.0
@@ -266,7 +267,7 @@ margin_top = 86.0
 margin_right = 57.0
 margin_bottom = 99.0
 rect_scale = Vector2( 1, 1 )
-focus_neighbour_left = NodePath("../../VBoxContainer2/ButtonUI6")
+focus_neighbour_left = NodePath("../../VBoxContainer2/TestParty")
 focus_neighbour_top = NodePath("../EncounterGen")
 focus_neighbour_right = NodePath("../../VBoxContainer/ButtonUI6")
 focus_neighbour_bottom = NodePath("../ButtonUI")

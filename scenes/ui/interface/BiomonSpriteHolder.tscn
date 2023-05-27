@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scenes/characters/biomons/components/BiomonBigSprite.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scripts/UI/interface/BiomonSpriteHolder.gd" type="Script" id=2]
-[ext_resource path="res://assets/characters/biomons/Thaliathos.png" type="Texture" id=3]
 [ext_resource path="res://assets/effects/CAPTURE.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
@@ -141,9 +140,10 @@ tracks/4/keys = {
 script = ExtResource( 2 )
 
 [node name="BiomonSprite" parent="." instance=ExtResource( 1 )]
+visible = false
 modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 0, 0 )
-texture = ExtResource( 3 )
+texture = null
 region_rect = Rect2( 0, 0, 100, 100 )
 
 [node name="BallAnimations" type="Sprite" parent="."]

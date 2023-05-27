@@ -2,7 +2,7 @@ tool
 """=============================================
 File: class_biomon.gd
 """
-extends Node
+extends Node2D
 
 class_name ClassBiomon
 
@@ -23,14 +23,14 @@ const GENE_QUOTA_MAX = 270
 
 # Set up variables
 #var unique_key:String = "" # Unique key of the biomon in the save folder
-var species_key:String = "1"
+var species_key:String = ""
 var species:String = "" #
 var gender:String = ""
 var datamon:Dictionary = {}
 var biomon_name:String = name
 var shiny:bool = false # shiny or not
 
-export (String) var biomon = ''
+export (String) var biomon = 'Thaly'
 export (GenesPreSets) var genes_set = GenesPreSets.RANDOM
 export (GenesTypes) var genes_type = GenesTypes.MID
 
@@ -51,11 +51,11 @@ var current_genes_total:int = 0
 var nature:String = "Solitaire"
 var learnset:Dictionary = {}
 
-func _init(new_biomon_dict):
+func _init(new_biomon_dict={}):
 	if biomon != '':
 		new_biomon_dict.species_key = DataRead.get_id_from_name(biomon)
 	
-	assert("species_key" in new_biomon_dict.keys() == true, "No species provided !")
+	assert("species_key" in new_biomon_dict.keys(), "No species provided !")
 	
 	assert(new_biomon_dict.species_keys in DataRead.database.biodex.keys() == true,  "Inexistant species '" + new_biomon_dict.species_keys + "' !")
 

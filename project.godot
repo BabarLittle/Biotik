@@ -24,7 +24,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://scripts/managers/class/class_battle_event.gd"
 }, {
-"base": "Node",
+"base": "Node2D",
 "class": "ClassBiomon",
 "language": "GDScript",
 "path": "res://scripts/managers/class/class_biomon.gd"
