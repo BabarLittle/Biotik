@@ -1,5 +1,7 @@
 extends Node2D
 
+const PARTY_MAX = 6
+
 var boxes = ClassBoxes.new()
 
 
@@ -22,7 +24,9 @@ func get_box(id = null):
 
 func party_array_to_node(array_party) -> void:
 	for i in range(array_party.size()):
-		array_party[i].instance()
+		if array_party[i] != null:
+			array_party[i].instance()
+			
 
 
 func party_node_to_array() -> Array:
@@ -30,6 +34,9 @@ func party_node_to_array() -> Array:
 	
 	for child in get_children():
 		party.append(child.get_biomon_object())
+		
+	while party.size() < PARTY_MAX:
+		party.append(null)
 	
 	return party
 

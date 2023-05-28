@@ -3,11 +3,18 @@ extends GridContainer
 var box
 
 """ Called when the scene manager load the scene """
-func load_current_box(box_id):
+func load_current_box(box_obj):
 	var i = 0
-	box = Utils.get_party_manager().get_box(box_id)
+	box = box_obj
 	
 	for child in get_children():
 		if not "Sprite" in child.name:
-			child.load_buton(box[i])
-			i += 1
+			if i >= box.size():
+				child.load_buton(null)
+			else:
+				child.load_buton(box[i])
+				i += 1
+
+
+func _on_CurrentBox_focus_exited():
+	print("Test") # Replace with function body.

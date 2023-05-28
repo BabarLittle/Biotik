@@ -1,14 +1,19 @@
 extends ClassScreen
 
+# Nodes
 var box_list = null
 var current_box = null
+var biodex_list = null
 
 """ Called when the scene manager load the scene """
 func _load_screen():	
-	box_list = $UI/MarginContainer/COLUMNS/BIOMONS/OptionButton
-	box_list.load_buttons()
+	box_list = get_node("%OptionButon")
 	current_box = get_node("%CurrentBox")
-	current_box.load_current_box(0)
+	biodex_list = get_node("%BiodexList")
+	
+	box_list.load_buttons()
+	current_box.load_current_box(Utils.get_party_manager().party_node_to_array())
+	biodex_list.load_biomon_list()
 
 """ Called when the scene manager exit the scene """
 func _pack_scene():

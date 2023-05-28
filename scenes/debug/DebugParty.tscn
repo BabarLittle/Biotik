@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://scripts/debug/DebugParty.gd" type="Script" id=1]
 [ext_resource path="res://assets/ressources/theme_debug.tres" type="Theme" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://scenes/debug/BiomonButon.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scripts/debug/DebugParty_ItemList.gd" type="Script" id=8]
 [ext_resource path="res://scripts/debug/DebugBiomonInfos.gd" type="Script" id=9]
+[ext_resource path="res://scenes/debug/OptionButton.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 11
@@ -197,37 +198,67 @@ margin_right = 109.0
 margin_bottom = 164.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_constants/separation = 8
 
 [node name="SAVE_INFOS" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT"]
 margin_right = 109.0
-margin_bottom = 80.0
+margin_bottom = 7.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 alignment = 1
 
 [node name="LbCurrent" type="Label" parent="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS"]
 margin_right = 109.0
-margin_bottom = 80.0
+margin_bottom = 7.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "No save"
 
-[node name="SAVE_INFOS2" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT"]
-margin_top = 84.0
+[node name="ADD_BIOMON" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT"]
+margin_top = 15.0
+margin_right = 109.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+
+[node name="LbEdit" type="Label" parent="UI/MarginContainer/COLUMNS/EDIT/ADD_BIOMON"]
+margin_right = 61.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 1 )
+text = "Add biomon"
+
+[node name="Button" type="Button" parent="UI/MarginContainer/COLUMNS/EDIT/ADD_BIOMON"]
+margin_left = 65.0
+margin_right = 109.0
+margin_bottom = 7.0
+theme = ExtResource( 2 )
+text = "ADD_MON"
+
+[node name="SAVE_INFOS3" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT"]
+margin_top = 30.0
 margin_right = 109.0
 margin_bottom = 164.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="LbEdit" type="Label" parent="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS2"]
+[node name="BiodexList" type="OptionButton" parent="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS3"]
+unique_name_in_owner = true
 margin_right = 109.0
-margin_bottom = 80.0
+margin_bottom = 18.0
+rect_clip_content = true
 size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-text = "Add biomon"
+size_flags_vertical = 0
+theme = SubResource( 7 )
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/normal = SubResource( 9 )
+icon_align = 2
+script = ExtResource( 10 )
 
 [node name="VSeparator" type="VSeparator" parent="UI/MarginContainer/COLUMNS"]
 margin_left = 113.0
@@ -242,7 +273,8 @@ margin_bottom = 164.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="OptionButton" type="OptionButton" parent="UI/MarginContainer/COLUMNS/BIOMONS"]
+[node name="OptionButon" type="OptionButton" parent="UI/MarginContainer/COLUMNS/BIOMONS"]
+unique_name_in_owner = true
 margin_right = 109.0
 margin_bottom = 18.0
 rect_clip_content = true
@@ -391,6 +423,7 @@ margin_bottom = 61.0
 
 [node name="SpriteFocus" type="Sprite" parent="UI/MarginContainer/COLUMNS/BIOMONS/Box/CurrentBox"]
 unique_name_in_owner = true
+visible = false
 scale = Vector2( 0.25, 0.25 )
 texture = SubResource( 18 )
 centered = false
@@ -428,32 +461,17 @@ margin_bottom = 62.0
 rect_pivot_offset = Vector2( -187, -41.5 )
 
 [node name="LbName" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 margin_right = 43.0
 margin_bottom = 7.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
-text = "Unamed"
+text = "Dopsys"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer"]
 margin_top = 11.0
 margin_right = 43.0
 margin_bottom = 18.0
-size_flags_vertical = 0
-
-[node name="LbSpecies" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
-margin_right = 43.0
-margin_bottom = 7.0
-size_flags_horizontal = 3
-size_flags_vertical = 0
-custom_fonts/font = SubResource( 19 )
-text = "Dopsys "
-align = 2
-valign = 1
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 22.0
-margin_right = 43.0
-margin_bottom = 29.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 
@@ -468,6 +486,7 @@ align = 2
 valign = 1
 
 [node name="LbLvl2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+unique_name_in_owner = true
 margin_left = 15.0
 margin_right = 19.0
 margin_bottom = 7.0
@@ -492,6 +511,23 @@ margin_right = 43.0
 margin_bottom = 7.0
 text = "-"
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 22.0
+margin_right = 43.0
+margin_bottom = 29.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="LbNature" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+unique_name_in_owner = true
+margin_right = 43.0
+margin_bottom = 7.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 19 )
+text = "Brave"
+valign = 1
+
 [node name="GridContainer" type="GridContainer" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer"]
 margin_left = 47.0
 margin_right = 99.0
@@ -513,6 +549,7 @@ align = 2
 valign = 1
 
 [node name="LbHp2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 26.0
 margin_right = 52.0
 margin_bottom = 15.0
@@ -535,6 +572,7 @@ align = 2
 valign = 1
 
 [node name="LbAtt2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 26.0
 margin_top = 10.0
 margin_right = 52.0
@@ -558,6 +596,7 @@ align = 2
 valign = 1
 
 [node name="LbDef2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 26.0
 margin_top = 20.0
 margin_right = 52.0
@@ -581,6 +620,7 @@ align = 2
 valign = 1
 
 [node name="LbSpa2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 26.0
 margin_top = 30.0
 margin_right = 52.0
@@ -604,6 +644,7 @@ align = 2
 valign = 1
 
 [node name="LbSpd2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 26.0
 margin_top = 39.0
 margin_right = 52.0
@@ -627,6 +668,7 @@ align = 2
 valign = 1
 
 [node name="LbVit2" type="Label" parent="UI/MarginContainer/COLUMNS/BIOMONS/BiomonInfos/MarginContainer/HBoxContainer/GridContainer"]
+unique_name_in_owner = true
 margin_left = 26.0
 margin_top = 48.0
 margin_right = 52.0
@@ -639,3 +681,6 @@ align = 2
 valign = 1
 
 [connection signal="file_selected" from="FileSelector" to="." method="_on_FileSelector_file_selected"]
+[connection signal="item_selected" from="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS3/BiodexList" to="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS3/BiodexList" method="item_selected"]
+[connection signal="item_selected" from="UI/MarginContainer/COLUMNS/BIOMONS/OptionButon" to="UI/MarginContainer/COLUMNS/BIOMONS/OptionButon" method="item_selected"]
+[connection signal="focus_exited" from="UI/MarginContainer/COLUMNS/BIOMONS/Box/CurrentBox" to="UI/MarginContainer/COLUMNS/BIOMONS/Box/CurrentBox" method="_on_CurrentBox_focus_exited"]
