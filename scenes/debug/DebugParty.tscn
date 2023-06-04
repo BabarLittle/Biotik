@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://scripts/debug/DebugParty.gd" type="Script" id=1]
 [ext_resource path="res://assets/ressources/theme_debug.tres" type="Theme" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://scripts/debug/DebugParty_ItemList.gd" type="Script" id=8]
 [ext_resource path="res://scripts/debug/DebugBiomonInfos.gd" type="Script" id=9]
 [ext_resource path="res://scenes/debug/OptionButton.gd" type="Script" id=10]
+[ext_resource path="res://scripts/debug/Debug_Party_AddMon.gd" type="Script" id=11]
+[ext_resource path="res://scenes/characters/player/Player.tscn" type="PackedScene" id=12]
 
 [sub_resource type="DynamicFont" id=1]
 size = 11
@@ -155,6 +157,9 @@ font_data = ExtResource( 3 )
 [node name="DebugParty" type="CanvasLayer"]
 script = ExtResource( 1 )
 
+[node name="Player" parent="." instance=ExtResource( 12 )]
+visible = false
+
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -217,38 +222,45 @@ text = "No save"
 [node name="ADD_BIOMON" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT"]
 margin_top = 15.0
 margin_right = 109.0
-margin_bottom = 22.0
+margin_bottom = 15.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 alignment = 1
 
-[node name="LbEdit" type="Label" parent="UI/MarginContainer/COLUMNS/EDIT/ADD_BIOMON"]
-margin_right = 61.0
-margin_bottom = 7.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
-text = "Add biomon"
-
-[node name="Button" type="Button" parent="UI/MarginContainer/COLUMNS/EDIT/ADD_BIOMON"]
-margin_left = 65.0
-margin_right = 109.0
-margin_bottom = 7.0
-theme = ExtResource( 2 )
-text = "ADD_MON"
-
-[node name="SAVE_INFOS3" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT"]
-margin_top = 30.0
+[node name="Panel" type="Panel" parent="UI/MarginContainer/COLUMNS/EDIT"]
+margin_top = 23.0
 margin_right = 109.0
 margin_bottom = 164.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
+theme = ExtResource( 2 )
 
-[node name="BiodexList" type="OptionButton" parent="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS3"]
+[node name="MarginContainer" type="MarginContainer" parent="UI/MarginContainer/COLUMNS/EDIT/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 104.0
+margin_bottom = 136.0
+
+[node name="LbEdit" type="Label" parent="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer"]
+margin_right = 99.0
+margin_bottom = 7.0
+size_flags_vertical = 2
+custom_fonts/font = SubResource( 1 )
+text = "Add biomon"
+
+[node name="BiodexList" type="OptionButton" parent="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-margin_right = 109.0
-margin_bottom = 18.0
+margin_top = 102.0
+margin_right = 99.0
+margin_bottom = 120.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -259,6 +271,22 @@ custom_styles/focus = SubResource( 8 )
 custom_styles/normal = SubResource( 9 )
 icon_align = 2
 script = ExtResource( 10 )
+
+[node name="BIOMON_LIST" type="HBoxContainer" parent="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer"]
+margin_top = 124.0
+margin_right = 99.0
+margin_bottom = 131.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+alignment = 1
+
+[node name="ButtonAdd" type="Button" parent="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer/BIOMON_LIST"]
+margin_left = 27.0
+margin_right = 71.0
+margin_bottom = 7.0
+theme = ExtResource( 2 )
+text = "ADD_MON"
+script = ExtResource( 11 )
 
 [node name="VSeparator" type="VSeparator" parent="UI/MarginContainer/COLUMNS"]
 margin_left = 113.0
@@ -681,6 +709,7 @@ align = 2
 valign = 1
 
 [connection signal="file_selected" from="FileSelector" to="." method="_on_FileSelector_file_selected"]
-[connection signal="item_selected" from="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS3/BiodexList" to="UI/MarginContainer/COLUMNS/EDIT/SAVE_INFOS3/BiodexList" method="item_selected"]
+[connection signal="item_selected" from="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer/BiodexList" to="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer/BiodexList" method="item_selected"]
+[connection signal="pressed" from="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer/BIOMON_LIST/ButtonAdd" to="UI/MarginContainer/COLUMNS/EDIT/Panel/MarginContainer/VBoxContainer/BIOMON_LIST/ButtonAdd" method="_on_Button_pressed"]
 [connection signal="item_selected" from="UI/MarginContainer/COLUMNS/BIOMONS/OptionButon" to="UI/MarginContainer/COLUMNS/BIOMONS/OptionButon" method="item_selected"]
 [connection signal="focus_exited" from="UI/MarginContainer/COLUMNS/BIOMONS/Box/CurrentBox" to="UI/MarginContainer/COLUMNS/BIOMONS/Box/CurrentBox" method="_on_CurrentBox_focus_exited"]

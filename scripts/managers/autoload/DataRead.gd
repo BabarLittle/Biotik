@@ -2,6 +2,8 @@
 
 extends Node
 
+const PARTY_MANAGER_PATH = "res://scenes/managers/PartyManager.tscn"
+
 export var data_directory = "res://data/"
 export var biodex_file_name = "biodex.json"
 export var type_chart_file_name = "type_chart.json"
@@ -73,18 +75,22 @@ func _ready():
 	
 	""" Load natures """
 	var natures_file = File.new()
-	assert(type_chart_file.file_exists(data_directory+natures_file_name), "The specified file for type_chart '%s%%' does not exist!" % type_chart_file_name)
-	natures_file.open(data_directory+type_chart_file_name, File.READ)
+	assert(natures_file.file_exists(data_directory+natures_file_name), "The specified file for type_chart '%s%%' does not exist!" % type_chart_file_name)
+	natures_file.open(data_directory+natures_file_name, File.READ)
 	var natures_json = JSON.parse(natures_file.get_as_text())
 	natures_file.close()
 	var natures_dict = natures_json.result
 	# add the dictionnary inside the dict_data_base dictionnary
 	database[natures] = natures_dict
-
+	
+	""" Load party manager
+	var party_manager = load(PARTY_MANAGER_PATH).instance()
+	Utils.get_scene_manager().add_child(party_manager)
+	"""
 
 func get_id_from_name(name_to_seek):
 	for key in database.biodex.keys():
-		if database.biodex.key.name == name_to_seek:
+		if database.biodex[key].name == name_to_seek:
 			return key
 	
 	return null
@@ -341,7 +347,7 @@ func get_biomon_id_distance(biomon_id1, biomon_id2):
 		iterator += 1
 	return position2 - position1
 
-func get_nature_dictionnary(nature):
+func get_nature_dictionary(nature):
 	return database.natures[nature]
 	
 func get_random_nature():
@@ -350,7 +356,7 @@ func get_random_nature():
 	var iterator = 0
 	
 	random_number.randomize()
-	iterator = random_number.randi_range(0,database.nature.size())
+	iterator = random_number.randi_range(0,database.natures.size())
 	
 	for key in database.natures.keys():
 		if iterator == 0:
@@ -361,14 +367,17 @@ func get_random_nature():
 	return nature
 	
 func load_learnset(species):
-	var learnset_code = DataRead.database.biodex["learn-set"]
+	var learnset_code = database.biodex[species].learnset
 	var bin_move = 10
 	var bin_nb = 7
 	var value = 0
 	var value2 = 0
 	var temp = ''
+	var learnset_dict = {
+		"other": []
+	}
 	
-	assert(len(learnset_code) != 0, "No learnset found  for " + species + " !")
+	#assert(len(learnset_code) != 0, "No learnset found  for " + species + " !")
 	
 	for i in len(learnset_code):
 		if learnset_code[i] == '/':
@@ -388,18 +397,19 @@ func load_learnset(species):
 		# Unpatch learning method
 		# CT, Egg, Tutor
 		elif learnset_code[i] in ['c', 'e', 't']:
-			database.biodex.learnset.learnset_code[i].append(value)
+			learnset_dict.other.append(value)
 		elif learnset_code[i] == 'l':
 			# reset temp
 			temp = ''
 			for j in range(bin_nb):
 				temp = temp + learnset_code[i+j+1]
 			# update iterator
-				i = i + bin_nb;
+				i = i + bin_nb
 			# convert binary text to decimal integer
-			value2 = bin2dec(temp);
+			value2 = bin2dec(temp)
 			
-			database.biodex.learnset.learnset_code[i].value2 = value
+			learnset_dict.value2 = value
+	return learnset_dict
 
 func bin2dec(value):
 	var dec = 0;

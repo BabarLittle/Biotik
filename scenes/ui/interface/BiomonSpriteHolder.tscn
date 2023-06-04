@@ -141,18 +141,18 @@ script = ExtResource( 2 )
 
 [node name="BiomonSprite" parent="." instance=ExtResource( 1 )]
 visible = false
-modulate = Color( 1, 1, 1, 0 )
-position = Vector2( 0, 0 )
 texture = null
 region_rect = Rect2( 0, 0, 100, 100 )
 
 [node name="BallAnimations" type="Sprite" parent="."]
-position = Vector2( -450, 260 )
+visible = false
+position = Vector2( -460, 260 )
 scale = Vector2( 1.1, 1.1 )
 texture = ExtResource( 4 )
 hframes = 7
 vframes = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BallAnimations"]
+reset_on_save = false
 anims/BALL_CAPTURE = SubResource( 1 )
 anims/BALL_EXIT = SubResource( 2 )

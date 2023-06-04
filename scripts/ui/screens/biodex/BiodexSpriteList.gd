@@ -27,12 +27,12 @@ func add_new_sprite_to_list(current_biomon_id, scroll_direction):
 	#print("Adding new biomon based on " + str(current_biomon_id) + " with direction " + str(scroll_direction) + " to the list")
 	var new_biomon_id = DataRead.next_id(current_biomon_id, scroll_direction*3)
 	#print("New biomon id is : " + str(new_biomon_id))
-	if sprite_list[0].get_child(0).biomon_id == DataRead.get_highest_biomon_id() and scroll_direction > 0:
+	if sprite_list[0].biomon_id == DataRead.get_highest_biomon_id() and scroll_direction > 0:
 		#print("Current id will reach high end : push an invisible sprite")
 		sprite_list.push_front(biomon_sprite_holder_path.instance())
 		set_new_sprite_parameters(0, DataRead.get_highest_biomon_id())
 		sprite_list[0].visible = false
-	elif sprite_list[-1].get_child(0).biomon_id == 1 and scroll_direction < 0:
+	elif sprite_list[-1].biomon_id == 1 and scroll_direction < 0:
 		#print("Current id will reach low end : push an invisible sprite")
 		sprite_list.push_back(biomon_sprite_holder_path.instance())
 		set_new_sprite_parameters(-1, 1)
@@ -57,7 +57,7 @@ func set_new_sprite_parameters(position_in_list, new_biomon_id):
 	#print("setting new parameters for " + str(new_biomon_id) + " at " + str(position_in_list))
 	
 	add_child(sprite_list[position_in_list])
-	sprite_list[position_in_list].get_child(0).select_sprite(new_biomon_id)
+	sprite_list[position_in_list].select_sprite(new_biomon_id)
 	sprite_list[position_in_list].position = SPRITE_VALUES.position[position_in_list]
 	sprite_list[position_in_list].scale = SPRITE_VALUES.scale[position_in_list]
 	#print("Position in node : " + str(SPRITE_VALUES.position[position_in_list]))

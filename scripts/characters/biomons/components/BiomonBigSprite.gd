@@ -22,7 +22,8 @@ var while_action_is = "idle"
 #export(String) var biomon_species = '' setget set_species
 export(bool) var shiny = false setget set_shiny
 export(bool) var front = true setget set_front
-export(SpriteState) var sprite_state = SpriteState.STATIC setget set_sprite_state
+var sprite_state = SpriteState.STATIC
+export(bool) var mini = false setget set_sprite_state
 
 onready var animation_player = $AnimationTree.get("parameters/playback")
 
@@ -35,6 +36,10 @@ func _ready():
 
 func select_sprite(biomon_sprite_id=1, sprite_is_static=true, biomon_is_shiny=false, biomon_is_showing_back=false, sprite_is_mini=false):
 	var sprite_path = ""
+	shiny = biomon_is_shiny
+	front = !biomon_is_showing_back
+	mini = sprite_is_mini
+		
 	if typeof(biomon_sprite_id) == TYPE_INT:
 		biomon_id = biomon_sprite_id
 	else:
@@ -79,11 +84,12 @@ func select_sprite(biomon_sprite_id=1, sprite_is_static=true, biomon_is_shiny=fa
 	load_sprite(sprite_path)
 	
 
-func load_sprite(file_path):
+func load_sprite(texture_path):
 	visible = true
 	animation_player.start("RESET")
+	$AnimationTree.active = true
 	
-	load_texture(file_path)
+	load_texture(texture_path)
 	match sprite_state:
 		SpriteState.ANIMATED:
 			load_animation()
@@ -94,14 +100,18 @@ func load_sprite(file_path):
 	
 
 func load_texture(texture_path):
-	if !Directory.new().file_exists(texture_path):
+	if Directory.new().file_exists(texture_path):
 		texture = load(texture_path)
 	else:
-		texture = load(no_id_path)
+		texture = load(no_file_path)
 		
 
 func set_sprite_state(state):
-	sprite_state = state
+	if state:
+		sprite_state = SpriteState.MINI
+	else:
+		sprite_state = SpriteState.STATIC
+	mini = state
 	load_sprite_state(sprite_state)
 	
 
@@ -128,13 +138,13 @@ func set_front(value):
 func load_sprite_state(value):
 	sprite_state = value
 	
-	if sprite_state == SpriteState.MINI:
-		$AnimationPlayer.play("mini")
-	else:
-		$AnimationPlayer.play(biomon_showing_player + in_state + while_action_is)
+	#if sprite_state == SpriteState.MINI:
+	#	$AnimationPlayer.play("mini")
+	#else:
+	#	$AnimationPlayer.play(biomon_showing_player + in_state + while_action_is)
 	
-	rotation_degrees = 0
-	scale = Vector2.ONE
+	#rotation_degrees = 0
+	#scale = Vector2.ONE
 	
 
 func load_animation(action_name="idle"):

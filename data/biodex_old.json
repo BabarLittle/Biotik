@@ -5,172 +5,14 @@
     "type2": "",
     "evo_req": 16,
     "evo_to": "Dopsis",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
-    "hp": 45,
-    "att": 65,
-    "def": 65,
-    "spa": 49,
-    "spd": 49,
-    "vit": 45,
-    "egg1": "",
-    "egg2": "",
-    "h": "",
-    "w": "",
-    "desc": "",
-    "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
-  },
-  "2": {
-    "name": "Dopsis",
-    "type1": "GRASS",
-    "type2": "",
-    "evo_req": 32,
-    "evo_to": "Thaliatos",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
-    "ability1": "",
-    "ability2": "",
-    "abilityh": "",
-    "hp": 55,
-    "att": 80,
-    "def": 80,
-    "spa": 62,
-    "spd": 68,
-    "vit": 60,
-    "egg1": "",
-    "egg2": "",
-    "h": "",
-    "w": "",
-    "desc": "",
-    "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
-  },
-  "3": {
-    "name": "Thaliatos",
-    "type1": "GRASS",
-    "type2": "GHOST",
-    "evo_req": "",
-    "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
-    "ability1": "",
-    "ability2": "",
-    "abilityh": "",
-    "hp": 70,
-    "att": 110,
-    "def": 110,
-    "spa": 75,
-    "spd": 90,
-    "vit": 70,
-    "egg1": "",
-    "egg2": "",
-    "h": "",
-    "w": "",
-    "desc": "",
-    "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
-  },
-  "4": {
-    "name": "Fusareigne",
-    "type1": "FIRE",
-    "type2": "",
-    "evo_req": 16,
-    "evo_to": "Magareigne",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
-    "ability1": "",
-    "ability2": "",
-    "abilityh": "",
-    "hp": 39,
-    "att": 52,
-    "def": 43,
-    "spa": 60,
-    "spd": 50,
-    "vit": 65,
-    "egg1": "",
-    "egg2": "",
-    "h": "",
-    "w": "",
-    "desc": "",
-    "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
-  },
-  "5": {
-    "name": "Magareigne",
-    "type1": "FIRE",
-    "type2": "",
-    "evo_req": 32,
-    "evo_to": "Fusareigne",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
-    "ability1": "",
-    "ability2": "",
-    "abilityh": "",
-    "hp": 58,
-    "att": 64,
-    "def": 58,
-    "spa": 80,
-    "spd": 65,
-    "vit": 80,
-    "egg1": "",
-    "egg2": "",
-    "h": "",
-    "w": "",
-    "desc": "",
-    "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
-  },
-  "6": {
-    "name": "Musalf",
-    "type1": "FIRE",
-    "type2": "PSYCHIC",
-    "evo_req": "",
-    "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
-    "ability1": "",
-    "ability2": "",
-    "abilityh": "",
-    "hp": 98,
-    "att": 74,
-    "def": 78,
-    "spa": 110,
-    "spd": 85,
-    "vit": 80,
-    "egg1": "",
-    "egg2": "",
-    "h": "",
-    "w": "",
-    "desc": "",
-    "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
-  },
-  "7": {
-    "name": "Cnidy",
-    "type1": "WATER",
-    "type2": "",
-    "evo_req": 16,
-    "evo_to": "Cnidro",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
-    "ability1": "",
-    "ability2": "",
-    "abilityh": "",
-    "hp": 45,
-    "att": 48,
-    "def": 65,
-    "spa": 50,
-    "spd": 64,
+    "hp": 20,
+    "att": 30,
+    "def": 10,
+    "spa": 20,
+    "spd": 20,
     "vit": 40,
     "egg1": "",
     "egg2": "",
@@ -178,8 +20,145 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
+  },
+  "2": {
+    "name": "Dopsis",
+    "type1": "GRASS",
+    "type2": "",
+    "evo_req": 32,
+    "evo_to": "Thaliatos",
+    "ability1": "",
+    "ability2": "",
+    "abilityh": "",
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
+    "egg1": "",
+    "egg2": "",
+    "h": "",
+    "w": "",
+    "desc": "",
+    "species": "",
+    "learn-set": ""
+  },
+  "3": {
+    "name": "Thaliathos",
+    "type1": "GRASS",
+    "type2": "GHOST",
+    "evo_req": "",
+    "evo_to": "",
+    "ability1": "",
+    "ability2": "",
+    "abilityh": "",
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
+    "egg1": "",
+    "egg2": "",
+    "h": "",
+    "w": "",
+    "desc": "",
+    "species": "",
+    "learn-set": ""
+  },
+  "4": {
+    "name": "Fusareigne",
+    "type1": "FIRE",
+    "type2": "",
+    "evo_req": 16,
+    "evo_to": "Magareigne",
+    "ability1": "",
+    "ability2": "",
+    "abilityh": "",
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
+    "egg1": "",
+    "egg2": "",
+    "h": "",
+    "w": "",
+    "desc": "",
+    "species": "",
+    "learn-set": ""
+  },
+  "5": {
+    "name": "Magareigne",
+    "type1": "FIRE",
+    "type2": "",
+    "evo_req": 32,
+    "evo_to": "Fusareigne",
+    "ability1": "",
+    "ability2": "",
+    "abilityh": "",
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
+    "egg1": "",
+    "egg2": "",
+    "h": "",
+    "w": "",
+    "desc": "",
+    "species": "",
+    "learn-set": ""
+  },
+  "6": {
+    "name": "Musalf",
+    "type1": "FIRE",
+    "type2": "PSYCHIC",
+    "evo_req": "",
+    "evo_to": "",
+    "ability1": "",
+    "ability2": "",
+    "abilityh": "",
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
+    "egg1": "",
+    "egg2": "",
+    "h": "",
+    "w": "",
+    "desc": "",
+    "species": "",
+    "learn-set": ""
+  },
+  "7": {
+    "name": "Cnidy",
+    "type1": "WATER",
+    "type2": "",
+    "evo_req": 16,
+    "evo_to": "Cnidro",
+    "ability1": "",
+    "ability2": "",
+    "abilityh": "",
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
+    "egg1": "",
+    "egg2": "",
+    "h": "",
+    "w": "",
+    "desc": "",
+    "species": "",
+    "learn-set": ""
   },
   "8": {
     "name": "Cnidro",
@@ -187,25 +166,22 @@
     "type2": "",
     "evo_req": 32,
     "evo_to": "Hydrolydre",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
-    "hp": 60,
-    "att": 65,
-    "def": 80,
-    "spa": 60,
-    "spd": 80,
-    "vit": 60,
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
     "egg1": "",
     "egg2": "",
     "h": "",
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "9": {
     "name": "Hydrolydre",
@@ -213,25 +189,22 @@
     "type2": "POISON",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
-    "hp": 100,
-    "att": 90,
-    "def": 95,
-    "spa": 70,
-    "spd": 95,
-    "vit": 75,
+    "hp": "",
+    "att": "",
+    "def": "",
+    "spa": "",
+    "spd": "",
+    "vit": "",
     "egg1": "",
     "egg2": "",
     "h": "",
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "10": {
     "name": "Recrutoeuf",
@@ -239,8 +212,6 @@
     "type2": "",
     "evo_req": 10,
     "evo_to": "Poussoldat",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -256,8 +227,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "11": {
     "name": "Poussoldat",
@@ -265,8 +235,6 @@
     "type2": "NORMAL",
     "evo_req": 16,
     "evo_to": "Coqu'lonel",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -282,8 +250,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "13": {
     "name": "Coqu'lonel",
@@ -291,8 +258,6 @@
     "type2": "FIGHTING",
     "evo_req": 24,
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -308,8 +273,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0
+    "learn-set": ""
   },
   "14": {
     "name": "Poulieutenant",
@@ -317,8 +281,6 @@
     "type2": "FIGHTING",
     "evo_req": 24,
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -334,8 +296,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 1
+    "learn-set": ""
   },
   "15": {
     "name": "Larvalet",
@@ -343,8 +304,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Puprince",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -360,8 +319,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "16": {
     "name": "Puprince",
@@ -369,8 +327,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Drosoking",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -386,8 +342,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "17": {
     "name": "Drosoking",
@@ -395,8 +350,6 @@
     "type2": "FLYING",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -412,8 +365,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "18": {
     "name": "Pixaigle",
@@ -421,8 +373,6 @@
     "type2": "NORMAL",
     "evo_req": "",
     "evo_to": "Voxaigle",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -438,8 +388,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "19": {
     "name": "Voxaigle",
@@ -447,8 +396,6 @@
     "type2": "NORMAL",
     "evo_req": "",
     "evo_to": "Vertaigle",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -464,8 +411,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "20": {
     "name": "Vertaigle",
@@ -473,8 +419,6 @@
     "type2": "NORMAL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -490,8 +434,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "21": {
     "name": "Mico",
@@ -499,8 +442,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Michi",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -516,8 +457,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "22": {
     "name": "Michi",
@@ -525,8 +465,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Dabinchi",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -542,8 +480,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "23": {
     "name": "Dabinchi",
@@ -551,8 +488,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -568,8 +503,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "24": {
     "name": "Elegans",
@@ -577,8 +511,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -594,8 +526,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": "androgyne"
+    "learn-set": ""
   },
   "25": {
     "name": "Raikuma",
@@ -603,8 +534,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -620,8 +549,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "26": {
     "name": "Pytonerre",
@@ -629,8 +557,6 @@
     "type2": "ELECTRIC",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -646,8 +572,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": "bigenré"
+    "learn-set": ""
   },
   "27": {
     "name": "Krokovitch",
@@ -655,8 +580,6 @@
     "type2": "DRAGON",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -672,8 +595,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "28": {
     "name": "Mojigloo",
@@ -681,8 +603,6 @@
     "type2": "ICE",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -698,8 +618,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "29": {
     "name": "Dododo",
@@ -707,8 +626,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Dodododo",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -724,8 +641,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "30": {
     "name": "Dodododo",
@@ -733,8 +649,6 @@
     "type2": "ALCOHOL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -750,8 +664,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "31": {
     "name": "Ptirosaure",
@@ -759,8 +672,6 @@
     "type2": "FLYING",
     "evo_req": "",
     "evo_to": "Rockanodon",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -776,8 +687,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "32": {
     "name": "Rockanodon",
@@ -785,8 +695,6 @@
     "type2": "FLYING",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -802,8 +710,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "33": {
     "name": "Fredosaure",
@@ -811,8 +718,6 @@
     "type2": "ELECTRIC",
     "evo_req": "",
     "evo_to": "Quing",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -828,8 +733,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "34": {
     "name": "Quing",
@@ -837,8 +741,6 @@
     "type2": "ELECTRIC",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -854,8 +756,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "35": {
     "name": "Chlorelle",
@@ -863,8 +764,6 @@
     "type2": "GRASS",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -880,8 +779,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "36": {
     "name": "Atomée",
@@ -889,8 +787,6 @@
     "type2": "PSYCHIC",
     "evo_req": "",
     "evo_to": "Diatomée",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -906,8 +802,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": "monogenré"
+    "learn-set": ""
   },
   "37": {
     "name": "Diatomée",
@@ -915,8 +810,6 @@
     "type2": "PSYCHIC",
     "evo_req": "",
     "evo_to": "Triatomée",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -932,8 +825,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": "bigenré"
+    "learn-set": ""
   },
   "38": {
     "name": "Triatomée",
@@ -941,8 +833,6 @@
     "type2": "PSYCHIC",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -958,8 +848,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": "plurigenré"
+    "learn-set": ""
   },
   "39": {
     "name": "Zefish",
@@ -967,8 +856,6 @@
     "type2": "DARK",
     "evo_req": "",
     "evo_to": "Equmée",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -984,8 +871,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "40": {
     "name": "Equmée",
@@ -993,8 +879,6 @@
     "type2": "DARK",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1010,8 +894,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "41": {
     "name": "Aminon",
@@ -1019,8 +902,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Aminon",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1036,8 +917,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "42": {
     "name": "Proteon",
@@ -1045,8 +925,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Proteon",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1062,8 +940,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "43": {
     "name": "PH4-G3",
@@ -1071,8 +948,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1088,8 +963,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "44": {
     "name": "Loombrus",
@@ -1097,8 +971,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Versus",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1114,8 +986,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -4
+    "learn-set": ""
   },
   "45": {
     "name": "Versus",
@@ -1123,8 +994,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Versus",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1140,8 +1009,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -4
+    "learn-set": ""
   },
   "46": {
     "name": "Koli",
@@ -1149,8 +1017,6 @@
     "type2": "POISON",
     "evo_req": "",
     "evo_to": "Koli",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1166,8 +1032,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "47": {
     "name": "Fergouille",
@@ -1175,8 +1040,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Belfergorg",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1192,8 +1055,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "48": {
     "name": "Belfergorg",
@@ -1201,8 +1063,6 @@
     "type2": "FIGHTING",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1218,8 +1078,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "49": {
     "name": "Sprintard",
@@ -1227,8 +1086,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1244,8 +1101,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "51": {
     "name": "Motrelle",
@@ -1253,8 +1109,6 @@
     "type2": "BUG",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1270,8 +1124,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "52": {
     "name": "DNApe",
@@ -1279,8 +1132,6 @@
     "type2": "FIGHTING",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1296,8 +1147,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "53": {
     "name": "Saltybanque",
@@ -1305,8 +1155,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Saltyran",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1322,8 +1170,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "54": {
     "name": "Saltyran",
@@ -1331,8 +1178,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1348,8 +1193,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "55": {
     "name": "Ex-Nihilus",
@@ -1357,8 +1201,6 @@
     "type2": "DARK",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1374,8 +1216,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "56": {
     "name": "Féeque",
@@ -1383,8 +1224,6 @@
     "type2": "FLYING",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1400,8 +1239,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "57": {
     "name": "Protandi",
@@ -1409,8 +1247,6 @@
     "type2": "FIRE",
     "evo_req": "",
     "evo_to": "Hyèneferno",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1426,8 +1262,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "58": {
     "name": "Hyèneferno",
@@ -1435,8 +1270,6 @@
     "type2": "FIRE",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1452,8 +1285,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "59": {
     "name": "Papibara",
@@ -1461,8 +1293,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1478,8 +1308,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "60": {
     "name": "Timurine",
@@ -1487,8 +1316,6 @@
     "type2": "WATER",
     "evo_req": "",
     "evo_to": "Aumergine",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1504,8 +1331,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "61": {
     "name": "Aumergine",
@@ -1513,8 +1339,6 @@
     "type2": "WATER",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1530,8 +1354,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "62": {
     "name": "Fixnicier",
@@ -1539,8 +1362,6 @@
     "type2": "WATER",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1556,8 +1377,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "63": {
     "name": "Metagneau",
@@ -1565,8 +1385,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Moutacier",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1582,8 +1400,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "64": {
     "name": "Moutacier",
@@ -1591,8 +1408,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "Forbélier",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1608,8 +1423,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "65": {
     "name": "Forbélier",
@@ -1617,8 +1431,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1634,8 +1446,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "66": {
     "name": "Crevretine",
@@ -1643,8 +1454,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "Cranon",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1660,8 +1469,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "67": {
     "name": "Cranon",
@@ -1669,8 +1477,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "Crustank",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1686,8 +1492,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "68": {
     "name": "Crustank",
@@ -1695,8 +1500,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1712,8 +1515,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "69": {
     "name": "Bouquelier",
@@ -1721,8 +1523,6 @@
     "type2": "GRASS",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1738,8 +1538,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "70": {
     "name": "Wouflocon",
@@ -1747,8 +1546,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Toutoufroi",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1764,8 +1561,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "71": {
     "name": "Toutoufroi",
@@ -1773,8 +1569,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Calineverno",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1790,8 +1584,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "72": {
     "name": "Calineverno",
@@ -1799,8 +1592,6 @@
     "type2": "DARK",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1816,8 +1607,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "73": {
     "name": "Ratrapage",
@@ -1825,8 +1615,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "Rahussi",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1842,8 +1630,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "74": {
     "name": "Rahussi",
@@ -1851,8 +1638,6 @@
     "type2": "FIGHTING",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1868,8 +1653,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "75": {
     "name": "Raté",
@@ -1877,8 +1661,6 @@
     "type2": "GHOST",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1894,8 +1676,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "76": {
     "name": "Ralcolique",
@@ -1903,8 +1684,6 @@
     "type2": "ALCOHOL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1920,8 +1699,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "97": {
     "name": "Kageho",
@@ -1929,8 +1707,6 @@
     "type2": "",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -1946,8 +1722,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": 0.5
+    "learn-set": ""
   },
   "98": {
     "name": "Equistos",
@@ -1955,8 +1730,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "Exemple, à compléter",
-    "Dessins (link)": "https://media.discordapp.net/attachments/1054316452339011605/1065048082535944202/20230118_001925.jpg?width=894&height=670",
     "ability1": "Fournaise",
     "ability2": "",
     "abilityh": "",
@@ -1972,8 +1745,7 @@
     "w": 318,
     "desc": "Equistos est connu comme étant le dieu du labeur et de la forge",
     "species": "Biomon forgeron",
-    "learnset": "/0000000010l0101101!/0000000001b!/0000000011c!",
-    "gender_rate": -1
+    "learn-set": "/0000000010l0101101!/0000000001b!/0000000011c!"
   },
   "99": {
     "name": "Dionyclaw",
@@ -1981,8 +1753,6 @@
     "type2": "STEEL",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "Exemple, à compléter",
-    "Dessins (link)": "https://media.discordapp.net/attachments/1054316452339011605/1065048082535944202/20230118_001925.jpg?width=894&height=670",
     "ability1": "Vendanges",
     "ability2": "",
     "abilityh": "",
@@ -1998,8 +1768,7 @@
     "w": 215,
     "desc": "Dyoniclaw est connu comme étant le dieu de la fête et de la vigne",
     "species": "Biomon vigneron",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "100": {
     "name": "Viruxys",
@@ -2007,8 +1776,6 @@
     "type2": "POISON",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -2024,8 +1791,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "42.5": {
     "name": "Proteon",
@@ -2033,8 +1799,6 @@
     "type2": "GHOST",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -2050,8 +1814,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
+    "learn-set": ""
   },
   "45.5": {
     "name": "Versus",
@@ -2059,8 +1822,6 @@
     "type2": "DARK",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -2076,8 +1837,7 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -4
+    "learn-set": ""
   },
   "46.5": {
     "name": "Koli",
@@ -2085,8 +1845,6 @@
     "type2": "POISON",
     "evo_req": "",
     "evo_to": "",
-    "Remarques / Détails": "",
-    "Dessins (link)": "",
     "ability1": "",
     "ability2": "",
     "abilityh": "",
@@ -2102,7 +1860,6 @@
     "w": "",
     "desc": "",
     "species": "",
-    "learnset": "",
-    "gender_rate": -1
-  },
+    "learn-set": ""
+  }
 }

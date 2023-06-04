@@ -17,7 +17,16 @@ LD, Babar, Dada, Ska, Ramen, Pierodactyl, Vasavi Shakti,
 
 ##### WIP
 
-#### Scene Manager
+#### Special Nodes 
+
+##### SceneManager
+
+##### DialoguesManager
+
+##### PartyManager
+
+##### Player
+
 
 #### Autoloads
 Autoloads can be accessed from any scripts in the game.

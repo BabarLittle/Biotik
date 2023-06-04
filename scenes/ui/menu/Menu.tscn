@@ -50,6 +50,7 @@ focus_neighbour_top = NodePath("../Inventory")
 focus_neighbour_bottom = NodePath("../Map")
 theme = SubResource( 1 )
 button_text = "Biodex"
+button_target = "res://scenes/ui/screens/biodex/Biodex.tscn"
 
 [node name="Map" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 2 )]
 margin_top = 48.0

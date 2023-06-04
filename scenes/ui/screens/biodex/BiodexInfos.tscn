@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Assets/UI/interface/pkmnfl.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Assets/UI/screens/biodex/pokedex_infos.png" type="Texture" id=2]
-[ext_resource path="res://scenes/UI/interface/BiomonSpriteHolder.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/ui/interface/BiomonSpriteHolder.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/UI/interface/TypeSprite.tscn" type="PackedScene" id=4]
 [ext_resource path="res://scripts/UI/screens/biodex/BiodexInfos.gd" type="Script" id=5]
 [ext_resource path="res://scenes/UI/interface/dialogs/UiScreenButtons.tscn" type="PackedScene" id=6]
@@ -29,7 +29,7 @@ position = Vector2( 69.28, 30.48 )
 scale = Vector2( 0.09, 0.09 )
 
 [node name="BiomonSprite" parent="." instance=ExtResource( 3 )]
-position = Vector2( 48, 64 )
+position = Vector2( 48, 62 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="Id" type="RichTextLabel" parent="."]

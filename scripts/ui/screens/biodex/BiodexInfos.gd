@@ -51,7 +51,7 @@ func _unhandled_input(event):
 """ Load biomon data into the scene """
 func load_biomon(id=1):
 	current_id = id
-	$BiomonSprite.load_sprite_holder(id)
+	$BiomonSprite.select_sprite(id)
 	$Id.text = str(id)
 	$Name.text = DataRead.database.biodex[str(id)].name
 	$Height.text = str(float(DataRead.database.biodex[str(id)].h) / 100)
@@ -62,7 +62,7 @@ func load_biomon(id=1):
 	$TypeSprite2.load_type(DataRead.database.biodex[str(id)].type2)
 	
 	# Create stat dictionnary
-	var stats_dictionnary = DataRead.get_base_stats_dictionnary(id)
+	var stats_dictionnary = DataRead.get_base_stats_dictionary(id)
 	$Stats.load_biomon_stats(stats_dictionnary, true)
 	
 """=====

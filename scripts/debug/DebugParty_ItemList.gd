@@ -7,6 +7,9 @@ func load_current_box(box_obj):
 	var i = 0
 	box = box_obj
 	
+	if box == null:
+		return
+	
 	for child in get_children():
 		if not "Sprite" in child.name:
 			if i >= box.size():

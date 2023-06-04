@@ -19,7 +19,7 @@ var type_frame = {
 	"GHOST": 15,
 	"FAIRY": 16,
 	"POISON": 17,
-	"WORK": 17,
+	"WORK": 18,
 	"ALCOHOL": 19,
 	"NULL": 20
 	}

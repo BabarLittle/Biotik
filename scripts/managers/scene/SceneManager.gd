@@ -3,6 +3,7 @@ extends Node2D
 # Setting constants and enums
 enum ScreenLoaded {SCENE, MENU_SCREEN, BATTLE_SCREEN, TITLE_SCREEN, JUST_MENU, DIALOGUE}
 
+
 # Setting variables
 var scene_parameters = {} # mandatory dictionnary to pass parameters between scenes
 var next_scene = null
@@ -92,6 +93,7 @@ func loading_game_data(game_dictionnary):
 	next_scene = game_dictionnary.current_scene
 	current_scene.scene_parameters = game_dictionnary.scene_parameters
 	$GameTimer.set_minutes_played(game_dictionnary.minutes_played)
+	
 
 func get_current_scene_name():
 	return current_scene.location

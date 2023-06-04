@@ -5,7 +5,7 @@ var NameListNode
 var SideBarNode
 var side_bar_fraction = 1
 var current_biomon_id = 1
-export(float) var SCROLLING_TIME = 0.3
+export(float) var SCROLLING_TIME = 0.2
 
 func load_scroll_manager(sprite_list_node, name_list_node, side_bar_node, new_current_biomon_id):
 	print("Loading scroll manager...")

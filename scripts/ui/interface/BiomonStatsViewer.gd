@@ -79,12 +79,12 @@ func load_biomon_stats(values: Dictionary = {}, base_stats=false):
 	""" Animate stats changing """
 	var steps : int = 5 # amount of interpolation steps
 	var refreshrate : float = 0.01-0.1 #time between each step
+
 	for _i in range(steps):
 		for pt in new_polygon_values.size():
 			var way = new_polygon_values[pt] - $StatsBox/StatsPolygon.polygon[pt]
 			$StatsBox/StatsPolygon.polygon[pt] += way.normalized() * (way.length() / steps )
 		yield(get_tree().create_timer(refreshrate),"timeout")
-
 
 """=====
 Function set_box_colors

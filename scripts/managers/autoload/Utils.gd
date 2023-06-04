@@ -22,11 +22,11 @@ func get_next_scene():
 
 
 func get_menu():
-	return get_node(SOURCE + "Menu")
+	return get_node_or_null(SOURCE + "Menu")
 
 
 func get_party_manager():
-	return get_node(SOURCE + "PartyManager")
+	return get_node_or_null(SOURCE + "CurrentScene").get_children().back().find_node("Player").find_node("PartyManager")
 
 
 func get_dialogue_manager():

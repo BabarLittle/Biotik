@@ -26,8 +26,8 @@ func _load_screen():
 
 	InputManagerNode = $InputManager
 	ScrollManagerNode =  $ScrollManager
-	SpriteListNode = $Interface/SpriteList
-	NameListNode = $Interface/NameList
+	SpriteListNode = get_node("%SpriteList")
+	NameListNode = get_node("%NameList")
 	SideBarNode = $Interface/SideBar/SideBarPicture
 	
 	InputManagerNode.load_input_manager(ScrollManagerNode)
